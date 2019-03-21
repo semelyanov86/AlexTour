@@ -1,0 +1,16 @@
+--2019-03-14 16:42:07--  https://downloads.sourceforge.net/project/salesplatform/patches/7.1.0-201803/salesplatform-vtiger-sp-710201803-01.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsalesplatform%2Ffiles%2Fpatches%2F7.1.0-201803%2Fsalesplatform-vtiger-sp-710201803-01.tar.gz%2Fdownload
+Resolving downloads.sourceforge.net (downloads.sourceforge.net)... 216.105.38.13
+Connecting to downloads.sourceforge.net (downloads.sourceforge.net)|216.105.38.13|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://vorboss.dl.sourceforge.net/project/salesplatform/patches/7.1.0-201803/salesplatform-vtiger-sp-710201803-01.tar.gz [following]
+--2019-03-14 16:42:08--  https://vorboss.dl.sourceforge.net/project/salesplatform/patches/7.1.0-201803/salesplatform-vtiger-sp-710201803-01.tar.gz
+Resolving vorboss.dl.sourceforge.net (vorboss.dl.sourceforge.net)... 5.10.152.194
+Connecting to vorboss.dl.sourceforge.net (vorboss.dl.sourceforge.net)|5.10.152.194|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 76130 (74K) [application/x-gzip]
+Saving to: ‘salesplatform-vtiger-sp-710201803-01.tar.gz?r=https:%2F%2Fsourceforge.net%2Fprojects%2Fsalesplatform%2Ffiles%2Fpatches%2F7.1.0-201803%2Fsalesplatform-vtiger-sp-710201803-01.tar.gz%2Fdownload’
+
+          salesplat   0%[                    ]       0  --.-KB/s               salesplatform-vtige 100%[===================>]  74.35K  --.-KB/s    in 0.04s   
+
+2019-03-14 16:42:20 (1.78 MB/s) - ‘salesplatform-vtiger-sp-710201803-01.tar.gz?r=https:%2F%2Fsourceforge.net%2Fprojects%2Fsalesplatform%2Ffiles%2Fpatches%2F7.1.0-201803%2Fsalesplatform-vtiger-sp-710201803-01.tar.gz%2Fdownload’ saved [76130/76130]
+
