@@ -81,4 +81,52 @@ class Visa_Module_Model extends Vtiger_Module_Model
         return $moduleIcon;
     }
 
+    public static function isRecordExist($name)
+    {
+        global $adb;
+        $query = "select * from vtiger_visa inner join vtiger_crmentity on vtiger_visa.visaid = vtiger_crmentity.crmid where vtiger_visa.name=? and vtiger_crmentity.deleted = ?";
+        $result = $adb->pquery($query, array($name, 0));
+        $noofrows = $adb->num_rows($result);
+        if($noofrows != 0)
+        {
+            $id = $adb->query_result($result,0,"visaid");
+            return Vtiger_Record_Model::getInstanceById($id, 'Visa');
+        } else {
+            return false;
+        }
+    }
+
+    public static function isContactExist($firstname, $lastname)
+    {
+        global $adb;
+        $query = "select * from vtiger_contactdetails inner join vtiger_crmentity on vtiger_contactdetails.contactid = vtiger_crmentity.crmid where vtiger_contactdetails.firstname=? and vtiger_contactdetails.lastname=? and vtiger_crmentity.deleted = ?";
+        $result = $adb->pquery($query, array($firstname, $lastname, 0));
+        $noofrows = $adb->num_rows($result);
+        if($noofrows != 0)
+        {
+            $id = $adb->query_result($result,0,"contactid");
+            return Vtiger_Record_Model::getInstanceById($id, 'Contacts');
+        } else {
+            return false;
+        }
+    }
+
+    public static function createRecordFromArray($array, $relModel = false)
+    {
+        $recordModel = false;
+        foreach ($array as $module=>$fields) {
+            $recordModel = Vtiger_Record_Model::getCleanInstance($module);
+            $recordModel->set('mode', 'create');
+            foreach ($fields as $fieldname => $fieldvalue) {
+                $recordModel->set($fieldname, $fieldvalue);
+            }
+            if ($relModel && $relModel->getModuleName() === 'Contacts') {
+                $recordModel->set('cf_contacts_id', $relModel->getId());
+            }
+            $recordModel->set('assigned_user_id', Users_Record_Model::getCurrentUserModel()->getId());
+            $recordModel->save();
+        }
+        return $recordModel;
+    }
+
 }

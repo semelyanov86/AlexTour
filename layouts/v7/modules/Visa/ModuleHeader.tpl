@@ -60,7 +60,7 @@
             {* SalesPlatform.ru end *}
 				<div id="appnav" class="navbar-right">
 					<ul class="nav navbar-nav">
-						<li><button id="importFromPDF" type="button" class="btn btn-outline module-buttons">
+						<li><button id="importFromPDF" type="button" class="btn btn-outline module-buttons" onclick="sendFile()">
 								<div class="fa fa-book"></div>&nbsp;&nbsp;
 								{vtranslate('Import from PDF', $MODULE)}
 							</button>
@@ -143,3 +143,33 @@
 		{/if}
 	</div>     
 {/strip}
+
+{literal}
+	<script>
+		function sendFile() {
+			app.helper.showProgress();
+			var params =  {
+				module: 'Visa',
+				mode: 'showSendFile',
+				view: 'MassActionAjax'
+			};
+			app.request.post({data: params}).then(
+					function (err, data) {
+						if (err === null) {
+							var params = {};
+							params.data = data;
+							params.css = {'width':'20%','text-align':'left'};
+							params.overlayCss = {'opacity':'0.2'};
+							app.helper.showModal(data, {'width': '900px',
+								'cb': function (wizardContainer) {
+									app.helper.hideProgress();
+									var form = jQuery('form', wizardContainer);
+
+								}
+							})
+						}
+					}
+			);
+		}
+	</script>
+{/literal}
