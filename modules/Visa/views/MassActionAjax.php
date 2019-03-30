@@ -47,8 +47,12 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
     function saveAjax(Vtiger_Request $request)
     {
         global $adb;
+        $currentUserModel = Users_Record_Model::getCurrentUserModel();
         $path = $this->saveUploadFile($_FILES);
+        $arr_file_name = $this->getFileName($path);
         $recordModel = $this->saveRecordFromFile($request, $path);
+        $fileName = $arr_file_name['name'];
+        $path = $arr_file_name['path'];
         if ($recordModel) {
             $crmid = $recordModel->getId();
             $fileData = $_FILES['userfile'];
@@ -66,6 +70,20 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
             $documentId = $document->id;
             $adb->pquery('INSERT INTO vtiger_senotesrel(crmid, notesid) VALUES(?,?)', array($crmid, $documentId));
             $adb->pquery('UPDATE vtiger_notescf SET cf_for_field = ? WHERE notesid = ?', array('cf_acf_ulf_1153', $documentId));
+            $attachid = $arr_file_name['id'];
+            $res = $adb->pquery('SELECT crmid FROM vtiger_crmentity WHERE crmid = ?', array($attachid));
+
+            if ($adb->num_rows($res) == 0) {
+                $description = $fileName;
+                $date_var = $adb->formatDate(date('YmdHis'), true);
+                $usetime = $adb->formatDate($date_var, true);
+                $adb->pquery('INSERT INTO vtiger_crmentity(crmid, smcreatorid, smownerid,modifiedby, setype, description, createdtime, modifiedtime, presence, deleted)' . "\r\n" . '                                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', array($attachid, $currentUserModel->getId(), $currentUserModel->getId(), $currentUserModel->getId(), 'Documents Attachment', $description, $usetime, $usetime, 1, 0));
+                $mimetype = $fileData['type'];
+                $adb->pquery('INSERT INTO vtiger_attachments SET attachmentsid=?, name=?, description=?, type=?, path=?', array($attachid, $fileName, $description, $mimetype, $path));
+            }
+
+            $adb->pquery('INSERT INTO vtiger_seattachmentsrel(crmid, attachmentsid) VALUES(?,?)', array($documentId, $attachid));
+
             $url = $recordModel->getDetailViewUrl();
             header("Location: $url");
             die();
@@ -148,6 +166,18 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
         $tmpArr['Visa'] = $result['Visa'];
         $visaRecordModel = Visa_Module_Model::createRecordFromArray($tmpArr, $contactRecordModel);
         return $visaRecordModel;
+    }
+    public function getFileName($file)
+    {
+        $arr_file_name = explode('/', $file);
+        $name = $arr_file_name[count($arr_file_name) - 1];
+        $path = str_replace($name, '', $file);
+        $array_name = explode('_', $name);
+        $id = $array_name[0];
+        $sid = $id . '_';
+        $c = strlen($sid);
+        $name = substr($name, $c);
+        return array('id' => $array_name[0], 'name' => $name, 'path' => $path);
     }
     public function doParsing()
     {
