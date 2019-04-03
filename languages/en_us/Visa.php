@@ -14,6 +14,7 @@ $languageStrings = array (
   'SINGLE_Visa' => 'Visa',
   'Visa ID' => 'Visa ID',
   'LBL_VISA_INFORMATION' => 'Visa Information',
+    'Date of Issue' => 'Date of Issue'
 );
 
 $jsLanguageStrings = array (
