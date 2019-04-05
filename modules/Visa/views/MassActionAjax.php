@@ -41,6 +41,7 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
         $viewer = $this->getViewer($request);
         $viewer->assign('MODULE', $moduleName);
         $viewer->assign('USER_MODEL', $user);
+        $viewer->assign('FIELD_MODEL', Vtiger_Field_Model::getInstance('cf_1157', Vtiger_Module_Model::getInstance('Visa')));
         echo $viewer->view('SendFileForm.tpl', $moduleName, true);
     }
 
@@ -122,6 +123,8 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
         $this->namespaces = require('modules/Visa/namespaces.php');
         $this->textArray = $textArr;
         $result = $this->doParsing();
+        $result['Visa']['cf_1159'] = date('Y-m-d');
+        $result['Visa']['cf_1157'] = $request->get('cf_1157');
         $visaModel = Visa_Module_Model::isRecordExist($result['Visa']['name']);
         if ($visaModel) {
             $url = $visaModel->getDetailViewUrl();

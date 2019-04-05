@@ -20,7 +20,6 @@
                     <input type="hidden" name="view" value="MassActionAjax" />
                     <input type="hidden" name="mode" value="saveAjax" />
                     <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-
                     <div class="modal-body tabbable">
 
                         <hr>
@@ -29,7 +28,12 @@
                             &nbsp;:&nbsp;
                             {vtranslate('PDF',$MODULE)}
                         </div>
-                        <input name="userfile" type="file" />
+                        <div class="form-group">
+                            {include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getTemplateName(),$MODULE)}
+                        </div>
+                        <div class="form-group">
+                            <input name="userfile" type="file" />
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
