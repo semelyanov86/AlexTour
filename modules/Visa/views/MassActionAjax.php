@@ -135,7 +135,7 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
         return $recordModel;
     }
 
-    protected function splitDocument($text){
+    public function splitDocument($text){
         $lines = [];
         foreach(preg_split('~[\r\n]+~', $text) as $line){
             if(empty($line) or ctype_space($line)) continue; // skip only spaces
@@ -147,7 +147,7 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
         return $lines;
     }
 
-    protected function clearLine($line){
+    public function clearLine($line){
         $line = str_replace('\f','',$line);
         $pos = mb_strpos($line,'');
         if($pos !== false){
@@ -156,7 +156,7 @@ class Visa_MassActionAjax_View extends Project_MassActionAjax_View {
         return $line;
     }
 
-    protected function saveRecordWithRequest($result)
+    public function saveRecordWithRequest($result)
     {
         $moduleModel = Vtiger_Module_Model::getInstance('Contacts');
         $contactRecordModel = Visa_Module_Model::isContactExist($result['Contacts']['firstname'], $result['Contacts']['lasttname']);
