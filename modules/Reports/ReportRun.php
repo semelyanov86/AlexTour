@@ -3884,7 +3884,7 @@ class ReportRun extends CRMEntity {
                     if ($headerName == 'ACTION' || $headerName == vtranslate('LBL_ACTION', $this->primarymodule) || $headerName == vtranslate($this->primarymodule, $this->primarymodule) . " " . vtranslate('LBL_ACTION', $this->primarymodule) || $headerName == vtranslate('LBL ACTION', $this->primarymodule) || $key == vtranslate($this->primarymodule, $this->primarymodule) . " " . vtranslate('LBL ACTION', $this->primarymodule)) {
                         continue;
                     }
-                    $header .= '<th>' . $headerName . '</th>';
+                    $header .= '<th nowrap>' . $headerName . '</th>';
                 }
                 $groupslist = $this->getGroupingList($this->reportid);
                 foreach ($groupslist as $reportFieldName => $reportFieldValue) {
@@ -3909,6 +3909,11 @@ class ReportRun extends CRMEntity {
                     foreach ($data as $key => $valueArray) {
                         $valtemplate .= '<tr>';
                         foreach ($valueArray as $fieldName => $fieldValue) {
+                            if ($fieldValue === 'MALE') {
+                                $fieldValue = 'M';
+                            } elseif ($fieldValue === 'FEMALE') {
+                                $fieldValue = 'F';
+                            }
                             if ($fieldName == 'ACTION' || $fieldName == vtranslate('LBL_ACTION', $this->primarymodule) || $fieldName == vtranslate($this->primarymodule, $this->primarymodule) . " " . vtranslate('LBL_ACTION', $this->primarymodule) || $fieldName == vtranslate('LBL ACTION', $this->primarymodule) || $fieldName == vtranslate($this->primarymodule, $this->primarymodule) . " " . vtranslate('LBL ACTION', $this->primarymodule)) {
                                 continue;
                             }
