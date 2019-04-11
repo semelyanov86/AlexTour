@@ -106,7 +106,7 @@
 									</td>
                                     {* SalesPlatform.ru begin *}
 									{* <td class="fieldValue {$WIDTHTYPE}" id="{$MODULE_NAME}_detailView_fieldValue_{$FIELD_MODEL->getName()}" {if $FIELD_MODEL->get('uitype') eq '19' or $fieldDataType eq 'reminder' or $fieldDataType eq 'recurrence'} colspan="3" {assign var=COUNTER value=$COUNTER+1} {/if}> *}
-									<td class="fieldValue {$WIDTHTYPE} {if $FIELD_MODEL->isMobilePhoneField()} spMobilePhone {/if}" {if $FIELD_MODEL->getName() === 'cf_1157'}style="border: 1px solid cornflowerblue; width: 200px; height: 30px; padding-top: 5px; padding-left:5px; "{/if} id="{$MODULE_NAME}_detailView_fieldValue_{$FIELD_MODEL->getName()}" {if $FIELD_MODEL->get('uitype') eq '19' or $fieldDataType eq 'reminder' or $fieldDataType eq 'recurrence'} colspan="3" {assign var=COUNTER value=$COUNTER+1} {/if}>
+									<td class="fieldValue {$WIDTHTYPE} {if $FIELD_MODEL->isMobilePhoneField()} spMobilePhone {/if}" {if $FIELD_MODEL->getName() === 'cf_1157' or $FIELD_MODEL->getName() === 'description'}style="border: 1px solid cornflowerblue; width: 200px; height: 30px; padding-top: 5px; padding-left:5px; "{/if} id="{$MODULE_NAME}_detailView_fieldValue_{$FIELD_MODEL->getName()}" {if $FIELD_MODEL->get('uitype') eq '19' or $fieldDataType eq 'reminder' or $fieldDataType eq 'recurrence'} colspan="3" {assign var=COUNTER value=$COUNTER+1} {/if}>
                                     {* SalesPlatform.ru end *}
                                         {assign var=FIELD_VALUE value=$FIELD_MODEL->get('fieldvalue')}
 										{if $fieldDataType eq 'multipicklist'}

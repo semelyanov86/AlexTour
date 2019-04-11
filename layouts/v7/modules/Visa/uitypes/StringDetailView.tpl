@@ -42,7 +42,7 @@
 {else if  $FIELD_MODEL->get('name') eq 'signature'}
 	{decode_html($FIELD_MODEL->getDisplayValue($FIELD_MODEL->get('fieldvalue'), $RECORD->getId(), $RECORD))}
 {else if $FIELD_MODEL->get('uitype') eq '5'}
-    {$FIELD_MODEL->getDisplayValue($FIELD_MODEL->get('fieldvalue')|date_format:"%D", $RECORD->getId(), $RECORD)}
+    {$FIELD_MODEL->getDisplayValue($FIELD_MODEL->get('fieldvalue')|date_format:"%d.%m.%y", $RECORD->getId(), $RECORD)}
 {else}
     {$FIELD_MODEL->getDisplayValue($FIELD_MODEL->get('fieldvalue'), $RECORD->getId(), $RECORD)}
 {/if}
