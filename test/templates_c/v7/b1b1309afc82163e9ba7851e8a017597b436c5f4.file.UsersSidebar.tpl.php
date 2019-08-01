@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-04-03 15:28:52
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 11:07:28
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/UsersSidebar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13358736055ca4a704d029d9-72030353%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b1b1309afc82163e9ba7851e8a017597b436c5f4' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/UsersSidebar.tpl',
-      1 => 1508495595,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5ca4a704d2a69',
   'variables' => 
   array (
     'SETTINGS_MENU_LIST' => 0,
@@ -31,8 +33,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'MENU_LABEL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5ca4a704d2a69',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5ca4a704d2a69')) {function content_5ca4a704d2a69($_smarty_tpl) {?>
 <?php $_smarty_tpl->tpl_vars['SETTINGS_MENU_LIST'] = new Smarty_variable(Settings_Vtiger_Module_Model::getSettingsMenuListForNonAdmin(), null, 0);?><div class="settingsgroup"><div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"><div class="settingsgroup-panel panel panel-default"><?php  $_smarty_tpl->tpl_vars['BLOCK_MENUS'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['BLOCK_MENUS']->_loop = false;

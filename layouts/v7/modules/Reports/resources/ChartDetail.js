@@ -372,7 +372,7 @@ Vtiger_Barchat_Widget_Js('Report_Verticalbarchart_Js', {}, {
 		return {'chartData': chartData,
 			'yMaxValue': yMaxValue,
 			'labels': data['labels'],
-			'data_labels': data['data_labels'],
+			// 'data_labels': data['data_labels'],
 			'data_type'	: data['data_type'],
 			'title': data['graph_label']
 		};

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-07-28 11:25:05
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:42:16
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/dashboards/DashboardFooterIcons.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18103687985c966be20267e8-19621220%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '788b494e2437faf27ea10bc806a5a095d554a493' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/dashboards/DashboardFooterIcons.tpl',
-      1 => 1556124959,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),

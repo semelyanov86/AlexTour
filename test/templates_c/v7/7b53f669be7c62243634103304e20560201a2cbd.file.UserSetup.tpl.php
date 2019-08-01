@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-27 12:05:48
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 11:12:43
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/UserSetup.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:17293966745c9b3cecec9be7-48340576%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7b53f669be7c62243634103304e20560201a2cbd' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/UserSetup.tpl',
-      1 => 1508495595,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c9b3cecf0d38',
   'variables' => 
   array (
     'USER_MODEL' => 0,
@@ -30,8 +32,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'time_zone' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c9b3cecf0d38',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5c9b3cecf0d38')) {function content_5c9b3cecf0d38($_smarty_tpl) {?>
 

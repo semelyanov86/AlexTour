@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-24 12:42:53
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:57:25
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/RelatedActivities.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10885326175c97511d474e30-59563411%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd4ad9dc971fc058cad103e7947e33f032d11bdd3' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/RelatedActivities.tpl',
-      1 => 1508495595,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c97511d4b91d',
   'variables' => 
   array (
     'MODULE_NAME' => 0,
@@ -37,8 +39,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'PAGING_MODEL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c97511d4b91d',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5c97511d4b91d')) {function content_5c97511d4b91d($_smarty_tpl) {?>
 <?php $_smarty_tpl->tpl_vars['MODULE_NAME'] = new Smarty_variable("Calendar", null, 0);?><div class="summaryWidgetContainer"><div class="widget_header clearfix"><h4 class="display-inline-block pull-left"><?php echo vtranslate('LBL_ACTIVITIES',$_smarty_tpl->tpl_vars['MODULE_NAME']->value);?>

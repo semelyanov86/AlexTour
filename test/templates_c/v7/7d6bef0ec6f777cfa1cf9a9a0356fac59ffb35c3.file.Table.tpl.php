@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-30 17:37:35
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 11:27:54
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/VTELabelEditor/Table.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:12029963155c9f7f2f9fe932-68098917%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d6bef0ec6f777cfa1cf9a9a0356fac59ffb35c3' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/VTELabelEditor/Table.tpl',
-      1 => 1553183842,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c9f7f2fa15af',
   'variables' => 
   array (
     'LANGUAGESTRINGS' => 0,
@@ -24,8 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'JSLANGUAGESTRINGS' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c9f7f2fa15af',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5c9f7f2fa15af')) {function content_5c9f7f2fa15af($_smarty_tpl) {?>
 <table class="table table-bordered"><thead><tr><th style="width: 40%">Language Variable</th><th style="width: 40%">Current Value</th><th style="width: 20%">Action</th></tr></thead><tbody><?php  $_smarty_tpl->tpl_vars['VALUE'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['VALUE']->_loop = false;

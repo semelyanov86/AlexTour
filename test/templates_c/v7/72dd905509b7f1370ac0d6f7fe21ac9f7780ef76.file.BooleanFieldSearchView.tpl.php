@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-04-30 17:43:15
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:59:46
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/uitypes/BooleanFieldSearchView.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:15138114545c9b373357b0e3-39948781%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '72dd905509b7f1370ac0d6f7fe21ac9f7780ef76' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/uitypes/BooleanFieldSearchView.tpl',
-      1 => 1556124953,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),

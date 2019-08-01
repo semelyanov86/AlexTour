@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-04-30 17:43:15
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:59:46
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/uitypes/UserRoleFieldSearchView.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:6764005705c9b3733564403-09255214%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e6e5cd7b2e21cd241079e90b5a77b42ec25376bb' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Users/uitypes/UserRoleFieldSearchView.tpl',
-      1 => 1556124953,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),

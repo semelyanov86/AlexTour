@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-30 17:37:28
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 11:26:49
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/VTELabelEditor/Settings.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4054995285c9f7f28793223-69693919%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '26f844ed360147c134e67343201906ea732d2e28' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/VTELabelEditor/Settings.tpl',
-      1 => 1553183842,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c9f7f288213a',
   'variables' => 
   array (
     'QUALIFIED_MODULE' => 0,
@@ -28,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'FILE_NAME' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c9f7f288213a',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5c9f7f288213a')) {function content_5c9f7f288213a($_smarty_tpl) {?>
 <style>.label-editor-info{border: 1px solid rgb(217, 217, 217);border-left: #52a9cd solid 4px;max-height: 245px;height: 245px;}.label-editor-info > .label-info{color: #52a9cd;background-color: white !important;}.label-editor-info > .content-info{resize: none;border: none;width: 100%;color: #9b9997;max-height: 140px;height: 140px;}</style><div class="editViewPageDiv"><div class="col-sm-12 col-xs-12" id="EditView"><div class="editViewHeader"><div class="row"><div class="col-lg-6 col-md-6 col-lg-pull-0"><h4><?php ob_start();?><?php echo $_smarty_tpl->tpl_vars['QUALIFIED_MODULE']->value;?>
