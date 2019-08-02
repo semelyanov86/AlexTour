@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:02:30
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:42:14
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/partials/SidebarHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:13272808715c93b5962035a4-25167785%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15766241545c93bf6a180c92-20614849%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f0dfda3999c6bd834247c72891648b7ce0cb6a38' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/partials/SidebarHeader.tpl',
-      1 => 1523977544,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '13272808715c93b5962035a4-25167785',
+  'nocache_hash' => '15766241545c93bf6a180c92-20614849',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c93bf6a18f6e',
   'variables' => 
   array (
     'SELECTED_MENU_CATEGORY' => 0,
@@ -22,10 +24,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'APP_IMAGE_MAP' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b59620e66',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b59620e66')) {function content_5c93b59620e66($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c93bf6a18f6e')) {function content_5c93bf6a18f6e($_smarty_tpl) {?>
 
 <?php $_smarty_tpl->tpl_vars['APP_IMAGE_MAP'] = new Smarty_variable(Vtiger_MenuStructure_Model::getAppIcons(), null, 0);?>
 

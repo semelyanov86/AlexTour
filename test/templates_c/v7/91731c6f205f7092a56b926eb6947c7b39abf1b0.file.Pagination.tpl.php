@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:05:09
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:55:06
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/Pagination.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3557063165c93b6353a1720-78544627%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1945085505c93bf6a5ebcc5-47076151%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '91731c6f205f7092a56b926eb6947c7b39abf1b0' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/Pagination.tpl',
-      1 => 1523977545,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3557063165c93b6353a1720-78544627',
+  'nocache_hash' => '1945085505c93bf6a5ebcc5-47076151',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c93bf6a60d83',
   'variables' => 
   array (
     'CLASS_VIEW_ACTION' => 0,
@@ -29,10 +31,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'RECORD_COUNT' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b6353b12b',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b6353b12b')) {function content_5c93b6353b12b($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c93bf6a60d83')) {function content_5c93bf6a60d83($_smarty_tpl) {?>
 <?php if (!$_smarty_tpl->tpl_vars['CLASS_VIEW_ACTION']->value){?>
     <?php $_smarty_tpl->tpl_vars['CLASS_VIEW_ACTION'] = new Smarty_variable('listViewActions', null, 0);?>
     <?php $_smarty_tpl->tpl_vars['CLASS_VIEW_PAGING_INPUT'] = new Smarty_variable('listViewPagingInput', null, 0);?>

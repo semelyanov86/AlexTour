@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:01:44
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:59:45
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Settings/Vtiger/ModuleHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:4378592025c93b568674bb3-33866437%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:20715033665c93c158087f08-25771202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8410b66628f599e71800f6ae1d3c71f918358afb' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Settings/Vtiger/ModuleHeader.tpl',
-      1 => 1523977545,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4378592025c93b568674bb3-33866437',
+  'nocache_hash' => '20715033665c93c158087f08-25771202',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c93c1580ee11',
   'variables' => 
   array (
     'USER_MODEL' => 0,
@@ -37,10 +39,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'FIELDS_INFO' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b5686e8e0',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b5686e8e0')) {function content_5c93b5686e8e0($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c93c1580ee11')) {function content_5c93c1580ee11($_smarty_tpl) {?>
 
 <div class="col-sm-12 col-xs-12 module-action-bar clearfix coloredBorderTop"><div class="module-action-content clearfix"><div class="col-lg-7 col-md-7"><?php if ($_smarty_tpl->tpl_vars['USER_MODEL']->value->isAdminUser()){?><a title="<?php echo vtranslate('Home',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 " href='index.php?module=Vtiger&parent=Settings&view=Index'><h4 class="module-title pull-left text-uppercase"><?php echo vtranslate('LBL_HOME',$_smarty_tpl->tpl_vars['MODULE']->value);?>

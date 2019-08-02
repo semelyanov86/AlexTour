@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:05:09
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:55:06
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/ListViewActions.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3100873295c93b635346ec0-76997648%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:18241773085c93c056977d62-95210618%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '5b024edf795e5952f06c4a43cf0f025b14000116' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/ListViewActions.tpl',
-      1 => 1523977545,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3100873295c93b635346ec0-76997648',
+  'nocache_hash' => '18241773085c93c056977d62-95210618',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c93c0569cc90',
   'variables' => 
   array (
     'LISTVIEW_MASSACTIONS' => 0,
@@ -43,10 +45,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'DEFAULT_FILTER_URL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b63539d04',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b63539d04')) {function content_5c93b63539d04($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c93c0569cc90')) {function content_5c93c0569cc90($_smarty_tpl) {?>
 
 <?php $_smarty_tpl->tpl_vars['LISTVIEW_MASSACTIONS_1'] = new Smarty_variable(array(), null, 0);?><div id="listview-actions" class="listview-actions-container"><?php  $_smarty_tpl->tpl_vars['LIST_MASSACTION'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['LIST_MASSACTION']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['LISTVIEW_MASSACTIONS']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

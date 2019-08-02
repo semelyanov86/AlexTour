@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:05:01
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:42:14
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/dashboards/DashBoardHeader.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:7888985755c93b62d526b02-22403880%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:14650183065c966be10aff37-67173946%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd4d842a7dc8ea8cda326085f613b8a7bfad350ba' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/dashboards/DashBoardHeader.tpl',
-      1 => 1523977544,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '7888985755c93b62d526b02-22403880',
+  'nocache_hash' => '14650183065c966be10aff37-67173946',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c966be10c6d9',
   'variables' => 
   array (
     'SELECTABLE_WIDGETS' => 0,
@@ -25,10 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'MODULE_PERMISSION' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b62d53bb0',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b62d53bb0')) {function content_5c93b62d53bb0($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c966be10c6d9')) {function content_5c966be10c6d9($_smarty_tpl) {?>
 
 <div class='dashboardHeading container-fluid'>
 	<div class="buttonGroups pull-right">

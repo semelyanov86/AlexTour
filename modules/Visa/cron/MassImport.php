@@ -11,13 +11,11 @@ class MassImport
 
     public $files = array();
     public $dir = 'import/';
-    public $isInvoices;
 
-    public function __construct($files, $dir, $isInvoices = false)
+    public function __construct($files, $dir)
     {
         $this->files = $files;
         $this->dir = $dir;
-        $this->isInvoices = $isInvoices;
     }
 
     public function process()
@@ -31,13 +29,11 @@ class MassImport
             if (!$recordModel) {
                 unlink($this->dir . $file);
                 continue;
-            } elseif ($recordModel == 'No result') {
-                continue;
             }
             $fileName = $arr_file_name['name'];
             $path = $arr_file_name['path'];
             $crmid = $recordModel->getId();
-            $this->linkFileToEntity($file, $crmid, $arr_file_name, $recordModel->getModuleName());
+            $this->linkFileToEntity($file, $crmid, $arr_file_name);
             unlink($this->dir . $file);
         }
     }
@@ -64,15 +60,9 @@ class MassImport
 
     public function saveRecordFromFile($path)
     {
-        global $log;
         $massActionObj = new Visa_MassActionAjax_View();
         $parser = new \Wrseward\PdfParser\Pdf\PdfToTextParser('/usr/bin/pdftotext');
-        try {
-            $text = $parser->parse($path);
-        } catch (Wrseward\PdfParser\Exceptions\PdfNotFoundException $ex) {
-            echo $ex->getMessage();
-            $log->error($ex->getMessage());
-        }
+        $text = $parser->parse($path);
         $textArr = $massActionObj->splitDocument($parser->text());
         $massActionObj->namespaces = require('modules/Visa/namespaces.php');
         $massActionObj->textArray = $textArr;
@@ -103,7 +93,7 @@ class MassImport
         return $visaRecordModel;
     }
 
-    public function linkFileToEntity($file, $crmid, $arr_file_name, $moduleName)
+    public function linkFileToEntity($file, $crmid, $arr_file_name)
     {
         global $adb;
         $currentUserModel = Users_Record_Model::getCurrentUserModel();
@@ -115,16 +105,12 @@ class MassImport
         $document->column_fields['filestatus'] = 1;
         $document->column_fields['filelocationtype'] = 'I';
         $document->column_fields['folderid'] = 1;
-        if ($moduleName == 'Visa') {
-            $document->column_fields['cf_for_field'] = 'cf_acf_ulf_1153';
-        }
+        $document->column_fields['cf_for_field'] = 'cf_acf_ulf_1153';
         $document->column_fields['assigned_user_id'] =  Users_Record_Model::getCurrentUserModel()->getId();
         $document->saveentity('Documents');
         $documentId = $document->id;
         $adb->pquery('INSERT INTO vtiger_senotesrel(crmid, notesid) VALUES(?,?)', array($crmid, $documentId));
-        if ($moduleName == 'Visa') {
-            $adb->pquery('UPDATE vtiger_notescf SET cf_for_field = ? WHERE notesid = ?', array('cf_acf_ulf_1153', $documentId));
-        }
+        $adb->pquery('UPDATE vtiger_notescf SET cf_for_field = ? WHERE notesid = ?', array('cf_acf_ulf_1153', $documentId));
         $attachid = $arr_file_name['id'];
         $res = $adb->pquery('SELECT crmid FROM vtiger_crmentity WHERE crmid = ?', array($attachid));
 

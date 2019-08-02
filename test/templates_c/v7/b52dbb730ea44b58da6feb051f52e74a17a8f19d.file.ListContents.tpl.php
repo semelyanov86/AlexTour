@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:01:54
+<?php /* Smarty version Smarty-3.1.7, created on 2019-06-01 18:16:07
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Settings/ModuleManager/ListContents.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:9001933375c93b5720a9c62-87538749%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:6842272345c93c3b0c414d2-33604521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b52dbb730ea44b58da6feb051f52e74a17a8f19d' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Settings/ModuleManager/ListContents.tpl',
-      1 => 1523977545,
+      1 => 1556124973,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '9001933375c93b5720a9c62-87538749',
+  'nocache_hash' => '6842272345c93c3b0c414d2-33604521',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c93c3b0c84db',
   'variables' => 
   array (
     'QUALIFIED_MODULE' => 0,
@@ -31,10 +33,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'SETTINGS_LINK' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b5720e406',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b5720e406')) {function content_5c93b5720e406($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c93c3b0c84db')) {function content_5c93c3b0c84db($_smarty_tpl) {?>
 
 
 <div class="listViewPageDiv detailViewContainer" id="moduleManagerContents"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "><div id="listview-actions" class="listview-actions-container"><div class="clearfix"><h4 class="pull-left"><?php echo vtranslate('LBL_MODULE_MANAGER',$_smarty_tpl->tpl_vars['QUALIFIED_MODULE']->value);?>

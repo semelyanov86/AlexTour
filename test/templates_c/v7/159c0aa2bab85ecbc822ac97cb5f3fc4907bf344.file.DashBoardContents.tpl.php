@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:05:01
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:42:14
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/dashboards/DashBoardContents.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:7750599375c93b62d4e3213-06418078%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:20364129535c966be106aef9-16604151%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '159c0aa2bab85ecbc822ac97cb5f3fc4907bf344' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/dashboards/DashBoardContents.tpl',
-      1 => 1508495595,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '7750599375c93b62d4e3213-06418078',
+  'nocache_hash' => '20364129535c966be106aef9-16604151',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c966be1081d6',
   'variables' => 
   array (
     'DASHBOARD_TABS' => 0,
@@ -25,10 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'TABID' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b62d4faba',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b62d4faba')) {function content_5c93b62d4faba($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c966be1081d6')) {function content_5c966be1081d6($_smarty_tpl) {?>
 
     
 <div class="dashBoardContainer clearfix"><div class="tabContainer"><ul class="nav nav-tabs tabs sortable container-fluid"><?php  $_smarty_tpl->tpl_vars['TAB_DATA'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['TAB_DATA']->_loop = false;

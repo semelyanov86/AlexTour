@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:05:09
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:55:06
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/PicklistColorMap.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:17838093505c93b635325b61-39604036%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15449772425c93bf6a4f6cf1-05998451%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b143922c18c669aea2c2b38dedff5d127b63ba52' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/PicklistColorMap.tpl',
-      1 => 1508495595,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '17838093505c93b635325b61-39604036',
+  'nocache_hash' => '15449772425c93bf6a4f6cf1-05998451',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c93bf6a52714',
   'variables' => 
   array (
     'LISTVIEW_HEADERS' => 0,
@@ -33,10 +35,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'STATUS_FIELD' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b635340d9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b635340d9')) {function content_5c93b635340d9($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c93bf6a52714')) {function content_5c93bf6a52714($_smarty_tpl) {?>
 
 <style type="text/css">
     <?php  $_smarty_tpl->tpl_vars['FIELD_MODEL'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['FIELD_MODEL']->_loop = false;

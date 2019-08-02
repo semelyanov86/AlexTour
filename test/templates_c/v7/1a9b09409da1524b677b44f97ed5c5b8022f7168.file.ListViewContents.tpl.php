@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:02:30
+<?php /* Smarty version Smarty-3.1.7, created on 2019-03-26 09:46:33
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/ModuleLinkCreator/ListViewContents.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:12096299055c93b59626ae75-18705310%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:16122603865c99cac94b2263-12896577%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '12096299055c93b59626ae75-18705310',
+  'nocache_hash' => '16122603865c99cac94b2263-12896577',
   'function' => 
   array (
   ),
@@ -31,9 +31,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b596289d3',
+  'unifunc' => 'content_5c99cac95a132',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b596289d3')) {function content_5c93b596289d3($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c99cac95a132')) {function content_5c99cac95a132($_smarty_tpl) {?>
 <div class="col-sm-12 col-xs-12 "><div class="row" style="margin-bottom: 20px"><h3 style="text-align: center;margin-top: 0; margin-bottom: 20px"><?php echo vtranslate('Welcome To Module & Link Creator',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 </h3><div class="listViewActionsDiv row"><table style="margin: 0 auto;"><tr><td><a id="Contacts_listView_basicAction_LBL_ADD_RECORD" target="_blank" href="index.php?module=ModuleLinkCreator&view=Edit" class="btn btn-default btn-warning">Custom Module</a></td><td><a  href="index.php?module=<?php echo $_smarty_tpl->tpl_vars['MODULE']->value;?>
 &parent=Settings&view=RelationshipOneOne" target="_blank" class="btn btn-default btn-warning">1:1 Relationship</a></td><td><a href="index.php?module=ModuleLinkCreator&parent=Settings&view=IndexRelatedFields" target="_blank" class="btn btn-default btn-warning">1:M Relationship</a></td><td><a href="index.php?module=ModuleLinkCreator&parent=Settings&view=RelationshipMM" target="_blank" class="btn btn-default btn-warning">M:M Relationship</a></td><td><a href="index.php?module=ModuleLinkCreator&parent=Settings&view=RelationshipOneNone" target="_blank" class="btn btn-default btn-warning">One Way Relationship</a></td></tr></table></div></div><div class="listViewContentDiv" id="listViewContents" style="position: relative; clear:both;"><div class="listViewEntriesDiv contents-bottomscroll"><div class="bottomscroll-div"><?php $_smarty_tpl->tpl_vars['WIDTHTYPE'] = new Smarty_variable($_smarty_tpl->tpl_vars['CURRENT_USER_MODEL']->value->get('rowheight'), null, 0);?><table id="module-link-creator-list-table" class="table table-bordered listview-table" style="border-top: 1px solid #ddd"><thead><tr class="listViewContentHeader"><?php  $_smarty_tpl->tpl_vars['LISTVIEW_HEADER'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['LISTVIEW_HEADER']->_loop = false;

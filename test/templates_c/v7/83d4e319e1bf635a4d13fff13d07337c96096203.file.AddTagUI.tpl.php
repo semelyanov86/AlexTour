@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-03-21 19:05:09
+<?php /* Smarty version Smarty-3.1.7, created on 2019-08-01 10:55:06
          compiled from "/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/AddTagUI.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:6824723185c93b635250264-07889390%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:7465366745c93bf6a3446b5-30990626%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '83d4e319e1bf635a4d13fff13d07337c96096203' => 
     array (
       0 => '/var/www/html/vtigercrm/includes/runtime/../../layouts/v7/modules/Vtiger/AddTagUI.tpl',
-      1 => 1514198672,
+      1 => 1564645310,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '6824723185c93b635250264-07889390',
+  'nocache_hash' => '7465366745c93bf6a3446b5-30990626',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5c93bf6a371db',
   'variables' => 
   array (
     'MODULE' => 0,
@@ -25,10 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'QUALIFIED_MODULE' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5c93b635267a9',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5c93b635267a9')) {function content_5c93b635267a9($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5c93bf6a371db')) {function content_5c93bf6a371db($_smarty_tpl) {?>
 <div class="showAllTagContainer hide"><div class="modal-dialog modal-lg"><div class="modal-content"><form class="detailShowAllModal"><?php ob_start();?><?php echo vtranslate('LBL_ADD_OR_SELECT_TAG',$_smarty_tpl->tpl_vars['MODULE']->value,$_smarty_tpl->tpl_vars['RECORD_NAME']->value);?>
 <?php $_tmp1=ob_get_clean();?><?php $_smarty_tpl->tpl_vars["TITLE"] = new Smarty_variable($_tmp1, null, 0);?><?php echo $_smarty_tpl->getSubTemplate (vtemplate_path("ModalHeader.tpl",$_smarty_tpl->tpl_vars['MODULE']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <div class="modal-body"><div class="row"><div class="col-lg-6 selectTagContainer"><div class="form-group"><label class="control-label"><?php echo vtranslate('LBL_CURRENT_TAGS',$_smarty_tpl->tpl_vars['MODULE']->value);?>
