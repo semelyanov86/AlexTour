@@ -624,6 +624,12 @@ Vtiger.Class("Vtiger_DashBoard_Js",{
 		})
 	},
 
+	registerUpdateWidgets : function() {
+		setInterval(function () {
+			jQuery('.fa-refresh').click();
+		},300000);
+	},
+
 	registerDeleteDashboardTab : function(){
 		var self = this;
 		var dashBoardContainer = this.getDashboardContainer();
@@ -1000,6 +1006,7 @@ Vtiger.Class("Vtiger_DashBoard_Js",{
 			instance.removeWidget();
 			instance.registerWidgetFullScreenView();
 			instance.registerFilterInitiater();
+			instance.registerUpdateWidgets();
 		});
 		app.event.trigger("post.DashBoardTab.load");
 	}
