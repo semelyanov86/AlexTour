@@ -1,0 +1,46 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vd_simplykpi</name>
+			<sql><![CDATA[CREATE TABLE `vd_simplykpi` (
+  `simplykpiid` int(11) NOT NULL DEFAULT '0',
+  `number_kpi` int(11) NOT NULL DEFAULT '0',
+  `procent` int(11) NOT NULL DEFAULT '0',
+  `setype` varchar(128) DEFAULT NULL,
+  `subject` varchar(128) DEFAULT NULL,
+  `distance` varchar(128) DEFAULT NULL,
+  `target` double DEFAULT NULL,
+  `netto` double DEFAULT NULL,
+  `result` double DEFAULT NULL,
+  `date_off` date DEFAULT NULL,
+  `typevdkpi` varchar(50) DEFAULT NULL,
+  `advanced_filter` text,
+  `datafields` text,
+  `createnewperiod` int(11) DEFAULT '0',
+  PRIMARY KEY (`simplykpiid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vd_simplykpicf</name>
+			<sql><![CDATA[CREATE TABLE `vd_simplykpicf` (
+  `simplykpiid` int(11) NOT NULL,
+  `cf_1003` varchar(5) DEFAULT '',
+  PRIMARY KEY (`simplykpiid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vd_simplykpi_records</name>
+			<sql><![CDATA[CREATE TABLE `vd_simplykpi_records` (
+  `simplykpiid` int(11) NOT NULL,
+  `entityid` int(11) NOT NULL,
+  `result` float DEFAULT NULL,
+  `entitykpiid` int(11) DEFAULT NULL,
+  `datecreate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`simplykpiid`,`entityid`),
+  KEY `simplykpi_simplykpiid_idx` (`simplykpiid`),
+  KEY `simplykpi_entityid_idx` (`entityid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
