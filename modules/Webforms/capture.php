@@ -29,9 +29,15 @@ class Webform_Capture {
 		$currentLanguage = Vtiger_Language_Handler::getLanguage();
 		$moduleLanguageStrings = Vtiger_Language_Handler::getModuleStringsFromFile($currentLanguage);
 		vglobal('app_strings', $moduleLanguageStrings['languageStrings']);
-
+        //honey pot field
+        $honeypot = $request['unname'];
 		$returnURL = false;
 		try {
+            //check if the honeypot field is filled out. If not, send a mail.
+            if( $honeypot != '' ){
+                throw new Exception ('Sorry, but we blocked your request due to antispam policy');
+                return; //you may add code here to echo an error etc.
+            }
 			if (!vtlib_isModuleActive('Webforms'))
 				throw new Exception('webforms is not active');
 
