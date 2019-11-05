@@ -63,7 +63,10 @@ class PBXManager_PBXManager_Controller {
      */
     function processDialBeginCall($request) {
         $callerNumber = $request->get('callerIdNumber');
-        
+        if ($callerNumber == '+494038087090' && $request->get('operator')) {
+            $callerNumber = $request->get('operator');
+        }
+
         /* Get dialed number by caller. It has unified format so we need check variants */
         $destinationNumber = '';
         if(strpos($request->get('dialString'), "/") !== false) {
@@ -118,6 +121,9 @@ class PBXManager_PBXManager_Controller {
         $temp = explode("/", $temp[0]);
 
         $callerNumber = $request->get('callerIdNumber');
+        if ($callerNumber == '+494038087090' && $request->get('operator')) {
+            $callerNumber = $request->get('operator');
+        }
         $userInfo = PBXManager_Record_Model::getUserInfoWithNumber($callerNumber);
 
         if (!$userInfo) {
