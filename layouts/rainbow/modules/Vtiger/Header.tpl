@@ -36,7 +36,7 @@
 		<link rel="stylesheet" href="layouts/rainbow/skins/vtiger/material-icons.css">
 		
 		<link rel="stylesheet" href="layouts/rainbow/lib/pick-a-color/pick-a-color-1.2.3.min.css">
-		
+		<link type='text/css' rel='stylesheet' href='libraries/jquery/pnotify/jquery.pnotify.default.css'>
         <input type="hidden" id="inventoryModules" value={ZEND_JSON::encode($INVENTORY_MODULES)}>
         
         {assign var=V7_THEME_PATH value=Vtiger_Theme::getv7AppStylePath($SELECTED_MENU_CATEGORY)}
