@@ -136,7 +136,7 @@ class Vtiger_Viewer extends SmartyBC {
 	}
 	
         for($i=0; $i<$layoutCount; $i++) {
-	     $layoutinfo['name'] = "rainbow";
+//	     $layoutinfo['name'] = "rainbow";
 
            if(isset($layoutinfo['name']) && file_exists(dirname(__FILE__)."/../../layouts/".$layoutinfo['name'])){
                 self::$customLayout = $layoutinfo['name'];
