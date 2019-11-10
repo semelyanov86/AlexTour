@@ -68,6 +68,25 @@
                         </tr>
                         <tr>
                             <td class="fieldLabel medium">
+                                <label class="muted pull-right marginRight10px">
+                                    <span class="redColor">*</span> {vtranslate('LBL_SINGULAR_MODULE_LABEL', $MODULE)}
+                                </label>
+                            </td>
+                            <td class="fieldValue medium">
+                                <div class="row-fluid">
+                            <span class="span10">
+                                <input id="{$MODULE}_editView_fieldName_module_label"
+                                       type="text" class="inputElement nameField"
+                                       name="singular_module_label" required="required"
+                                       value="CM{$RECORD->get('singular_module_label')}"
+
+                                        {if $RECORD_ID} readonly="readonly" {/if}/>
+                            </span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fieldLabel medium">
                                 <label class="muted pull-right marginRight10px">{vtranslate('LBL_MODULE_NAME', $MODULE)}</label>
                             </td>
                             <td class="fieldValue medium">
@@ -111,7 +130,7 @@
                                         <option value="INVENTORY">INVENTORY</option>
                                         <option value="TOOLS">TOOLS</option>
                                         <option value="SUPPORT">SUPPORT</option>
-                                        <option value="PROJECTS">PROJECTS</option>
+                                        <option value="PROJECT">PROJECTS</option>
                                     </select>
                                 </div>
                             </td>

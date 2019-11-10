@@ -11,6 +11,7 @@
 include_once 'modules/Vtiger/CRMEntity.php';
 
 class __ModuleName__ extends Vtiger_CRMEntity {
+    var $db;
 	var $table_name = 'vtiger_<modulename>';
 	var $table_index= '<modulename>id';
 	var $related_tables = Array ('vtiger_<modulename>cf' => Array ( '<modulename>id', 'vtiger_<modulename>', '<modulename>id' ),);
@@ -80,6 +81,10 @@ class __ModuleName__ extends Vtiger_CRMEntity {
 
 	var $default_order_by = '<entityfieldname>';
 	var $default_sort_order='ASC';
+
+    function __ModuleName__() {
+        $this->db = PearDatabase::getInstance();
+    }
 
 	/**
 	* Invoked when special actions are performed on the module.

@@ -42,7 +42,7 @@
                             <select name="module1" id="module1" class="select2 span10" style="width: 200px">
                                 <option value="-">{vtranslate('LBL_SELECT', $MODULE)}</option>
                                 {foreach from=$ENTITY_MODULES item=MODULE1}
-                                    <option value="{$MODULE1}">{vtranslate($MODULE1)}</option>
+                                    <option value="{$MODULE1}">{vtranslate($MODULE1,$MODULE1)}</option>
                                 {/foreach}
                             </select>
                         </div>
@@ -68,7 +68,7 @@
                             <select name="module2" id="module2" class="select2 span10" style="width: 200px">
                                 <option value="-">{vtranslate('LBL_SELECT', $MODULE)}</option>
                                 {foreach from=$ENTITY_MODULES item=MODULE1}
-                                    <option value="{$MODULE1}">{vtranslate($MODULE1)}</option>
+                                    <option value="{$MODULE1}">{vtranslate($MODULE1,$MODULE1)}</option>
                                 {/foreach}
                             </select>
                         </div>

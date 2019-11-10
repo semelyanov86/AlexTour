@@ -19,7 +19,7 @@ $languageStrings = Array(
 	'LBL_DETAIL' => 'Detail',
 	'Signature Date' =>'Date',
 	'Signature time' =>'Time',
-
+    'Template'=>'Template Name',
 
 );
 

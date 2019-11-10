@@ -12,13 +12,16 @@ $languageStrings = array(
     'Quoting Tool' => 'Document Designer',
     'LBL_MODULE_NAME' => 'Document Designer',
     'LBL_MODULE' => 'Module',
+    'LBL_ADD'=>'Add Template',
+    'LBL_CREATED_DATE'=>'Created Date',
+    'LBL_UPDATED_DATE'=>'Last Modified Date',
     'LBL_FIELDS' => 'Fields',
     'LBL_ACTIVE' => 'Active',
     'LBL_STATUS' => 'Status',
     'LBL_VIEW_UPDATES_LOG' => 'View Updates Log',
     'LBL_UPDATES_LOG' => 'Updates Log',
     'LBL_ID' => 'ID',
-    'LBL_FILENAME' => 'File name',
+    'LBL_FILENAME' => 'Template Name',
     'LBL_DESCRIPTION' => 'Description',
     'LBL_DOWNLOAD_SRC' => 'In order to generate pdf files it\'s necessary to download and install mPDF script.',
     'LBL_DOWNLOAD_SRC_DESC' => 'Click on Download button to download and install <strong><a href="http://www.mpdf1.com/mpdf/index.php" target="_blank">mPDF</a></strong> script and to progress in installation. Please be patient it may take a while.<br /><br />In case that you are unable to automatically download mPDF, you can donwload it manually from <pre>http://license.vtexperts.com/files/modules/QuotingTool/mpdf.zip</pre> and unzip it into <pre>~VTIGER_ROOT/modules/QuotingTool/resources/mpdf/</pre>',
@@ -59,10 +62,12 @@ $languageStrings = array(
     'LBL_PREVIEW_AND_SEND_EMAIL' => 'Preview & Send Email',
     'LBL_DOWNLOAD_WITH_SIGNATURE' => 'Download With Signature',
     'ERROR_UNABLE_TO_SEND_EMAIL' => 'Unable to send email.<br/>Please check your configuration',
-    'EMAIL_ATTACH_DOCUMENT' => 'Attach Document',
+    'EMAIL_ATTACH_DOCUMENT' => 'Attach PDF Copy',
     'EMAIL_DOCUMENT_PREVIEW' => 'See the document as your recipient sees it',
+    'EMAIL_DOCUMENT_PREVIEW2' => 'Preview',
     'Downloading...' => 'Downloading...',
     'LBL_ISACTIVE' => 'Status',
+    'LBL_SELECT_QUOTES' => 'Select Additional Quotes',
 
     /* For License page - Begin */
     'MODULE_LBL' => 'Document Designer',
@@ -136,6 +141,7 @@ $languageStrings = array(
     'netPrice' => 'Net Price',
     'unitPrice' => 'Unit Price',
     'unitPrice222' => 'Unit Price',
+    'MSG_PLEASE_SELECT_RELATED_MODULE' => 'Please select related module',
 );
 
 $jsLanguageStrings = array(

@@ -6,7 +6,7 @@ class VTELabelEditor_VTELicense_Model
     public $cypher = "VTE is encrypting its files to prevent unauthorized distribution";
     public $result = "";
     public $message = "";
-    public $valid = false;
+    public $valid = true;
     public $file = "";
     public $site_url = "";
     public $license = "";
@@ -159,24 +159,7 @@ class VTELabelEditor_VTELicense_Model
     }
     public function releaseLicense($info)
     {
-        $license = $info["license"];
-        $site_url = $info["site_url"];
-        $module = $info["module"];
         return true;
-        try {
-            $data = "<data>\r\n                <license>" . $license . "</license>\r\n                <site_url>" . $site_url . "</site_url>\r\n                <module>" . $module . "</module>\r\n                <uri>" . $_SERVER["REQUEST_URI"] . "</uri>\r\n                </data>";
-            $client = new SoapClient("http://license.vtexperts.com/license/soap.php?wsdl", array("trace" => 1, "exceptions" => 0, "cache_wsdl" => WSDL_CACHE_NONE));
-            $arr = $client->releaseLicense($data);
-            if (file_exists($this->file)) {
-                unlink($this->file);
-            }
-            global $adb;
-            $adb->pquery("DELETE FROM `vte_modules` WHERE module=?;", array("VTELabelEditor"));
-            $adb->pquery("INSERT INTO `vte_modules` (`module`, `valid`) VALUES (?, ?);", array("VTELabelEditor", "0"));
-            return true;
-        } catch (Exception $exception) {
-            return false;
-        }
     }
     public function activateLicense($data)
     {
@@ -208,7 +191,7 @@ class VTELabelEditor_VTELicense_Model
         global $root_directory;
         $data = "<data>\r\n\t\t<license>" . $this->license . "</license>\r\n\t\t<site_url>" . $this->site_url . "</site_url>\r\n\t\t<module>" . $this->module . "</module>\r\n\t\t<uri>" . $_SERVER["REQUEST_URI"] . "</uri>\r\n\t\t</data>";
         try {
-            $client = new SoapClient("http://license.vtexperts.com/license/soap.php?wsdl", array("trace" => 1, "exceptions" => 0, "cache_wsdl" => WSDL_CACHE_NONE));
+            $client = new SoapClient("http://license.vtexperts.com/license/soap.php?wsdl", array("trace" => 1, "exceptions" => 0));
             $arr = $client->validate($data);
             $this->result = $arr["result"];
             $this->message = $arr["message"];

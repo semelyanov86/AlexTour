@@ -93,11 +93,17 @@ Vtiger_Edit_Js("ModuleLinkCreator_Edit_Js", {}, {
         var btnSubmit = form.find('[type="submit"]');
         var inModuleName = form.find('[name="module_name"]');
         var valModuleName = inModuleName.val().trim();
-
+        console.log(valModuleName.length)
         if (valModuleName == '') {
             btnSubmit.attr('disabled', 'disabled');
             return;
-        } else if (valModuleName.indexOf('_') >= 0){
+        }
+        if (valModuleName.length >=25){
+            app.helper.showErrorNotification({message:app.vtranslate('JS_MODULE_NAME_CANNOT_EXCEED_25_CHARACTERS')})
+            btnSubmit.attr('disabled', 'disabled');
+            return;
+        }
+        else if (valModuleName.indexOf('_') >= 0){
             var message = app.vtranslate('JS_MODULE_NAME_CANNOT_CONTAIN_UNDERLINE');
             Vtiger_Helper_Js.showMessage({
                 text: message

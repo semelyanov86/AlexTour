@@ -11,7 +11,8 @@ $languageStrings = array(
     'ModuleLinkCreator' => 'Custom Module Builder',
     'Module & Link Creator' => 'Custom Module Builder',
     'LBL_MODULE_NAME' => 'Module Name',
-    'LBL_MODULE_LABEL' => 'Module Label',
+    'LBL_MODULE_LABEL' => 'Plural Module Label',
+    'LBL_SINGULAR_MODULE_LABEL' => 'Singular Module Label',
     'LBL_MODULE' => 'Module',
     'LBL_FIELDS' => 'Fields',
     'LBL_ACTIVE' => 'Active',
@@ -156,4 +157,5 @@ $jsLanguageStrings = array(
     'JS_CANCEL' => 'CANCEL',
     'JS_CONFIRM_DELETE' => 'YOU ARE ABOUT TO DELETE THIS MODULE. IF YOU DELETE IT - ALL THE DATA STORED IN THAT MODULE WILL BE DELETED. THERE IS NO WAY TO RESTORE IT - ONCE YOU DELETE IT - IT IS GONE',
     'JS_MODULE_NAME_CANNOT_CONTAIN_UNDERLINE' => 'Module name can not contain underline (`_`)',
+    'JS_MODULE_NAME_CANNOT_EXCEED_25_CHARACTERS' => 'Module name can not exceed 25 characters',
 );
