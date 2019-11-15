@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_flights</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_flights` (
+  `flightsid` int(19) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `flightsno` varchar(100) DEFAULT NULL,
+  `type` varchar(255) DEFAULT '',
+  `date_departure` date DEFAULT NULL,
+  `date_arrival` date DEFAULT NULL,
+  `time_departure` time DEFAULT NULL,
+  `time_arrival` time DEFAULT NULL,
+  `transport` varchar(255) DEFAULT '',
+  `tags` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`flightsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_flightscf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_flightscf` (
+  `flightsid` int(19) NOT NULL,
+  PRIMARY KEY (`flightsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
