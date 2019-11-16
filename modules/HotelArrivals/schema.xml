@@ -1,0 +1,29 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_hotelarrivals</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_hotelarrivals` (
+  `hotelarrivalsid` int(19) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `hotelarrivalsno` varchar(100) DEFAULT NULL,
+  `date_in` date DEFAULT NULL,
+  `date_out` date DEFAULT NULL,
+  `rooms` int(5) DEFAULT NULL,
+  `roomnights` int(5) DEFAULT NULL,
+  `pax` int(5) DEFAULT NULL,
+  `price` decimal(16,8) DEFAULT NULL,
+  `breakfast_box` int(5) DEFAULT NULL,
+  `tags` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`hotelarrivalsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_hotelarrivalscf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_hotelarrivalscf` (
+  `hotelarrivalsid` int(19) NOT NULL,
+  PRIMARY KEY (`hotelarrivalsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
