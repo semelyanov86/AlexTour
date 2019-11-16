@@ -8,25 +8,25 @@
 * ****************************************************************************** */
 
 $languageStrings = Array(
-    'VTEPayments' => 'Payments',
-    'SINGLE_VTEPayments' => 'Payments',
-    'ModuleName ID' => 'Payments ID',
+    'VTEPayments' => 'Платежи',
+    'SINGLE_VTEPayments' => 'Платёж',
+    'ModuleName ID' => 'ID платежа',
 
-    'LBL_ADD_RECORD' => 'Add Payments',
-    'LBL_RECORDS_LIST' => 'Payments List',
+    'LBL_ADD_RECORD' => 'Добавить платёж',
+    'LBL_RECORDS_LIST' => 'Список платежей',
 
-    'LBL_CUSTOM_INFORMATION' => 'Custom Information',
+    'LBL_CUSTOM_INFORMATION' => 'Дополнительная информация',
     'LBL_MODULEBLOCK_INFORMATION' => 'ModuleBlock Information',
 
     'ModuleFieldLabel' => 'ModuleFieldLabel Text',
     'LBL_CHARGE_CUSTOMER_PROFILE' => 'Charge Customer Profile from Authorize.Net',
-    'LBL_AN_TRANSACTION_ID' => 'Transaction ID',
-    'LBL_AN_TRANSACTION_DATE' => 'Date/Time',
-    'LBL_AN_TRANSACTION_STATUS' => 'Status',
-    'LBL_AN_TRANSACTION_DETAIL' => 'Transaction Detail',
+    'LBL_AN_TRANSACTION_ID' => 'ID трансакции',
+    'LBL_AN_TRANSACTION_DATE' => 'Дата и время',
+    'LBL_AN_TRANSACTION_STATUS' => 'Статус',
+    'LBL_AN_TRANSACTION_DETAIL' => 'Подробности трансакции',
     'LBL_SHOW_AN_TRANSACTIONS' => 'Show Authorize.Net Transactions',
-    'LBL_SHOW_AN_TRANSACTION_DETAIL_BTN' => 'Show Details',
-    'LBL_AN_TRANSACTION_AMOUNT' => 'Amount',
+    'LBL_SHOW_AN_TRANSACTION_DETAIL_BTN' => 'Показать подробности',
+    'LBL_AN_TRANSACTION_AMOUNT' => 'Сумма',
 
     /* For License page - Begin */
     'MODULE_LBL' => 'VTEPayments',
