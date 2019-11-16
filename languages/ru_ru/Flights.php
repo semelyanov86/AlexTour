@@ -30,7 +30,8 @@ $languageStrings = array (
   'Avia' => 'Авиа',
   'Railway' => 'Ж/Д',
   'From' => 'Откуда',
-  'To' => 'Куда'
+  'To' => 'Куда',
+  'Through' => 'Через',
 );
 
 $jsLanguageStrings = array (
