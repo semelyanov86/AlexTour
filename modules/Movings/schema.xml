@@ -1,0 +1,24 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_movings</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_movings` (
+  `movingsid` int(19) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `movingsno` varchar(100) DEFAULT NULL,
+  `type` varchar(255) DEFAULT '',
+  `date_flight` date DEFAULT NULL,
+  `tags` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`movingsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_movingscf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_movingscf` (
+  `movingsid` int(19) NOT NULL,
+  PRIMARY KEY (`movingsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
