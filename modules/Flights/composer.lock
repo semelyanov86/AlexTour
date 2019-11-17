@@ -1,0 +1,55 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e36643ddc8fab47bf5bf0e6cbb3f55fc",
+    "packages": [
+        {
+            "name": "dahabtours/amadeusclient",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dahabtours/amadeus-php-sdk.git",
+                "reference": "56b3241178294c70c49d8373d95877cc87fa964a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dahabtours/amadeus-php-sdk/zipball/56b3241178294c70c49d8373d95877cc87fa964a",
+                "reference": "56b3241178294c70c49d8373d95877cc87fa964a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "AmadeusDahabtours": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Max Tobias Weber",
+                    "email": "maxtobiasweber@gmail.com",
+                    "homepage": "http://www.dahabtours.de"
+                }
+            ],
+            "description": "A client to utilize the amadeus self service flight and hotel search REST/JSON API",
+            "time": "2019-03-05T17:24:24+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
