@@ -55,6 +55,11 @@
                 {*{if ($FIELD_MODEL->get('uitype') eq '51' || $FIELD_MODEL->get('uitype') eq '10') && ($CURRENT_TABID eq $FIELD_TABID)}
                     {$RECORD_MODEL ->getDisplayValue($FIELD_MODEL->getName())}
                 {else}*}
+                {if $FIELD_MODEL->getName() eq 'cf_1781'}
+                    <input type="hidden" name="HotelArrivals_cf_1781" value="{$RELATED_RECORD_MODEL->get($FIELD_MODEL->getFieldName())}">
+                    <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Contacts', 'RelatedBlocksLists')}</button>
+                    {continue}
+                {/if}
                     {if $RELMODULE_NAME=='Documents' && $FIELD_MODEL->get('name')=='filename'}
                         {include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getTemplateName(),'RelatedBlocksLists') BLOCK_FIELDS=$FIELDS_LIST MODULE=$RELMODULE_NAME}
                     {else}

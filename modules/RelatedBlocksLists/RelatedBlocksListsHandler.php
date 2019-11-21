@@ -118,6 +118,9 @@ class RelatedBlocksListsHandler extends VTEventHandler
                                 if ($fieldDataType == "multipicklist" && is_array($fieldValue) && $fieldValue[0] == "") {
                                     unset($fieldValue[0]);
                                 }
+                                if ($fieldDataType == 'date') {
+                                    $fieldValue = Vtiger_Date_UIType::getDBInsertedValue($fieldValue);
+                                }
                                 if ($fieldValue !== NULL) {
                                     if (!is_array($fieldValue)) {
                                         $fieldValue = trim($fieldValue);
@@ -222,9 +225,47 @@ class RelatedBlocksListsHandler extends VTEventHandler
                                 }
                             }
                         }
+                        if (isset($relatedRecord['HotelArrivals_cf_1781']) && $relatedRecord['HotelArrivals_cf_1781'] && !empty($relatedRecord['HotelArrivals_cf_1781'])) {
+                            $contacts = json_decode($relatedRecord['HotelArrivals_cf_1781']);
+                            $relRecordModel->set('mode', 'edit');
+                            $relRecordModel->set('pax', count($contacts));
+                            $relRecordModel->save();
+                            $this->deleteOldContacts($relRecordModel);
+                            $this->linkContacts($contacts, $relRecordModel, $parentRecordId, $parentModuleModel);
+                        }
+
                     }
                 }
             }
+        }
+    }
+
+    private function linkContacts($contacts, $recordModel, $parentRecordId, $parentModuleModel)
+    {
+        $contactsModule = Vtiger_Module_Model::getInstance('Contacts');
+        $relationModel = Vtiger_Relation_Model::getInstance($contactsModule, Vtiger_Module_Model::getInstance('HotelArrivals'));
+        $parentRelation = Vtiger_Relation_Model::getInstance($parentModuleModel, $contactsModule);
+        foreach ($contacts as $contact) {
+            $contactModel = Vtiger_Record_Model::getInstanceById($contact, 'Contacts');
+            if ($contactModel) {
+                $relationModel->addRelation($contact, $recordModel->getId());
+                $parentRelation->addRelation($parentRecordId, $contact);
+            }
+        }
+    }
+
+    public function deleteOldContacts($recordModel)
+    {
+        $pagingModel = new Vtiger_Paging_Model();
+        $pagingModel->set('page', 1);
+        if(!empty($limit)) {
+            $pagingModel->set('limit', 100);
+        }
+        $relationModel = Vtiger_Relation_Model::getInstance(Vtiger_Module_Model::getInstance('HotelArrivals'), Vtiger_Module_Model::getInstance('Contacts'));
+        $relatedListModel = Vtiger_RelationListView_Model::getInstance($recordModel, 'Contacts');
+        $entries = $relatedListModel->getEntries($pagingModel);
+        foreach ($entries as $entry) {
+            $relationModel->deleteRelation($recordModel->getId(), $entry->getId());
         }
     }
 }

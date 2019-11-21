@@ -43,6 +43,12 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         }
     }
 },{
+    popupInstance: false,
+
+    setPopupInstance:function(popupInstance){
+        this.popupInstance = popupInstance;
+    },
+
     getBlockHeader : function (after_block) {
         var thisInstance = this;
         var blockHeader = jQuery(document).find('.fieldBlockHeader').eq(after_block);
@@ -1461,10 +1467,20 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                         }
                     }
                     var arr_elementName = elementName.split('_');
+                    var elementNameNew = arr_elementName[1];
+                    if (arr_elementName[2]) {
+                        elementNameNew = elementNameNew + '_' + arr_elementName[2];
+                    }
+                    if (arr_elementName[3]) {
+                        elementNameNew = elementNameNew + '_' + arr_elementName[3];
+                    }
                     var inputElement=relatedRecord.find('[name="' + elementName + '"]');
-                    if(inputElement.length == 0) inputElement=relatedRecord.find('[name="' + arr_elementName[1] + '"]');
+                    if(inputElement.length == 0) inputElement=relatedRecord.find('[name="' + elementNameNew + '"]');
                     inputElement.attr('id', 'relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName).attr('name', expectedElementId)
                         .data('fieldname',elementName);
+                    if (elementName == 'HotelArrivals_cf_1781') {
+                        thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName);
+                    }
                 }
                 thisInstance.registerEventForPicklistDependencySetup(relatedRecord,rowNo,blockId);
                 var indexInstance = Vtiger_Index_Js.getInstance();
@@ -1582,11 +1598,9 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                     function(err,data) {
                         if(err == null && data) {
                             var newRow=jQuery('<div class="relatedRecords" data-row-no="'+sequenceNumber+'"><input type="hidden" name="relatedblockslists['+blockId+']['+sequenceNumber+'][module]" value="'+relModule+'"/>'+data+'</div>');
-
                             element.closest('div.row').before(newRow);
                             //thisInstance.applyWidthForFields(newRow);
                             //relatedblockslists.find('div.relatedRecords:last').after(newRow);
-
                             thisInstance.updateLineItemsElementWithSequenceNumber(newRow,blockId,sequenceNumber);
                             vtUtils.applyFieldElementsView(newRow);
                             thisInstance.registerEventForDeleteButton(newRow);
@@ -1694,12 +1708,13 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                             }
                         }
                     }
-
-
                     var expectedRowId = 'row'+expectedSequenceNumber;
                     lineItemRow.find('[name="' + actualElementName + '"]').attr('id', 'relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName)
                         .filter('[name="' + actualElementName + '"]').attr('name', expectedElementId)
                         .data('fieldname',elementName);
+                    if (actualElementName == 'HotelArrivals_cf_1781') {
+                        this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName);
+                    }
                 }
             }
         }
@@ -1754,6 +1769,39 @@ Vtiger.Class("RelatedBlocksLists_Js",{
             }
         );
         return aDeferred.promise();
+    },
+
+    registerAddContactsPopup : function(element) {
+        var btn = jQuery('#' + element).next('button');
+        var thisInstance = this;
+        btn.on('click', function(e) {
+            e.preventDefault();
+            var elementObj = jQuery('#' + element);
+            var contactsId = elementObj.val();
+            var params = {};
+            params.module = 'Contacts';
+            params.element_id = element;
+            params.view = 'Popup';
+            params.parent = 'Potentials';
+            params.parent_id = app.getRecordId();
+            params.contacts = contactsId;
+            params.multi_select = false;
+            var popupInstance = Vtiger_Popup_Js.getInstance();
+            popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
+                var  viewPortHeight= $(window).height()-120;
+                var params = {setHeight: (viewPortHeight)+'px'};
+                var params2 = {setHeight: (viewPortHeight-125)+'px'};
+                var params2_1 = {setHeight: (viewPortHeight-100)+'px'};
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.modal-body'), params);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.lockup-item-main'), params2_1);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.popupFillContainer_filter_fields_scroll'), params2);
+                var container = jQuery('.iTL-listViewEntriesTable');
+                var thead_h = container.find('thead').height();
+                var params3 = {setHeight: (viewPortHeight-125-thead_h)+'px'};
+                app.helper.showVerticalScroll(container.find('tbody'), params3);
+            });
+            thisInstance.setPopupInstance(popupInstance);
+        });
     },
 
     /**
