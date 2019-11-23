@@ -22,7 +22,10 @@ $languageStrings = array (
   'Qty' => 'Количество человек',
   'Date start' => 'Дата начала',
   'Date end' => 'Дата окончания',
-  'Profit' => 'Прцент наценки'
+  'Profit' => 'Процент наценки',
+  'Code' => 'Краткое название',
+  'Days Qty' => 'Количество дней',
+  'Choosed Hotels' => 'Выбранные отели',
 );
 
 $jsLanguageStrings = array (
