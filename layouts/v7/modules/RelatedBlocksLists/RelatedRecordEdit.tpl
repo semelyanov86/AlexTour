@@ -60,6 +60,11 @@
                     <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Contacts', 'RelatedBlocksLists')}</button>
                     {continue}
                 {/if}
+                {if $FIELD_MODEL->getName() eq 'cf_1871'}
+                    <input type="hidden" name="TourPrices_cf_1871" value="{$RELATED_RECORD_MODEL->get($FIELD_MODEL->getFieldName())}">
+                    <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Hotels', 'RelatedBlocksLists')}</button>
+                    {continue}
+                {/if}
                     {if $RELMODULE_NAME=='Documents' && $FIELD_MODEL->get('name')=='filename'}
                         {include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getTemplateName(),'RelatedBlocksLists') BLOCK_FIELDS=$FIELDS_LIST MODULE=$RELMODULE_NAME}
                     {else}

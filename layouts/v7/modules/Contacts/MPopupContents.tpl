@@ -16,7 +16,7 @@
     </div>
     {include file="PicklistColorMap.tpl"|vtemplate_path:$VD_MODULE}
     <div class="row lookup-item-popup-navigation">
-        {include file='PopupNavigation.tpl'|vtemplate_path:$VD_MODULE}
+        {include file='MPopupNavigation.tpl'|vtemplate_path:$VD_MODULE}
     </div>
     <div class="row lockup-item-main" style="overflow-x: auto;height: 485px;">
         <div class="col-md-12">

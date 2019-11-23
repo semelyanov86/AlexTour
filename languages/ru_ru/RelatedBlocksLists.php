@@ -26,6 +26,7 @@ $languageStrings = array(
     'LBL_LIMIT_PER_PAGE' => 'Ограничение на страницу',
     'LBL_SETTING_GUID' => 'To add Related Blocks & List please go to the field editor of each module. You can access it via "CRM Settings" > "Modules" > Hover the module and click Settings, then "Edit Fields".',
     'Add Contacts' => 'Прикрепить туристов',
+    'Add Hotels' => 'Прикрепить отели',
 
     /* For License page - Begin */
     'MODULE_LBL' => 'Related Blocks & Lists',

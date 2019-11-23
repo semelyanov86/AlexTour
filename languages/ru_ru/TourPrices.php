@@ -24,6 +24,7 @@ $languageStrings = array (
   'Status' => 'Статус',
   'Price Per Person' => 'Цена',
   'EZZ' => 'EZZ',
+    'Choosed Hotels' => 'Выбранные отели',
 );
 
 $jsLanguageStrings = array (

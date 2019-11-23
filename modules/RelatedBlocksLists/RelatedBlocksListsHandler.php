@@ -233,6 +233,11 @@ class RelatedBlocksListsHandler extends VTEventHandler
                             $this->deleteOldContacts($relRecordModel);
                             $this->linkContacts($contacts, $relRecordModel, $parentRecordId, $parentModuleModel);
                         }
+                        if (isset($relatedRecord['TourPrices_cf_1871']) && $relatedRecord['TourPrices_cf_1871'] && !empty($relatedRecord['TourPrices_cf_1871'])) {
+                            $hotels = json_decode($relatedRecord['TourPrices_cf_1871']);
+                            $this->deleteOldContacts($relRecordModel, 'Hotels');
+                            $this->linkEntities($hotels, $relRecordModel, 'Hotels');
+                        }
 
                     }
                 }
@@ -254,15 +259,27 @@ class RelatedBlocksListsHandler extends VTEventHandler
         }
     }
 
-    public function deleteOldContacts($recordModel)
+    private function linkEntities($hotels, $recordModel, $module)
+    {
+        $hotelsModule = Vtiger_Module_Model::getInstance($module);
+        $relationModel = Vtiger_Relation_Model::getInstance($hotelsModule, Vtiger_Module_Model::getInstance($recordModel->getModuleName()));
+        foreach ($hotels as $hotel) {
+            $contactModel = Vtiger_Record_Model::getInstanceById($hotel, 'Hotels');
+            if ($contactModel) {
+                $relationModel->addRelation($hotel, $recordModel->getId());
+            }
+        }
+    }
+
+    public function deleteOldContacts($recordModel, $module = 'Contacts')
     {
         $pagingModel = new Vtiger_Paging_Model();
         $pagingModel->set('page', 1);
         if(!empty($limit)) {
             $pagingModel->set('limit', 100);
         }
-        $relationModel = Vtiger_Relation_Model::getInstance(Vtiger_Module_Model::getInstance('HotelArrivals'), Vtiger_Module_Model::getInstance('Contacts'));
-        $relatedListModel = Vtiger_RelationListView_Model::getInstance($recordModel, 'Contacts');
+        $relationModel = Vtiger_Relation_Model::getInstance(Vtiger_Module_Model::getInstance($recordModel->getModuleName()), Vtiger_Module_Model::getInstance($module));
+        $relatedListModel = Vtiger_RelationListView_Model::getInstance($recordModel, $module);
         $entries = $relatedListModel->getEntries($pagingModel);
         foreach ($entries as $entry) {
             $relationModel->deleteRelation($recordModel->getId(), $entry->getId());

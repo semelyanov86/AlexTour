@@ -44,7 +44,7 @@
                                     <input type="hidden" id="digitGroupingSeparator" value="{$DIGIT_GROUPING_SEPARATOR}" name="digitGroupingSeparator">
 
                                     <div id="popupContents" style="min-height: 500px;" class="">
-                                        {include file='PopupContents.tpl'|vtemplate_path:$VD_MODULE}
+                                        {include file='MPopupContents.tpl'|vtemplate_path:$VD_MODULE}
                                     </div>
                                     <input type="hidden" class="triggerEventName" value="{$smarty.request.triggerEventName}"/>
                                 </div>

@@ -38,6 +38,11 @@
                 <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Contacts', 'RelatedBlocksLists')}</button>
                 {continue}
             {/if}
+            {if $FIELD_NAME eq 'cf_1871'}
+                <input type="hidden" name="TourPrices_cf_1871" value="">
+                <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Hotels', 'RelatedBlocksLists')}</button>
+                {continue}
+            {/if}
             {if $isReferenceField eq "reference"}
                 {if $refrenceListCount > 1}
                     {assign var="DISPLAYID" value=$FIELD_MODEL->get('fieldvalue')}

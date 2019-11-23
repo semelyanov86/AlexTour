@@ -1480,6 +1480,8 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                         .data('fieldname',elementName);
                     if (elementName == 'HotelArrivals_cf_1781') {
                         thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName);
+                    } else if (elementName == 'TourPrices_cf_1871') {
+                        thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName, 'Hotels');
                     }
                 }
                 thisInstance.registerEventForPicklistDependencySetup(relatedRecord,rowNo,blockId);
@@ -1714,6 +1716,8 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                         .data('fieldname',elementName);
                     if (actualElementName == 'HotelArrivals_cf_1781') {
                         this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName);
+                    } else if (elementName == 'TourPrices_cf_1871') {
+                        thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName, 'Hotels');
                     }
                 }
             }
@@ -1771,7 +1775,7 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         return aDeferred.promise();
     },
 
-    registerAddContactsPopup : function(element) {
+    registerAddContactsPopup : function(element, module = 'Contacts') {
         var btn = jQuery('#' + element).next('button');
         var thisInstance = this;
         btn.on('click', function(e) {
@@ -1779,13 +1783,14 @@ Vtiger.Class("RelatedBlocksLists_Js",{
             var elementObj = jQuery('#' + element);
             var contactsId = elementObj.val();
             var params = {};
-            params.module = 'Contacts';
+            params.module = module;
             params.element_id = element;
             params.view = 'Popup';
-            params.parent = 'Potentials';
+            params.parent = app.getModuleName();
             params.parent_id = app.getRecordId();
             params.contacts = contactsId;
             params.multi_select = false;
+            params.multiple = true;
             var popupInstance = Vtiger_Popup_Js.getInstance();
             popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
                 var  viewPortHeight= $(window).height()-120;

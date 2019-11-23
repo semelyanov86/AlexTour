@@ -1,6 +1,6 @@
 <?php
 
-class Contacts_Popup_View extends Vtiger_Popup_View
+class Hotels_Popup_View extends Vtiger_Popup_View
 {
     protected $listViewEntries = false;
     protected $listViewHeaders = false;
@@ -83,20 +83,7 @@ class Contacts_Popup_View extends Vtiger_Popup_View
             $listViewModel->set("search_params", $transformedSearchParams);
         }
         $this->listViewHeaders = $listViewModel->getListViewHeaders();
-        /*$searchData = Array(0 => Array(
-            'columns' => Array(
-                0 => Array(
-                    'columnname' => 'vtiger_vdportscf:cf_2745:cf_2745:VDPorts_Оборудование:V',
-                    'comparator' => 'c',
-                    'value' => $parentModule->getName(),
-                    'column_condition' => ''
-                )
-            )
-        )
-        );
-        $listViewModel->set('search_params', $searchData);*/
         $this->listViewEntries = $listViewModel->getListViewEntries($pagingModel);
-//        $this->listViewEntries = $this->getListViewEntries($listViewModel, $pagingModel, $request);
         if (empty($searchParams)) {
             $searchParams = array();
         }
