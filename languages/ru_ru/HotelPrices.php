@@ -19,6 +19,12 @@ $languageStrings = array (
   'Modified By' => 'Кем изменено',
   'LBL_DESCRIPTION' => 'Описание',
   'LBL_ADD_RECORD' => 'Добавить цену на отель',
+    'Name' => 'Наименование',
+    'Date In' => 'Дата начала',
+    'Date Out' => 'Дата окончания',
+    'DZ Price' => 'Цена DZ',
+    'EZZ Price' => 'Цена EZZ',
+    'Rooms Qty' => 'Количество комнат',
 );
 
 $jsLanguageStrings = array (
