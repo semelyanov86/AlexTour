@@ -1716,8 +1716,8 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                         .data('fieldname',elementName);
                     if (actualElementName == 'HotelArrivals_cf_1781') {
                         this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName);
-                    } else if (elementName == 'TourPrices_cf_1871') {
-                        thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName, 'Hotels');
+                    } else if (actualElementName == 'TourPrices_cf_1871') {
+                        this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName, 'Hotels');
                     }
                 }
             }

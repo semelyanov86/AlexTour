@@ -103,7 +103,7 @@
                                             {continue}
                                         {/if}
                                         {if $FIELD_MODEL->getName() eq 'cf_1871'}
-                                            <input type="hidden" name="TourPrices_cf_1781" value="">
+                                            <input type="hidden" name="TourPrices_cf_1871" value="">
                                             <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Hotels', 'RelatedBlocksLists')}</button>
                                             {continue}
                                         {/if}
