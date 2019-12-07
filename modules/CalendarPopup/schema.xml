@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vte_calendarpopup_modules</name>
+			<sql><![CDATA[CREATE TABLE `vte_calendarpopup_modules` (
+				`selected_modules`  text CHARACTER SET utf8 COLLATE utf8_general_ci NULL 
+				);]]></sql>
+		</table>
+		<table>
+			<name>vte_modules</name>
+			<sql><![CDATA[CREATE TABLE `vte_modules` (
+                `module`  varchar(50) NOT NULL ,
+                `valid`  int(1) NULL ,
+                PRIMARY KEY (`module`));]]></sql>
+		</table>
+	</tables>
+</schema>
