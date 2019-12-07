@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_packageservices</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_packageservices` (
+  `packageservicesid` int(19) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `packageservicesno` varchar(100) DEFAULT NULL,
+  `double_room` varchar(3) DEFAULT '0',
+  `one_room` varchar(3) DEFAULT '0',
+  `trip_service` varchar(3) DEFAULT '0',
+  `vegetarian_meal` varchar(3) DEFAULT '0',
+  `transfer_service` varchar(3) DEFAULT '0',
+  `visa_service` varchar(3) DEFAULT '0',
+  `insurance_service` varchar(3) DEFAULT '0',
+  `additional_bed` varchar(3) DEFAULT '0',
+  `tags` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`packageservicesid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_packageservicescf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_packageservicescf` (
+  `packageservicesid` int(19) NOT NULL,  
+  PRIMARY KEY (`packageservicesid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
