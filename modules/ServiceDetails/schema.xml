@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<schema>
+	<tables>
+		<table>
+			<name>vtiger_servicedetails</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_servicedetails` (
+  `servicedetailsid` int(19) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `servicedetailsno` varchar(100) DEFAULT NULL,
+  `service_qty` int(5) DEFAULT NULL,
+  `service_price` decimal(16,8) DEFAULT NULL,
+  `service_amount` decimal(16,8) DEFAULT NULL,
+  `tags` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`servicedetailsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+		<table>
+			<name>vtiger_servicedetailscf</name>
+			<sql><![CDATA[CREATE TABLE `vtiger_servicedetailscf` (
+  `servicedetailsid` int(19) NOT NULL,
+  PRIMARY KEY (`servicedetailsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8]]></sql>
+		</table>
+	</tables>
+</schema>
