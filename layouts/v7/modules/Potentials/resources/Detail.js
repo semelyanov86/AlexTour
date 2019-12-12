@@ -39,6 +39,25 @@ Vtiger_Detail_Js("Potentials_Detail_Js",{
 		} else {
 			instance.displayConvertPotentialModel(Potentials_Detail_Js.cache, buttonElement);
 		}
+	},
+	generateInvoice : function(id, button) {
+		var params = {
+			module: 'Potentials',
+			action: 'ConvertToInvoice',
+			parentId: id,
+		};
+		app.helper.showProgress();
+		app.request.post({data: params}).then(function(err, response) {
+			if (err == null) {
+				app.helper.showSuccessNotification({'message': 'Invoice created successfully'});
+				window.location = 'index.php?module=Invoice&view=Detail&record=' + response.data.invoiceid;
+				app.helper.hideProgress();
+			} else {
+				app.helper.showErrorNotification({'message': err.message});
+				app.helper.hideProgress();
+			}
+
+		});
 	}
 },{
 

@@ -49,6 +49,7 @@ $languageStrings = array(
     'LBL_THIS' => 'Это',
     'LBL_IS_DELETED_FROM_THE_SYSTEM_PLEASE_REMOVE_OR_REPLACE_THIS_ITEM' => 'Удаляется из системы. Пожалуйста, удалите или замените этот элемент',
     'LBL_THIS_LINE_ITEM_IS_DELETED_FROM_THE_SYSTEM_PLEASE_REMOVE_THIS_LINE_ITEM' => 'Эта позиция удаляется из системы,пожалуйста, удалите эту строку элементов',
+    'LBL_GENERATE_INVOICE' => 'Сгенерировать счёт'
     );
 
 // SalesPlatform.ru begin SPConfiguration fix

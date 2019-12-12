@@ -48,6 +48,16 @@ class Potentials_DetailView_Model extends Vtiger_DetailView_Model {
 			$linkModelList['DETAILVIEW'][] = Vtiger_Link_Model::getInstanceFromValues($basicActionLink);
 		}
 
+        if($currentUserModel->hasModuleActionPermission($invoiceModuleModel->getId(), 'CreateView')) {
+            $basicActionLink = array(
+                'linktype' => 'DETAILVIEWBASIC',
+                'linklabel' => vtranslate('LBL_GENERATE_INVOICE', 'Invoice'),
+                'linkurl' => 'Javascript:Potentials_Detail_Js.generateInvoice("'.$recordModel->getId().'",this);',
+                'linkicon' => ''
+            );
+            $linkModelList['DETAILVIEWBASIC'][] = Vtiger_Link_Model::getInstanceFromValues($basicActionLink);
+        }
+
 		if($currentUserModel->hasModuleActionPermission($quoteModuleModel->getId(), 'CreateView')) {
 			$basicActionLink = array(
 				'linktype' => 'DETAILVIEW',

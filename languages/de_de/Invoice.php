@@ -31,6 +31,7 @@ $languageStrings = array(
 	'LBL_NOT_A_BUNDLE' => 'Nicht ein Bundle',
 	'LBL_SUB_PRODUCTS'	=> 'Unter Produkte',
 	'LBL_ACTION'	=> 'Aktion',
+    'LBL_GENERATE_INVOICE' => 'Generate invoice',
 
   'LBL_THIS' => 'Diese',
   'LBL_IS_DELETED_FROM_THE_SYSTEM_PLEASE_REMOVE_OR_REPLACE_THIS_ITEM' => 'wird aus dem system gelöscht.bitte entfernen oder ersetzen Sie diesen Artikel',
