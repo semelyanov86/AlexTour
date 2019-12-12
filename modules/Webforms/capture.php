@@ -21,8 +21,33 @@ include_once 'include/QueryGenerator/QueryGenerator.php';
 include_once 'includes/runtime/EntryPoint.php';
 include_once 'includes/main/WebUI.php';
 include_once 'include/Webservices/AddRelated.php';
+include_once 'include/Webservices/RetrieveRelated.php';
+include_once 'include/Webservices/Retrieve.php';
 
 class Webform_Capture {
+    const TRID_ID = 5990;
+    const ONE_ROOM = 5992;
+    const GRUNDPAKET = 5991;
+
+    public $fieldsMapping = array(
+        "Contacts" => array(
+            "firstname" => "firstname",
+            "lastname" => "lastname",
+            "email" => "email",
+            "phone" => "phone",
+            "mailingcountry" => "country",
+            "mailingstreet" => "contact_address"
+        ),
+        "Traveller" => array(
+            "firstname" => "firstname",
+            "lastname" => "lastname",
+            "salutationtype" => "salutationtype"
+        ),
+        "PackageServices" => array(
+            "one_room" => "one_room",
+            "trip_service" => "trip_service"
+        )
+    );
 
 	function captureNow($request) {
 		$isURLEncodeEnabled = $request['urlencodeenable'];
@@ -32,6 +57,7 @@ class Webform_Capture {
         //honey pot field
         $honeypot = $request['unname'];
 		$returnURL = false;
+//		var_dump($request);die;
 		try {
             //check if the honeypot field is filled out. If not, send a mail.
             if( $honeypot != '' ){
@@ -116,9 +142,25 @@ class Webform_Capture {
 
 			// New field added to show Record Source
 			$parameters['source'] = 'Webform';
-
+            if ($request['isOrderFromWeb'] == 'On') {
+                $contact = $this->createPayableContact($request, $parameters, $user);
+                if ($contact && $contact['id']) {
+                    $parameters['contact_id'] = $contact['id'];
+                }
+                $parameters = $this->extendPotential($parameters, $request);
+//                $this->createRecordsFromWeb($record, $request);
+                $returnURL = 'https://' . $request['cf_1962'] . '/' . $returnURL;
+            }
 			// Create the record
-			$record = vtws_create($webform->getTargetModule(), $parameters, $user);
+
+                $record = vtws_create($webform->getTargetModule(), $parameters, $user);
+
+            if ($request['isOrderFromWeb'] == 'On') {
+                $this->createRecordsFromWeb($record, $request, $parameters, $user);
+                $tourData = $this->createMovings($record, $request, $parameters, $user);
+                $this->createServiceDetails($record, $request, $parameters, $user, $tourData);
+                $this->attachHotels($record, $request);
+            }
 			$webform->createDocuments($record);
 
 			$this->sendResponse($returnURL, 'ok');
@@ -137,6 +179,167 @@ class Webform_Capture {
 			return;
 		}
 	}
+
+	protected function createPayableContact($request, $params, $user)
+    {
+        $parameters = array();
+        foreach ($this->fieldsMapping["Contacts"] as $key=>$value) {
+            $parameters[$key] = $request[$value];
+        }
+        $parameters['cf_1960'] = 1;
+        $parameters['assigned_user_id'] = $params['assigned_user_id'];
+        $parameters['source'] = $params['source'];
+        return vtws_create('Contacts', $parameters, $user);
+    }
+
+	protected function createRecordsFromWeb($record, $request, $params, $user)
+    {
+        $relModel = Vtiger_Relation_Model::getInstance(Vtiger_Module_Model::getInstance('Potentials'), Vtiger_Module_Model::getInstance('Contacts'), 'Contacts');
+        $potentialId = vtws_getCRMEntityId($record['id']);
+        for ($i = 0; $i < 11; $i++) {
+            if (!isset($request['traveller_lastname'][$i]) || !$request['traveller_lastname'][$i]) {
+                continue;
+            }
+            $parameters = array(
+                'assigned_user_id' => $params['assigned_user_id'],
+                'source' => $params['source']
+            );
+            $paramServices = array(
+                'assigned_user_id' => $params['assigned_user_id'],
+                'source' => $params['source']
+            );
+            foreach ($this->fieldsMapping['Traveller'] as $key=>$value) {
+                $parameters[$key] = $request['traveller_' . $value][$i];
+            }
+            foreach ($this->fieldsMapping['PackageServices'] as $key=>$value) {
+                $paramServices[$key] = $request['traveller_' . $value][$i];
+            }
+            $contact = vtws_create('Contacts', $parameters, $user);
+            $contactId = vtws_getCRMEntityId($contact['id']);
+            $relModel->addRelation($potentialId, $contactId);
+            $paramServices['name'] = $record['potentialname'];
+            $paramServices['cf_potentials_id'] = $record['id'];
+            $paramServices['cf_contacts_id'] = $contact['id'];
+            $packageServices = vtws_create('PackageServices', $paramServices, $user);
+        }
+    }
+
+    protected function createMovings($record, $request, $parameters, $user)
+    {
+        global $adb;
+        $potentialId = $record['id'];
+        $tourId = $record['cf_tours_id'];
+        $tourData = vtws_retrieve($tourId, $user);
+        $airportId = vtws_getWebserviceEntityId('Airports', $request['airportsid']);
+        $flights = vtws_retrieve_related($tourId, 'Flights', 'Flights', $user);
+
+        foreach ($flights as $flight) {
+            $params = array(
+                'assigned_user_id' => $parameters['assigned_user_id'],
+                'source' => $parameters['source'],
+                'cf_potentials_id' => $potentialId
+            );
+            if ($flight['cf_airports_from_id'] == $airportId) {
+                $params['cf_flights_id'] = $flight['id'];
+                $params['name'] = $flight['name'];
+                $params['date_flight'] = $parameters['cf_1637'];
+                $params['mtype'] = 'In';
+                $moving = vtws_create('Movings', $params, $user);
+            } elseif ($flight['cf_airports_to_id'] == $airportId) {
+                $params['cf_flights_id'] = $flight['id'];
+                $params['name'] = $flight['name'];
+                $params['date_flight'] = $parameters['closingdate'];
+                $params['mtype'] = 'Out';
+                $moving = vtws_create('Movings', $params, $user);
+            } elseif($flight['cf_2017'] > 0 && $tourData['cf_2015'] > 0) {
+                $params['cf_flights_id'] = $flight['id'];
+                $params['name'] = $flight['name'];
+                $params['date_flight'] = date('Y-m-d', strtotime($parameters['closingdate'] . ' + ' . $tourData['cf_2015'] . ' days'));
+                $params['mtype'] = 'Through';
+                $moving = vtws_create('Movings', $params, $user);
+            }
+        }
+        return $tourData;
+    }
+
+    protected function createServiceDetails($record, $request, $parameters, $user, $tourData = array())
+    {
+        $tourId = $record['cf_tours_id'];
+        $potentialId = $record['id'];
+        if (empty($tourData)) {
+            $tourData = vtws_retrieve($tourId, $user);
+        }
+        $tripId = vtws_getWebserviceEntityId('Services', self::TRID_ID);
+        $roomId = vtws_getWebserviceEntityId('Services', self::ONE_ROOM);
+        $grundId = vtws_getWebserviceEntityId('Services', self::GRUNDPAKET);
+        $oneRoomCnt = 0;
+        $tripCnt = 0;
+        $oneRoomPrice = $request["service_price"];
+        $tripPrice = $tourData["cf_1904"];
+        $grundPrice = $request['tour_price'];
+        foreach ($request["traveller_one_room"] as $traveller) {
+            if ($traveller == 'on' || $traveller == 'On') {
+                $oneRoomCnt++;
+            }
+        }
+        foreach ($request["traveller_trip_service"] as $traveller) {
+            if ($traveller == 'on' || $traveller == 'On') {
+                $tripCnt++;
+            }
+        }
+        $params = array(
+            'assigned_user_id' => $parameters['assigned_user_id'],
+            'source' => $parameters['source'],
+            'cf_potentials_id' => $potentialId,
+            'name' => '##SERVICE_DETAIL_NAME##',
+            'service_qty' => count($request['traveller_last_name']),
+            'service_price' => $grundPrice,
+            'cf_services_id' => $grundId,
+            'description' => $tourData['name']
+        );
+        $result = vtws_create('ServiceDetails', $params, $user);
+        $params['description'] = '';
+        if ($oneRoomCnt > 0) {
+            $params['service_qty'] = $oneRoomCnt;
+            $params['service_price'] = $oneRoomPrice;
+            $params['cf_services_id'] = $roomId;
+            $result = vtws_create('ServiceDetails', $params, $user);
+        }
+        if ($tripCnt > 0) {
+            $params['service_qty'] = $tripCnt;
+            $params['service_price'] = $tripPrice;
+            $params['cf_services_id'] = $tripId;
+            $result = vtws_create('ServiceDetails', $params, $user);
+        }
+        return $result;
+    }
+
+    protected function extendPotential($parameters, $request)
+    {
+        $parameters['potentialname'] = $request['first_name'] . ' ' . $request['last_name'];
+//        if (!isset($parameters['cf_1962']) || !$parameters['cf_1962']) {
+            $parameters['cf_1962'] = $request['cf_1962'];
+//        }
+        $parameters['cf_tours_id'] = vtws_getWebserviceEntityId('Tours', $request['toursid']);
+        $parameters['cf_1647'] = 'Airport-Hotel-Airport';
+        $parameters['cf_1639'] = $this->countDaysBetweenDates($request["cf_1637"], $request["closingdate"]);
+        $parameters['cf_1641'] = $this->countNightsBetweenDates($request['cf_1637'], $request['closingdate']);
+//        $parameters['cf_1962'] = 'russland-reisen.de';
+        return $parameters;
+    }
+
+    protected function attachHotels($record, $request)
+    {
+        $relModel = Vtiger_Relation_Model::getInstance(Vtiger_Module_Model::getInstance('Potentials'), Vtiger_Module_Model::getInstance('Hotels'), 'Hotels');
+        $potentialId = vtws_getCRMEntityId($record['id']);
+        $hotelsId = $request['hotelsid'];
+        if (!is_array($hotelsId)) {
+            $hotelsId = [$hotelsId];
+        }
+        foreach($hotelsId as $hotelId) {
+            $relModel->addRelation($potentialId, $hotelId);
+        }
+    }
 
 	protected function sendResponse($url, $success = false, $failure = false) {
 		if (empty($url)) {
@@ -162,12 +365,47 @@ class Webform_Capture {
 		}
 	}
 
+    /**
+     * Функция считает количество дней между двумя датами
+     *
+     * @param string $d1 первая дата
+     * @param string $d2 вторая дата
+     *
+     * @return number количество дней
+     */
+    public function countDaysBetweenDates($d1, $d2)
+    {
+        $d1_ts = strtotime($d1);
+        $d2_ts = strtotime($d2);
+
+        $seconds = abs($d1_ts - $d2_ts);
+
+        return round($seconds / 86400);
+    }
+
+    /**
+     * Функция считает количество ночей между двумя датами
+     *
+     * @param string $d1 первая дата
+     * @param string $d2 вторая дата
+     *
+     * @return number количество дней
+     */
+    public function countNightsBetweenDates($d1, $d2)
+    {
+        $date1 = new DateTime($d1);
+        $date2 = new DateTime($d2);
+
+        return $date2->diff($date1)->format("%a");
+    }
+
 }
 
 // NOTE: Take care of stripping slashes...
 $webformCapture = new Webform_Capture();
 $request = vtlib_purify($_REQUEST);
 $isURLEncodeEnabled = $request['urlencodeenable'];
+header('Access-Control-Allow-Origin: *');
 //Do urldecode conversion only if urlencode is enabled in a form. 
 if ($isURLEncodeEnabled == 1) {
 	$requestParameters = array();
