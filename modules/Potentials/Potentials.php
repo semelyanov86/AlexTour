@@ -823,12 +823,19 @@ class Potentials extends CRMEntity {
 	 * @param String Event Type
 	 */
 	function vtlib_handler($moduleName, $eventType) {
-		if ($moduleName == 'Potentials') {
+        require_once('include/utils/utils.php');
+        require 'modules/com_vtiger_workflow/VTEntityMethodManager.inc';
+        global $adb;
+        $emm = new VTEntityMethodManager($adb);
+
+        if ($moduleName == 'Potentials') {
 			$db = PearDatabase::getInstance();
 			if ($eventType == 'module.disabled') {
 				$db->pquery('UPDATE vtiger_settings_field SET active=1 WHERE name=?', array($this->LBL_POTENTIAL_MAPPING));
+                $emm->removeEntityMethod('Potentials', 'Add Cities From Tour');
 			} else if ($eventType == 'module.enabled') {
 				$db->pquery('UPDATE vtiger_settings_field SET active=0 WHERE name=?', array($this->LBL_POTENTIAL_MAPPING));
+                $emm->addEntityMethod("Potentials", "Add Cities From Tour","modules/Potentials/workflow/addCities.php", "addCities");
 			}
 		}
 	}

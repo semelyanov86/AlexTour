@@ -23,6 +23,7 @@ include_once 'includes/main/WebUI.php';
 include_once 'include/Webservices/AddRelated.php';
 include_once 'include/Webservices/RetrieveRelated.php';
 include_once 'include/Webservices/Retrieve.php';
+include_once 'include/Webservices/Revise.php';
 
 class Webform_Capture {
     const TRID_ID = 5990;
@@ -160,6 +161,7 @@ class Webform_Capture {
                 $tourData = $this->createMovings($record, $request, $parameters, $user);
                 $this->createServiceDetails($record, $request, $parameters, $user, $tourData);
                 $this->attachHotels($record, $request);
+                $this->changeSalesStage($record, $user);
             }
 			$webform->createDocuments($record);
 
@@ -182,14 +184,23 @@ class Webform_Capture {
 
 	protected function createPayableContact($request, $params, $user)
     {
-        $parameters = array();
-        foreach ($this->fieldsMapping["Contacts"] as $key=>$value) {
-            $parameters[$key] = $request[$value];
+        $email = $request['email'];
+        $q = "SELECT * FROM Contacts WHERE email = '$email'";
+        $q = $q . ';'; // NOTE: Make sure to terminate query with ;
+        $records = vtws_query($q, $user);
+        if ($records && count($records) > 0) {
+            return $records[0];
+        } else {
+            $parameters = array();
+            foreach ($this->fieldsMapping["Contacts"] as $key=>$value) {
+                $parameters[$key] = $request[$value];
+            }
+//            $parameters['cf_2030'] = $request['salutationtype'];
+            $parameters['cf_1960'] = 1;
+            $parameters['assigned_user_id'] = $params['assigned_user_id'];
+            $parameters['source'] = $params['source'];
+            return vtws_create('Contacts', $parameters, $user);
         }
-        $parameters['cf_1960'] = 1;
-        $parameters['assigned_user_id'] = $params['assigned_user_id'];
-        $parameters['source'] = $params['source'];
-        return vtws_create('Contacts', $parameters, $user);
     }
 
 	protected function createRecordsFromWeb($record, $request, $params, $user)
@@ -214,6 +225,7 @@ class Webform_Capture {
             foreach ($this->fieldsMapping['PackageServices'] as $key=>$value) {
                 $paramServices[$key] = $request['traveller_' . $value][$i];
             }
+            $parameters['cf_2030'] = $request['traveller_title'][$i];
             $contact = vtws_create('Contacts', $parameters, $user);
             $contactId = vtws_getCRMEntityId($contact['id']);
             $relModel->addRelation($potentialId, $contactId);
@@ -324,6 +336,14 @@ class Webform_Capture {
         $parameters['cf_1647'] = 'Airport-Hotel-Airport';
         $parameters['cf_1639'] = $this->countDaysBetweenDates($request["cf_1637"], $request["closingdate"]);
         $parameters['cf_1641'] = $this->countNightsBetweenDates($request['cf_1637'], $request['closingdate']);
+        $hasTrip = 0;
+        foreach ($request["traveller_trip_service"] as $trip) {
+            if ($trip == 'on') {
+                $hasTrip = 1;
+                break;
+            }
+        }
+        $parameters['cf_2028'] = $hasTrip;
 //        $parameters['cf_1962'] = 'russland-reisen.de';
         return $parameters;
     }
@@ -364,6 +384,13 @@ class Webform_Capture {
 			}
 		}
 	}
+
+	protected function changeSalesStage($record, $user)
+    {
+        $wsid = $record['id']; // Module_Webservice_ID x CRM_ID
+        $data = array('sales_stage' => 'Value Proposition', 'id' => $wsid);
+        $potential = vtws_revise($data, $user);
+    }
 
     /**
      * Функция считает количество дней между двумя датами
