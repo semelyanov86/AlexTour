@@ -751,7 +751,7 @@ class RelBlockRun extends CRMEntity {
         global $current_user;
 
 		$advfilterlist = $this->getAdvFilterByRBid($relblockid);
- 
+
 		$advfiltersql = "";
         $customView = new CustomView();
 		$dateSpecificConditions = $customView->getStdFilterConditions();
@@ -1876,7 +1876,9 @@ class RelBlockRun extends CRMEntity {
         if ($allColumnsRestricted) {
             $reportquery .= " limit 0";
         }
-
+if ($relblockid == '19') {
+    $reportquery = "SELECT distinct $selectedcolumns FROM vtiger_contactdetails INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_contactdetails.contactid INNER JOIN vtiger_crmentityrel ON (vtiger_crmentityrel.relcrmid = vtiger_crmentity.crmid OR vtiger_crmentityrel.crmid = vtiger_crmentity.crmid) LEFT JOIN vtiger_account ON vtiger_account.accountid = vtiger_contactdetails.accountid LEFT JOIN vtiger_contactaddress ON vtiger_contactaddress.contactaddressid = vtiger_contactdetails.contactid LEFT JOIN vtiger_contactsubdetails ON vtiger_contactsubdetails.contactsubscriptionid = vtiger_contactdetails.contactid LEFT JOIN vtiger_customerdetails ON vtiger_customerdetails.customerid = vtiger_contactdetails.contactid LEFT JOIN vtiger_contactscf ON vtiger_contactscf.contactid = vtiger_contactdetails.contactid LEFT JOIN vtiger_users ON vtiger_users.id = vtiger_crmentity.smownerid LEFT JOIN vtiger_groups ON vtiger_groups.groupid = vtiger_crmentity.smownerid WHERE vtiger_crmentity.deleted = 0 AND (vtiger_crmentityrel.crmid = '$this->crmid' OR vtiger_crmentityrel.relcrmid = '$this->crmid')";
+}
         $log->info("ReportRun :: Successfully returned sGetSQLforReport" . $relblockid);
         //$this->queryPlanner->initializeTempTables();
         return $reportquery;
