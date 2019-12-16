@@ -41,7 +41,7 @@
     <body>
     <div class="vte-login-container">
         <div class="logo">
-            <img src="test/logo/logo-small.png" />
+            <img src="test/logo/logo-small.png" style="width: 200px;" />
         </div>
         <div style="margin-left: -10px">
             <div class="col-lg-6 col-md-6 col-sm-6 slideshow">
@@ -137,7 +137,7 @@
                                         </a>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 copy-right">
-                            <small>Metzler IT Service VtigerCRM</small>
+                            <small>Metzler IT GmbH</small>
                         </div>
                     </div>
                 </div>

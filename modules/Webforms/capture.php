@@ -37,7 +37,9 @@ class Webform_Capture {
             "email" => "email",
             "phone" => "phone",
             "mailingcountry" => "country",
-            "mailingstreet" => "contact_address"
+            "mailingcity" => "mailingcity",
+            "mailingstreet" => "mailingstreet",
+            "mailingzip" => "mailingzip"
         ),
         "Traveller" => array(
             "firstname" => "firstname",
@@ -48,6 +50,12 @@ class Webform_Capture {
             "one_room" => "one_room",
             "trip_service" => "trip_service"
         )
+    );
+    public $salutations = array(
+        "Mr." => "Sehr geehrter Herr",
+        "Ms." => "Sehr geehrte Frau",
+        "Dr." => "Sehr geehrter Herr Dr.",
+        "Prof." => "Sehr geehrter Herr Prof."
     );
 
 	function captureNow($request) {
@@ -225,7 +233,7 @@ class Webform_Capture {
             foreach ($this->fieldsMapping['PackageServices'] as $key=>$value) {
                 $paramServices[$key] = $request['traveller_' . $value][$i];
             }
-            $parameters['cf_2030'] = $request['traveller_title'][$i];
+            $parameters['cf_2030'] = $this->salutations[$request['traveller_title'][$i]];
             $contact = vtws_create('Contacts', $parameters, $user);
             $contactId = vtws_getCRMEntityId($contact['id']);
             $relModel->addRelation($potentialId, $contactId);
@@ -344,8 +352,27 @@ class Webform_Capture {
             }
         }
         $parameters['cf_2028'] = $hasTrip;
+        $parameters['cf_2038'] = $hasTrip;
+        $rooms = $this->calcRoomsQty($request['traveller_one_room']);
+        $parameters['cf_2040'] = $rooms[0];
+        $parameters['cf_2042'] = $rooms[1];
+        $parameters['cf_2044'] = $rooms[0] + $rooms[1];
 //        $parameters['cf_1962'] = 'russland-reisen.de';
         return $parameters;
+    }
+
+    protected function calcRoomsQty($array)
+    {
+        $twoRooms = 0;
+        $oneRooms = 0;
+        foreach ($array as $value) {
+            if ($value == 'on') {
+                $oneRooms++;
+            } else {
+                $twoRooms++;
+            }
+        }
+        return array($oneRooms, $twoRooms / 2);
     }
 
     protected function attachHotels($record, $request)
