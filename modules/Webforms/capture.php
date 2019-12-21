@@ -52,10 +52,11 @@ class Webform_Capture {
         )
     );
     public $salutations = array(
-        "Mr." => "Sehr geehrter Herr",
-        "Ms." => "Sehr geehrte Frau",
-        "Dr." => "Sehr geehrter Herr Dr.",
-        "Prof." => "Sehr geehrter Herr Prof."
+        "Mr." => "Herr",
+        "Ms." => "Frau",
+        "Mrs." => "Frau",
+        "Dr." => "Dr.",
+        "Prof." => "Prof."
     );
 
 	function captureNow($request) {
@@ -342,8 +343,12 @@ class Webform_Capture {
 //        }
         $parameters['cf_tours_id'] = vtws_getWebserviceEntityId('Tours', $request['toursid']);
         $parameters['cf_1647'] = 'Airport-Hotel-Airport';
-        $parameters['cf_1639'] = $this->countDaysBetweenDates($request["cf_1637"], $request["closingdate"]);
-        $parameters['cf_1641'] = $this->countNightsBetweenDates($request['cf_1637'], $request['closingdate']);
+        $nightsQty = $this->countNightsBetweenDates($request['cf_1637'], $request['closingdate']);
+        $parameters['cf_1641'] = $nightsQty;
+        $nightsQty++;
+        $parameters['cf_1639'] = $nightsQty;
+        $parameters['cf_2054'] = $request['cf_2054'];
+        $parameters['cf_2056'] = $request['cf_2056'];
         $hasTrip = 0;
         foreach ($request["traveller_trip_service"] as $trip) {
             if ($trip == 'on') {

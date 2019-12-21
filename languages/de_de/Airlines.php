@@ -9,16 +9,16 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'Airlines' => 'Airlines',
-  'SINGLE_Airlines' => 'Airline',
-  'Airlines ID' => 'Airline ID',
-  'LBL_AIRLINES_INFORMATION' => 'Airline Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add Airline',
+  'LBL_CUSTOM_INFORMATION' => 'Zusatzinfo',
+  'Airlines' => 'Fluglinien',
+  'SINGLE_Airlines' => 'Fluglinie',
+  'Airlines ID' => 'Fluglinie ID',
+  'LBL_AIRLINES_INFORMATION' => 'Fluglinie Information',
+  'Created Time' => 'erstellt',
+  'Modified Time' => 'geändert',
+  'Modified By' => 'geändert von',
+  'LBL_DESCRIPTION' => 'Beschreibung',
+  'LBL_ADD_RECORD' => 'Fluglinie hinzufügen',
 );
 
 $jsLanguageStrings = array (

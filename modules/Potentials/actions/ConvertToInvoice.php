@@ -37,7 +37,7 @@ class Potentials_ConvertToInvoice_Action extends Vtiger_Action_Controller
             $recordModel->set("description", $parentModel->get('description'));
             $recordModel->set("potential_id", $parentId);
             $recordModel->set("invoicedate", date('Y-m-d'));
-            $recordModel->set("duedate", date('Y-m-d', strtotime(date('Y-m-d') . ' + 7 days')));
+            $recordModel->set("duedate", $parentModel->get('cf_2058'));
             $recordModel->set('salescommission', $parentModel->get('probability'));
             $recordModel->set('account_id', $parentModel->get('related_to'));
             $recordModel->set("customerno", $contactModel->get('contact_no'));

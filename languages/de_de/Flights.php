@@ -9,16 +9,32 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'Flights' => 'Flights',
-  'SINGLE_Flights' => 'Flight',
-  'Flights ID' => 'Flight ID',
-  'LBL_FLIGHTS_INFORMATION' => 'Flight Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add Flight',
+  'LBL_CUSTOM_INFORMATION' => ' Zusätzliche Information',
+  'Flights' => 'Flüge',
+  'SINGLE_Flights' => 'Flug',
+  'Flights ID' => 'Flug ID',
+  'LBL_FLIGHTS_INFORMATION' => 'Flug-Info',
+  'Created Time' => 'erstellt',
+  'Modified Time' => 'geändert',
+  'Modified By' => 'bearbeitet',
+  'LBL_DESCRIPTION' => 'Beschreibung',
+  'LBL_ADD_RECORD' => 'Flug hinzufügen',
+  'Type' => 'Flugtype',
+  'Charter' => 'Charter',
+  'Regular' => 'Linienflug',
+  'Departure Date' => 'Anreisedatum',
+  'Arrival Date' => 'Abreisedatum',
+  'Departure time' => 'Abflug',
+  'Arrival time' => 'Ankuft',
+  'Transport' => 'Beförderung',
+  'Avia' => 'Flug',
+  'Railway' => 'Zug',
+  'From' => 'Von',
+  'To' => 'Nach',
+  'Through' => 'Über',
+  'Авиакомпания' => 'Fluglinie',
+  'Is Through Flight' => 'Umsteige',
+  'Name' => 'Flug'
 );
 
 $jsLanguageStrings = array (

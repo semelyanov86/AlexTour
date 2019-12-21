@@ -552,7 +552,7 @@ $languageStrings = array(
         'Shipping & Handling'          => 'Доставка и хранение',
         //SalesPlatfrom.ru end
     
-	'Lead Source'                  => 'Источник Обращения',
+	'Lead Source'                  => 'Узнали о нас из:',
 	'Mobile'                       => 'Моб.'                     ,
 	'Notify Owner'                 => 'Уведомить ответственного',
 	'Other Phone'                  => 'Другой тел.'        ,
