@@ -9,16 +9,21 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'ServiceDetails' => 'ServiceDetails',
-  'SINGLE_ServiceDetails' => 'ServiceDetail',
-  'ServiceDetails ID' => 'ServiceDetail ID',
-  'LBL_SERVICEDETAILS_INFORMATION' => 'ServiceDetail Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add ServiceDetail',
+    'LBL_CUSTOM_INFORMATION' => 'Weitere Informationen',
+    'ServiceDetails' => 'Servicedetails',
+    'SINGLE_ServiceDetails' => 'Servicedetails',
+    'ServiceDetails ID' => 'ID Servicedetails',
+    'LBL_SERVICEDETAILS_INFORMATION' => 'Aufnahmedetails',
+    'Created Time' => 'Erstellungsdatum',
+    'Modified Time' => 'Datum ändern',
+    'Modified By' => 'Geändert von',
+    'LBL_DESCRIPTION' => 'Beschreibung',
+    'LBL_ADD_RECORD' => 'Servicedetails hinzufügen',
+    'Name' => 'Name',
+    'Service Qty' => 'Menge',
+    'Service Price' => 'Preis',
+    'Service Amount' => 'Kosten',
+    'Услуга' => 'Service',
 );
 
 $jsLanguageStrings = array (

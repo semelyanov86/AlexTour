@@ -9,16 +9,25 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'PackageServices' => 'PackageServices',
-  'SINGLE_PackageServices' => 'PackageService',
-  'PackageServices ID' => 'PackageService ID',
-  'LBL_PACKAGESERVICES_INFORMATION' => 'PackageService Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add PackageService',
+    'LBL_CUSTOM_INFORMATION' => 'Weitere Informationen',
+    'PackageServices' => 'Paketdienste',
+    'SINGLE_PackageServices' => 'Paketdienst',
+    'PackageServices ID' => 'ID Paketdienst',
+    'LBL_PACKAGESERVICES_INFORMATION' => 'Informationen zum Paketdienst',
+    'Created Time' => 'Erstellungsdatum',
+    'Modified Time' => 'Datum ändern',
+    'Modified By' => 'Geändert von',
+    'LBL_DESCRIPTION' => 'Beschreibung',
+    'LBL_ADD_RECORD' => 'Service zum Paket hinzufügen',
+    'Double Room' => 'Doppelzimmer',
+    'One Room' => 'Einzelzimmer',
+    'Trip' => 'Ausflug',
+    'Vegetarian Meal' => 'Vegetarisches Essen',
+    'Transfer' => 'Übertragen',
+    'Visa' => 'Visum',
+    'Insurance' => 'Versicherung',
+    'Additional Bed' => 'Zustellbett',
+    'Контакт' => 'Kontakt',
 );
 
 $jsLanguageStrings = array (

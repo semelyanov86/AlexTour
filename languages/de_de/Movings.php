@@ -9,16 +9,24 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'Movings' => 'Movings',
-  'SINGLE_Movings' => 'Moving',
-  'Movings ID' => 'Moving ID',
-  'LBL_MOVINGS_INFORMATION' => 'Moving Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add Moving',
+    'LBL_CUSTOM_INFORMATION' => 'Weitere Informationen',
+    'Movings' => 'Flüge',
+    'SINGLE_Movings' => 'Flug',
+    'Movings ID' => 'ID Flug',
+    'LBL_MOVINGS_INFORMATION' => 'Fluginfo',
+    'Created Time' => 'Erstellungsdatum',
+    'Modified Time' => 'Datum ändern',
+    'Modified By' => 'Geändert von',
+    'LBL_DESCRIPTION' => 'Beschreibung',
+    'LBL_ADD_RECORD' => 'Verschieben hinzufügen',
+    'MType' => 'Wohin',
+    'In' => 'Dort',
+    'Out' => 'Zurück',
+    'Through' => 'Durch',
+    'Date of Flight' => 'Flugdatum',
+    'Departure time' => 'Abfahrtszeit',
+    'Arrival time' => 'Ankunftszeit',
+    'Рейс' => 'Flug'
 );
 
 $jsLanguageStrings = array (

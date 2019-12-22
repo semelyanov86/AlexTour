@@ -42,7 +42,7 @@ $languageStrings = array(
 	'LBL_RELATED_CONTACTS'         => 'Related Contacts'            , 
 	'LBL_RELATED_PRODUCTS'         => 'Related Products'            , 
     'Related To'                   => 'Name der Organisation'       ,
-    'Type'                         => 'Typ'                         , 
+    'Type'                         => 'Type'                         ,
     
     //Convert Potentials
     'LBL_CONVERT_POTENTIAL'        => 'Konvertieren Chancen'       ,
@@ -55,6 +55,27 @@ $languageStrings = array(
 	'LBL_CUSTOM_FIELD_MAPPING'     => 'Gelegenheit, Mapping-Projekt'          ,
 
   'Contact Name' => 'Kontakt Name',
+
+    'Date start' => 'Reisestartdatum',
+    'Individual' => 'Individuell',
+    'Grouping' => 'Gruppe',
+    'VIP' => 'VIP',
+    'Days Qty' => 'Anzahl der Tage',
+    'Nights Qty' => 'Anzahl der Nächte',
+    'Potential type' => 'Art der Transaktion',
+    'Tour Order' => 'Tour bestellen',
+    'Visa Order' => 'Visa Bestellung',
+    'Tourists Qty' => 'Anzahl der Reisenden',
+    'Transfer' => 'Übertragen',
+    'Airport-Hotel-Airport' => 'Flughafen-Hotel-Flughafen',
+    'Living Wants' => 'Wünsche zu bleiben',
+    'Two Beds' => 'Einzelbett',
+    'Vegetarian' => 'Vegetarisches Essen',
+    'Closest Door' => 'Zimmer mit Verbindungstür',
+    'Three In Room' => 'Drei in einem Raum',
+    'Tour' => 'Tour',
+    'Self Company' => 'Juristische Person',
+    'Default' => 'Default',
 
 );
 

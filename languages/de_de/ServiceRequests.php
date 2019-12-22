@@ -9,16 +9,23 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'ServiceRequests' => 'ServiceRequests',
-  'SINGLE_ServiceRequests' => 'ServiceRequest',
-  'ServiceRequests ID' => 'ServiceRequest ID',
-  'LBL_SERVICEREQUESTS_INFORMATION' => 'ServiceRequest Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add ServiceRequest',
+    'LBL_CUSTOM_INFORMATION' => 'Weitere Informationen',
+    'ServiceRequests' => 'Serviceanfragen',
+    'SINGLE_ServiceRequests' => 'Serviceanfrage',
+    'ServiceRequests ID' => 'ID Serviceanfrage',
+    'LBL_SERVICEREQUESTS_INFORMATION' => 'Informationen zu Anfragen',
+    'Created Time' => 'Erstellungsdatum',
+    'Modified Time' => 'Datum ändern',
+    'Modified By' => 'Geändert von',
+    'LBL_DESCRIPTION' => 'Beschreibung',
+    'LBL_ADD_RECORD' => 'Serviceanfrage hinzufügen',
+    'Name' => 'Name',
+    'Service Type' => 'Art der Dienstleistung',
+    'Additional Bed' => 'Zustellbett',
+    'Status' => 'Status',
+    'Created' => 'Erstellt von',
+    'In progress' => 'Ausstehend',
+    'Approved' => 'Genehmigt',
 );
 
 $jsLanguageStrings = array (
