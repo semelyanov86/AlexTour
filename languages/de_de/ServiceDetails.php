@@ -24,6 +24,7 @@ $languageStrings = array (
     'Service Price' => 'Preis',
     'Service Amount' => 'Kosten',
     'Услуга' => 'Service',
+    'Сделка' => 'Potentiale'
 );
 
 $jsLanguageStrings = array (

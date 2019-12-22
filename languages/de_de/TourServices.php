@@ -9,16 +9,19 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'TourServices' => 'TourServices',
-  'SINGLE_TourServices' => 'TourService',
-  'TourServices ID' => 'TourService ID',
-  'LBL_TOURSERVICES_INFORMATION' => 'TourService Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add TourService',
+    'LBL_CUSTOM_INFORMATION' => 'Weitere Informationen',
+    'TourServices' => 'Reisedienstleistungen',
+    'SINGLE_TourServices' => 'Touristischer Service',
+    'TourServices ID' => 'ID Touristischer Service',
+    'LBL_TOURSERVICES_INFORMATION' => 'Serviceinformationen',
+    'Created Time' => 'Erstellungsdatum',
+    'Modified Time' => 'Datum ändern',
+    'Modified By' => 'Geändert von',
+    'LBL_DESCRIPTION' => 'Beschreibung',
+    'LBL_ADD_RECORD' => 'Reisedienst hinzufügen',
+    'Name' => 'Name',
+    'Description' => 'Beschreibung',
+    'Описание' => 'Beschreibung'
 );
 
 $jsLanguageStrings = array (

@@ -26,6 +26,7 @@ $languageStrings = array (
     'Created' => 'Erstellt von',
     'In progress' => 'Ausstehend',
     'Approved' => 'Genehmigt',
+    'Сделка' => 'Potentiale'
 );
 
 $jsLanguageStrings = array (

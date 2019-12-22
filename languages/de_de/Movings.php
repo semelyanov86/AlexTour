@@ -26,7 +26,8 @@ $languageStrings = array (
     'Date of Flight' => 'Flugdatum',
     'Departure time' => 'Abfahrtszeit',
     'Arrival time' => 'Ankunftszeit',
-    'Рейс' => 'Flug'
+    'Рейс' => 'Flug',
+    'Счет' => 'Invoice'
 );
 
 $jsLanguageStrings = array (

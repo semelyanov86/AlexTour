@@ -1055,6 +1055,9 @@ außerhalb Vtiger.',
   'LBL_THUMBNAIL_VIEW' => 'Miniaturansicht',
   'LBL_CHART_VIEW' => 'Diagramm-Ansicht',
 
+    'My Dashboard' => 'My Dashboard',
+  'Default' => 'Default',
+
 
   'LBL_DAY(S)' => 'Tag(s)',
   'LBL_HOUR(S)' => 'Stunde(N)',

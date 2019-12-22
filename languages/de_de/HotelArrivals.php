@@ -26,7 +26,8 @@ $languageStrings = array (
     'Pax' => 'Anzahl der Einwohner',
     'Price' => 'Lebenshaltungskosten',
     'Breakfast Box' => 'Breakfast box before 07:00',
-    'Отель' => 'Hotel'
+    'Отель' => 'Hotel',
+    'Сделка' => 'Potentiale'
 );
 
 $jsLanguageStrings = array (
