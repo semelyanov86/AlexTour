@@ -164,6 +164,12 @@
         </td>
         {foreach item=FIELD_MODEL from=$FIELDS_LIST name=fields_list_data}
             {assign var=FIELD_MODEL value=$FIELD_MODEL->set('fieldvalue',$RELATED_RECORD_MODEL->get($FIELD_MODEL->getFieldName()))}
+            {if ($FIELD_MODEL->getName() eq 'cf_1781')}
+                {continue}
+            {/if}
+            {if ($FIELD_MODEL->getName() eq 'cf_1871')}
+                {continue}
+            {/if}
             {if $FIELD_MODEL->isEditable() eq 'true'}
                 <td class="fieldValue {$WIDTHTYPE}" {if $FIELD_MODEL->get('uitype') eq '19' or $FIELD_MODEL->get('uitype') eq '20'} colspan="" {/if} data-field-type="{$FIELD_MODEL->getFieldDataType()}" data-field-width="{RelatedBlocksLists_Module_Model::getWidthForField($FIELD_MODEL->getName(),$BLOCKID)}" style="white-space:nowrap;">
                     {assign var=COL_WIDTH value=RelatedBlocksLists_Module_Model::getWidthForField($FIELD_MODEL->getName(),$BLOCKID)}

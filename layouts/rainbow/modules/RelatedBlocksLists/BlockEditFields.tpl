@@ -33,6 +33,16 @@
         {assign var=COUNTER value=$COUNTER+1}
         {/if}
         <td class="fieldLabel alignMiddle">
+            {if $FIELD_NAME eq 'cf_1781'}
+                <input type="hidden" name="HotelArrivals_cf_1781" value="">
+                <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Contacts', 'RelatedBlocksLists')}</button>
+                {continue}
+            {/if}
+            {if $FIELD_NAME eq 'cf_1871'}
+                <input type="hidden" name="TourPrices_cf_1871" value="">
+                <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Hotels', 'RelatedBlocksLists')}</button>
+                {continue}
+            {/if}
             {if $isReferenceField eq "reference"}
                 {if $refrenceListCount > 1}
                     {assign var="DISPLAYID" value=$FIELD_MODEL->get('fieldvalue')}

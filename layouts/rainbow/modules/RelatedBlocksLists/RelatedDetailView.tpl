@@ -66,6 +66,12 @@
                                         <th class="norwap" style=""></th>
                                     {/if}
                                     {foreach item=FIELD_MODEL from=$FIELDS_LIST name=fields_list_header}
+                                        {if ($FIELD_MODEL->getName() eq 'cf_1781')}
+                                            {continue}
+                                        {/if}
+                                        {if ($FIELD_MODEL->getName() eq 'cf_1871')}
+                                            {continue}
+                                        {/if}
                                         {if $FIELD_MODEL->isEditable() eq 'true'}
                                             <th class="norwap {$WIDTHTYPE}" {if $FIELD_MODEL@last} style="width:{$CELLWIDTH}%;" {else} style="width:{$CELLWIDTH}%;" {/if} ><span class="listViewContentHeaderValues">{if $FIELD_MODEL->isMandatory() eq true} <span class="redColor">*</span> {/if}{vtranslate($FIELD_MODEL->get('label'), $RELMODULE_NAME)}</span></th>
                                         {/if}
