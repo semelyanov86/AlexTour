@@ -29,7 +29,7 @@ $languageStrings = array(
 	'Attempted to Contact'         => 'Попытка связаться', 
 	'Cold'                         => 'Холодный'            , 
 	'Contact in Future'            => 'Контакт в будущем', 
-	'Contacted'                    => 'Есть Контакт'     , 
+	'Contacted'                    => 'Каталог отправлен'     ,
 	'Hot'                          => 'Горячий'              ,
     'Hot Leads'                    => 'Горячие Обращения',
 	'Junk Lead'                    => 'Ненужное Обращение', 
@@ -55,6 +55,7 @@ $languageStrings = array(
     'Phone' => 'Основной телефон',
     'Secondary Email' => 'Второй адрес электронной почты',
     'Email' => 'Основной адрес электронной почты',    
+    'Status Changed Successfully' => 'Статус обращения успешно изменён',
 );
 $jsLanguageStrings = array(
 	'JS_SELECT_CONTACTS'           => 'Выберите контакты для продолжения'  , // TODO: Review

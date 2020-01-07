@@ -557,6 +557,9 @@ jQuery.Class("PDFMaker_Actions_Js",{
 
                             detailViewButtonContainerDiv.find('.selectPDFTemplates').on('click', function(){
                                 PDFMaker_Actions_Js.showPDFTemplatesSelectModal();
+                                if (app.getModuleName() == 'Leads') {
+                                    Leads_Detail_Js.changeLeadStatus('Contacted');
+                                }
                             });
                         }
                     }

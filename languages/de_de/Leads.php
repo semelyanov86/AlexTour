@@ -30,7 +30,7 @@ $languageStrings = array(
 	'Попытка связаться'         => 'Kontaktierung versucht'      ,
 	'Cold'                         => 'kalt'                        ,
 	'Contact in Future'            => 'in der Zukunft kontaktieren' , 
-	'Contacted'                    => 'kontaktiert'                 , 
+	'Contacted'                    => 'Katalog Sent'                 ,
 	'Hot'                          => 'heiss'                       , 
 	'Junk Lead'                    => 'wertloser Lead'              , 
 	'Lost Lead'                    => 'Lead verloren'               , 
@@ -51,6 +51,7 @@ $languageStrings = array(
   'Phone' => 'Primäre Telefon',
   'Secondary Email' => 'Sekundäre E-Mail',
   'Email' => 'Primäre E-Mail',
+  'Status Changed Successfully' => 'Status Changed Successfully',
 
 );
 $jsLanguageStrings = array(

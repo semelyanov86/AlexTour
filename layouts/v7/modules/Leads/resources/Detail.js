@@ -38,6 +38,32 @@ Vtiger_Detail_Js("Leads_Detail_Js", {
         } else {
             instance.displayConvertLeadModel(Leads_Detail_Js.cache, buttonElement);
         }
+    },
+
+    changeLeadStatus : function(status) {
+        var recordId = app.getRecordId();
+        var params = {};
+        params['module'] = 'Leads';
+        params['action'] = 'ActionAjax';
+        params['mode'] = 'changeStatus';
+        params['record'] = recordId;
+        params['status'] = status;
+        app.helper.showProgress();
+        app.request.post({data:params}).then(
+            function(err,data) {
+                console.log(data);
+                if(err == null){
+                    app.helper.showSuccessNotification({'message': data.message});
+                } else {
+                    console.error(err);
+                }
+                app.helper.hideProgress();
+            },
+            function(error) {
+                console.error(error);
+                app.helper.hideProgress();
+            }
+        );
     }
 
 }, {
