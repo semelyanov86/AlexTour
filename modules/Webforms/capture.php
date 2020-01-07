@@ -149,6 +149,12 @@ class Webform_Capture {
 					}
 				}
 			}
+			if(isset($parameters['firstname'])) {
+			    $parameters['firstname'] = ucfirst($parameters['firstname']);
+            }
+            if(isset($parameters['lastname'])) {
+                $parameters['lastname'] = ucfirst($parameters['lastname']);
+            }
 
 			// New field added to show Record Source
 			$parameters['source'] = 'Webform';
