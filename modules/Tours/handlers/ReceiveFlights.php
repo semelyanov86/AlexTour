@@ -14,12 +14,15 @@ include_once 'include/Webservices/ModuleTypes.php';
 include_once 'include/Webservices/Revise.php';
 include_once 'include/Webservices/Create.php';
 include_once 'include/Webservices/RetrieveRelated.php';
+include_once 'include/Webservices/Retrieve.php';
 
 class Tours_ReceiveFlights_Handler {
 
     public $fields = array('name', 'flightsno', 'type', 'id', 'transport', 'cf_airports_from_id', 'cf_airports_to_id', 'description', 'cf_airlines_id', 'time_departure', 'time_arrival');
 
     public $namesFields = array('cf_airports_from_id', 'cf_airports_to_id', 'cf_airlines_id');
+
+    public $descriptionField = array('cf_airlines_id');
 
     public function receiveFlights($data){
         global $site_URL;
@@ -42,6 +45,10 @@ class Tours_ReceiveFlights_Handler {
                     $finalData[$key][$field] = vtws_getCRMEntityId($entity[$field]);
                 } else {
                     $finalData[$key][$field] = $entity[$field];
+                }
+                if (in_array($field, $this->descriptionField)) {
+                    $airline = vtws_retrieve($entity[$field], $current_user);
+                    $finalData[$key][$field . '_description'] = $airline['description'];
                 }
             }
         }
