@@ -967,6 +967,7 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                     app.helper.hideProgress();
                     container.html(data);
                     thisInstance.registerDetailViewEvents(container);
+                    jQuery('table.listViewEntriesTable').find('input[name="name"]').attr('name', 'name_' + related_record);
                 }
             }
         )
