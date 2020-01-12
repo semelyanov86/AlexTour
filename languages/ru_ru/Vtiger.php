@@ -2110,6 +2110,7 @@ $jsLanguageStrings = array(
     'JS_UPDATED' => 'Обновлено',
     'JS_THIS_FILE_HAS_ALREADY_BEEN_SELECTED' => 'Этот файл уже был выбран',
     'No Results Found' => 'Не найдено',
+    'JS_MOVE_CHANGE_ORDER' => 'Переместите запись для изменения порядка в выдаче',
     'Community' => 'Сообщество'
     //SalesPlatform.ru end
 );

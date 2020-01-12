@@ -247,4 +247,33 @@ class Tours extends Vtiger_CRMEntity {
             }
         }
     }
+
+    public static function addWidgetTo()
+    {
+        $widgetType = "HEADERSCRIPT";
+        $widgetName = "html5sortable";
+        $link = "layouts/rainbow/modules/Tours/assets/html5sortable.js";
+        include_once "vtlib/Vtiger/Module.php";
+        $moduleNames = array("Tours");
+        foreach ($moduleNames as $moduleName) {
+            $module = Vtiger_Module::getInstance($moduleName);
+            if ($module) {
+                $module->addLink($widgetType, $widgetName, $link);
+            }
+        }
+    }
+    public static function removeWidgetTo()
+    {
+        $widgetType = "HEADERSCRIPT";
+        $widgetName = "html5sortable";
+        $link = "layouts/rainbow/modules/Tours/assets/html5sortable.js";
+        include_once "vtlib/Vtiger/Module.php";
+        $moduleNames = array("Tours");
+        foreach ($moduleNames as $moduleName) {
+            $module = Vtiger_Module::getInstance($moduleName);
+            if ($module) {
+                $module->deleteLink($widgetType, $widgetName, $link);
+            }
+        }
+    }
 }

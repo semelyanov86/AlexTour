@@ -18,6 +18,7 @@ function vtws_query_related($query, $id, $relatedLabel, $user, $filterClause = n
     $handlerPath  = $webserviceObject->getHandlerPath();
     $handlerClass = $webserviceObject->getHandlerClass();
     require_once $handlerPath;
+    $relArray = require 'modules/Tours/relationConfig.php';
     $handler = new $handlerClass($webserviceObject, $user, $adb, $log);
     $meta = $handler->getMeta();
     $entityName = $meta->getObjectEntityName($id);
@@ -51,6 +52,17 @@ function vtws_query_related($query, $id, $relatedLabel, $user, $filterClause = n
     require_once $relatedHandlerPath;
     $relatedHandler = new $relatedHandlerClass($relatedWebserviceObject, $user, $adb, $log);
     $relatedIds = $handler->relatedIds($id, $relatedType, $relatedLabel, $relatedHandler);
+    if (array_key_exists($entityName, $relArray) && in_array($relatedType, $relArray)) {
+        $parentModule = Vtiger_Record_Model::getInstanceById(vtws_getCRMEntityId($id), $entityName);
+        $relModel = Vtiger_Relation_Model::getInstance($parentModule->getModule(), Vtiger_Module_Model::getInstance($relatedType));
+        $orders = $relModel->getOrderForTourModel($parentModule, $relatedType);
+        if($orders && !empty($orders)) {
+            $relatedIds = array();
+            foreach ($orders as $order) {
+                $relatedIds[] = vtws_getWebserviceEntityId($relatedType, $order);
+            }
+        }
+    }
 
 	// Initialize return value
 	$relatedRecords = array();
@@ -71,6 +83,23 @@ function vtws_query_related($query, $id, $relatedLabel, $user, $filterClause = n
         $query.=";";
         $relatedRecords = vtws_query($query, $user);
     }
+
+    usort($relatedRecords, function($a, $b) use ($relatedIds)
+    {
+        $key1 = $a['id'];
+        $key2 = $b['id'];
+        $res1 = array_search($key1, $relatedIds);
+        $res2 = array_search($key2, $relatedIds);
+        if ($res1 == $res2)
+        {
+            return 0;
+        } else if ($res1 > $res2)
+        {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
 
 	VTWS_PreserveGlobal::flush();	
     return $relatedRecords;

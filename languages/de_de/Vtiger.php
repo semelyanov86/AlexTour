@@ -1462,6 +1462,7 @@ $jsLanguageStrings = array(
   'JS_TOMORROW' => 'morgen',
   'JS_YESTERDAY' => 'gestern',
   'JS_CREATE_TASK' => 'Aufgabe Erstellen',
+    'JS_MOVE_CHANGE_ORDER' => 'Move entity to change order',
 
 
   'JS_SUPPORTPREMIUM_MONTH_PLAN_TO_UPGRADE_CONFIRMATION' => 'Unterstützung der Premium-plan monatliche Abo-Gebühr ($24 pro Benutzer. Ihr Konto wird der Betrag der Differenz zwischen den Preisen für den verbleibenden Teil des aktuellen Abrechnungszeitraums. Bitte bestätigen Sie, wenn Sie wollen, gehen Sie zu der Support-Premium-Abo Monatlich.',
