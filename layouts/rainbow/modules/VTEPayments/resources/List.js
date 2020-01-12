@@ -5,7 +5,23 @@
  * Portions created by VTExperts.com. are Copyright(C) VTExperts.com.
  * All Rights Reserved.
  * ****************************************************************************** */
-Vtiger.Class("VTEPayments_List_Js",{},{
+Vtiger.Class("VTEPayments_List_Js",{
+    validateSendFilePage : function() {
+        jQuery('#sendFile').off('click');
+        jQuery('#sendFile').click(function(e) {
+            app.helper.showProgress('Creating payments');
+            var bankValue = jQuery('select[name="cf_2068"]').val();
+            if (!bankValue) {
+                e.preventDefault();
+                alert('Please select bank first!');
+            }
+            if(document.getElementById("sendFile").value == "") {
+                e.preventDefault();
+                alert('Please choose file first!');
+            }
+        });
+    },
+},{
 // Vtiger_List_Js("VTEPayments_List_Js", {}, {
     /* For License page - Begin */
     init : function() {

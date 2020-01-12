@@ -13,6 +13,7 @@ class VTEPayments_Ajax_Action extends Vtiger_IndexAjax_View
         $this->exposeMethod("updateTooltipArea");
         $this->exposeMethod("applyCredit");
         $this->exposeMethod("saveCredit");
+        $this->exposeMethod("showSendFile");
 //        $this->vteLicense();
     }
     public function vteLicense()
@@ -218,6 +219,21 @@ class VTEPayments_Ajax_Action extends Vtiger_IndexAjax_View
             $obj_payment->save("VTEPayments");
         }
     }
+
+    function showSendFile(Vtiger_Request $request) {
+        global $site_URL;
+        $sourceModule = $request->getModule();
+        $moduleName = $request->getModule();
+
+        $user = Users_Record_Model::getCurrentUserModel();
+        $moduleModel = Vtiger_Module_Model::getInstance($moduleName);
+        $viewer = $this->getViewer($request);
+        $viewer->assign('MODULE', $moduleName);
+        $viewer->assign('USER_MODEL', $user);
+        $viewer->assign('FIELD_MODEL', Vtiger_Field_Model::getInstance('cf_2068', $moduleModel));
+        echo $viewer->view('SendFileForm.tpl', $moduleName, true);
+    }
+
 }
 
 ?>
