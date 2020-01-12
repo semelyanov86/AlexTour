@@ -39,7 +39,25 @@
 	'chat'=>'chat', 
 	'mobilecall'=>'call', 
 	'call'=>'call', 
-	'meeting'=>'people' 
+	'meeting'=>'people',
+	'tours' => 'card_travel',
+	'flights' => 'flight',
+	'tourprices' => 'insert_chart',
+	'airports' => 'rv_hookup',
+	'tourservices' => 'room_service',
+	'hotels' => 'hotel',
+	'cities' => 'location_city',
+	'vtepayments' => 'payment',
+	'packageservices' => 'shop',
+	'movings' => 'flight_land',
+	'discounts' => 'trending_down',
+	'servicerequests' => 'add_shopping_cart',
+	'countries' => 'public',
+	'airlines' => 'router',
+	'servicedetails' => 'book',
+	'hotelprices' => 'local_atm',
+	'hotelarrivals' => 'local_activity',
+	'visa' => 'nfc'
 
 ]}
 

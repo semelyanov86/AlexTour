@@ -115,7 +115,7 @@
 									'emails'=>'email','reports'=>'show_chart','servicecontracts'=>'content_paste','contacts'=>'contacts','campaigns'=>'notifications',
 									'quotes'=>'description','invoice'=>'description','emailtemplates'=>'subtitles','pbxmanager'=>'perm_phone_msg','rss'=>'rss_feed',
 									'recyclebin'=>'delete_forever','products'=>'inbox','portal'=>'web','inventory'=>'assignment','support'=>'headset','tools'=>'business_center',
-									'mycthemeswitcher'=>'folder', 'chat'=>'chat', 'mobilecall'=>'call', 'call'=>'call', 'meeting'=>'people' ]}
+									'mycthemeswitcher'=>'folder', 'chat'=>'chat', 'mobilecall'=>'call', 'call'=>'call', 'meeting'=>'people', 'tours' => 'card_travel', 'flights' => 'flight', 'tourprices' => 'insert_chart', 'airports' => 'rv_hookup', 'tourservices' => 'room_service', 'hotels' => 'hotel', 'cities' => 'location_city', 'vtepayments' => 'payment', 'packageservices' => 'shop', 'movings' => 'flight_land', 'discounts' => 'trending_down', 'servicerequests' => 'add_shopping_cart', 'countries' => 'public', 'airlines' => 'router', 'servicedetails' => 'book', 'hotelprices' => 'local_atm', 'hotelarrivals' => 'local_activity', 'visa' => 'nfc' ]}
 									
                                 <li>
                                     <time class="update_time cursorDefault">
