@@ -25,6 +25,7 @@ class Tours_ReceiveFlights_Handler {
     public $descriptionField = array('cf_airlines_id');
 
     public function receiveFlights($data){
+        header('Access-Control-Allow-Origin: *');
         global $site_URL;
         global $adb;
         $response = new Vtiger_Response();
