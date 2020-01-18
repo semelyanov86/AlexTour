@@ -294,10 +294,19 @@ class Vtiger_Util_Helper {
 		}
 
 		$date = strtotime($dateInUserFormat);
+        if($currentUser->get("language") == "de_de") {
+            $formatedDate = vtranslate('LBL_'.date('D', $date)). ', ' .date('d', $date). '. ' .vtranslate('LBL_'.date('M', $date)). ' ' .date('Y', $date);
+            //Adding time details
+            $formatedDate .= ' um ' .$displayTime. ' Uhr';
+        } else {
+            $formatedDate = vtranslate('LBL_'.date('D', $date)). ', ' .vtranslate('LBL_'.date('M', $date)). ' ' .date('d', $date). ', ' .date('Y', $date);
+            //Adding time details
+            $formatedDate .= ' ' .vtranslate('LBL_AT'). ' ' .$displayTime;
+        }
 		//Adding date details
-		$formatedDate = vtranslate('LBL_'.date('D', $date)). ', ' .vtranslate('LBL_'.date('M', $date)). ' ' .date('d', $date). ', ' .date('Y', $date);
+//		$formatedDate = vtranslate('LBL_'.date('D', $date)). ', ' .vtranslate('LBL_'.date('M', $date)). ' ' .date('d', $date). ', ' .date('Y', $date);
 		//Adding time details
-		$formatedDate .= ' ' .vtranslate('LBL_AT'). ' ' .$displayTime;
+//		$formatedDate .= ' ' .vtranslate('LBL_AT'). ' ' .$displayTime;
 
 		return $formatedDate;
 	}

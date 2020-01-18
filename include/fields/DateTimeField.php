@@ -83,7 +83,7 @@ class DateTimeField {
 
 		$format = $current_user->date_format;
 		if(empty($format)) {
-			$format = 'dd-mm-yyyy';
+			$format = 'dd.mm.yyyy';
 		}
 
 		return self::__convertToDBFormat($date, $format);
@@ -107,7 +107,13 @@ class DateTimeField {
 			list($m, $d, $y) = explode('-', $date);
 		} elseif ($format == 'yyyy-mm-dd') {
 			list($y, $m, $d) = explode('-', $date);
-		}
+		} elseif ($format == 'dd.mm.yyyy') {
+            if(strpos($date, "-") !== false) {
+                list($d, $m, $y) = explode('-', $date);
+            } else {
+                list($d, $m, $y) = explode('.', $date);
+            }
+        }
 
 		if (!$y && !$m && !$d) {
 			$dbDate = '';
@@ -143,7 +149,7 @@ class DateTimeField {
 		}
 		$format = $user->date_format;
 		if(empty($format)) {
-			$format = 'dd-mm-yyyy';
+			$format = 'dd.mm.yyyy';
 		}
 		return self::__convertToUserFormat($date, $format);
 	}
@@ -164,7 +170,9 @@ class DateTimeField {
 			$date[0] = $m . '-' . $d . '-' . $y;
 		} elseif ($format == 'yyyy-mm-dd') {
 			$date[0] = $y . '-' . $m . '-' . $d;
-		}
+		} elseif ($format == 'dd.mm.yyyy') {
+            $date[0] = $d . '.' . $m . '.' . $y;
+        }
 		if ($date[1] != '') {
 			$userDate = $date[0] . ' ' . $date[1];
 		} else {

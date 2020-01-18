@@ -46,6 +46,7 @@ class Calendar_RepeatEvents {
 			case 'dd-mm-yyyy': $format_string = 'd-m-Y H:i'; break;
 			case 'mm-dd-yyyy': $format_string = 'm-d-Y H:i'; break;
 			case 'yyyy-mm-dd': $format_string = 'Y-m-d H:i'; break;
+            case 'dd.mm.yyyy': $format_string = 'd.m.Y H:i'; break;
 		}
 		return date($format_string, self::mktime($timeInYMDHIS));
 	}

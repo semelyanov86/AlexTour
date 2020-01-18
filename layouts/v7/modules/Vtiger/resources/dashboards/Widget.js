@@ -92,6 +92,8 @@ Vtiger.Class('Vtiger_Widget_Js',{
 			return 'MM-dd-yyyy';
 		}else if(userDateFormat == 'dd-mm-yyyy') {
 			return 'dd-MM-yyyy';
+		} else if(userDateFormat == 'dd.mm.yyyy') {
+			return 'dd.MM.yyyy';
 		}
 	},
 

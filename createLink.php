@@ -5,9 +5,9 @@ require_once 'modules/Vtiger/helpers/ShortURL.php';
 global $adb;
 $adb = PearDatabase::getInstance();
 $options = array(
-    'handler_path' => 'modules/Tours/handlers/ReceiveFlights.php',
-    'handler_class' => 'Tours_ReceiveFlights_Handler',
-    'handler_function' => 'receiveFlights',
+    'handler_path' => 'modules/VTEPayments/handlers/DeletePayments.php',
+    'handler_class' => 'VTEPayments_DeletePayments_Handler',
+    'handler_function' => 'deletePayments',
     'handler_data' => array()
 );
 $trackURL = Vtiger_ShortURL_Helper::generateURL($options);

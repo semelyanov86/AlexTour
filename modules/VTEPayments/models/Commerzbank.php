@@ -187,7 +187,11 @@ class VTEPayments_Commerzbank_Model
     private function getDBDateFormat(string $date) : string
     {
         $arr = explode('.', $date);
-        return '20' . $arr[2] . '-' . $arr[1] . '-' . $arr[0];
+        $yearVal = $arr[2];
+        if (strlen($yearVal) < 4) {
+            $yearVal = '20' . $arr[2];
+        }
+        return $yearVal . '-' . $arr[1] . '-' . $arr[0];
     }
 
     protected function createPaymentModel(array $payment)
@@ -201,6 +205,8 @@ class VTEPayments_Commerzbank_Model
                 $paymentModel->set($field, $this->getDBDateFormat($curValue));
             } elseif ($field == 'reference') {
                 $paymentModel->set($field, $this->getUniqId($payment));
+            } elseif($field == 'cf_2070') {
+                $paymentModel->set($field, $this->getFormatNameValue($curValue));
             } else {
                 $paymentModel->set($field, $curValue);
             }
@@ -210,6 +216,12 @@ class VTEPayments_Commerzbank_Model
         }
         $paymentModel->save();
         return $paymentModel;
+    }
+
+    public function getFormatNameValue(string $value): string
+    {
+        $lowString = strtolower($value);
+        return ucwords($lowString);
     }
 
     protected function getUniqueIdFieldName()

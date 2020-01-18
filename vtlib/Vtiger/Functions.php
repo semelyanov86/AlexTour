@@ -28,7 +28,9 @@ class Vtiger_Functions {
 			$dt_popup_fmt = "%m-%d-%Y";
 		} elseif ($current_user->date_format == 'yyyy-mm-dd') {
 			$dt_popup_fmt = "%Y-%m-%d";
-		}
+		} elseif ($current_user->date_format == 'dd.mm.yyyy') {
+            $dt_popup_fmt = "%d.%m.%Y";
+        }
 		return $dt_popup_fmt;
 	}
 
@@ -47,7 +49,7 @@ class Vtiger_Functions {
 		global $current_user;
 		$dat_fmt = $current_user->date_format;
 		if ($dat_fmt == '') {
-			$dat_fmt = 'dd-mm-yyyy';
+			$dat_fmt = 'dd.mm.yyyy';
 		}
 		$date = new DateTimeField($value);
 		return $date->getDisplayDate();

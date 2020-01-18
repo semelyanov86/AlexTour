@@ -302,6 +302,7 @@ $combo_strings = Array(
                               'Last Week'=>'Last Week'
 		      ),
 'date_format_dom' => Array('dd-mm-yyyy'=>'dd-mm-yyyy',
+                    'dd.mm.yyyy'=>'dd.mm.yyyy',
 			      'mm-dd-yyyy'=>'mm-dd-yyyy',
                               'yyyy-mm-dd'=>'yyyy-mm-dd'
 			      ),

@@ -542,12 +542,19 @@ var app = {
 			return 'm-d-Y';
 		} else if (dateFormat == 'dd-mm-yyyy') {
 			return 'd-m-Y';
+		}  else if (dateFormat == 'dd.mm.yyyy') {
+			return 'd.m.Y';
 		}
 	},
 
 	convertTojQueryDatePickerFormat: function(dateFormat){
 		var i = 0;
-		var splitDateFormat = dateFormat.split('-');
+		// var splitDateFormat = dateFormat.split('-');
+		var dotMode = false;
+		if(dateFormat.indexOf(".") != -1 && dateFormat.indexOf("-") == -1) {
+			dotMode = true;
+		}
+		var splitDateFormat = dateFormat.split(dotMode?'.':'-');
 		for(var i in splitDateFormat){
 			var sectionDate = splitDateFormat[i];
 			var sectionCount = sectionDate.length;
@@ -556,7 +563,7 @@ var app = {
 				splitDateFormat[i] = strippedString;
 			}
 		}
-		var joinedDateFormat =  splitDateFormat.join('-');
+		var joinedDateFormat =  splitDateFormat.join(dotMode?'.':'-');
 		return joinedDateFormat;
 	},
 	getDateInVtigerFormat: function(dateFormat,dateObject){

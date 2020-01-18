@@ -70,6 +70,10 @@ $languageStrings = Array(
     'LBL_HAS_BEEN_SUCCESSFULLY' => 'has been installed & activated successfully!',
     'LBL_MORE_EXTENSIONS' => 'For more vTiger Extensions, please visit our website',
     /* For License page - End */
+    'Commerzbank' => 'Haspa',
+    'Payer' => 'Kreditoren/Debitoren',
+    'Amount' => 'Summe',
+    'Date' => 'Datum'
 
 
 );
