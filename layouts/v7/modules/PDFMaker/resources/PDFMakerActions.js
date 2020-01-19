@@ -368,7 +368,13 @@ jQuery.Class("PDFMaker_Actions_Js",{
 
         var params = this.getDefaultParams('IndexAjax');
         params['mode'] = 'PDFTemplatesSelect';
-
+        if (app.getModuleName() == 'Leads') {
+            var selected = params['selected_ids'];
+            selected = JSON.parse(selected);
+            selected.forEach(function(id) {
+                Leads_List_Js.changeLeadStatus('Contacted', id);
+            });
+        }
         app.helper.showProgress();
         app.request.get({data:params}).then(function(err,response){
             var callback = function(container) {
