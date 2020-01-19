@@ -247,6 +247,9 @@ class Webform_Capture {
             $paramServices['name'] = $record['potentialname'];
             $paramServices['cf_potentials_id'] = $record['id'];
             $paramServices['cf_contacts_id'] = $contact['id'];
+            if (!isset($paramServices['one_room']) || !$paramServices['one_room']) {
+                $paramServices['double_room'] = 'on';
+            }
             $packageServices = vtws_create('PackageServices', $paramServices, $user);
         }
     }
