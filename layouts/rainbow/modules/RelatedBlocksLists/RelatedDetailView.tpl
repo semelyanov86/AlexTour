@@ -69,9 +69,9 @@
                                         {if ($FIELD_MODEL->getName() eq 'cf_1781')}
                                             {continue}
                                         {/if}
-                                        {if ($FIELD_MODEL->getName() eq 'cf_1871')}
+{*                                        {if ($FIELD_MODEL->getName() eq 'cf_1871')}
                                             {continue}
-                                        {/if}
+                                        {/if}*}
                                         {if ($FIELD_MODEL->getName() eq 'cf_2072')}
                                             {continue}
                                         {/if}

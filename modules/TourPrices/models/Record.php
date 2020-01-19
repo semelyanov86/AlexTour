@@ -10,6 +10,30 @@
 
 Class TourPrices_Record_Model extends Vtiger_Record_Model
 {
+    public function getHotelsNames()
+    {
+        global $adb;
+        $result = array();
+        if (!$this->getId()) {
+            return '';
+        }
+        $pagingModel = new Vtiger_Paging_Model();
+        $pagingModel->set('page', 1);
+        if(!empty($limit)) {
+            $pagingModel->set('limit', 100);
+        }
+        $relationModel = Vtiger_RelationListView_Model::getInstance($this, 'Hotels');
+        $entries = $relationModel->getEntries($pagingModel);
+        foreach ($entries as $entry) {
+            $result[] = $entry->getName();
+        }
+
+        if (empty($entries)) {
+            return '';
+        } else {
+            return implode(',', $result);
+        }
+    }
     public function getHotelsList()
     {
         global $adb;

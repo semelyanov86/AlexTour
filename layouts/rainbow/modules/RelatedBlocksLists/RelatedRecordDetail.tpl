@@ -167,9 +167,9 @@
             {if ($FIELD_MODEL->getName() eq 'cf_1781')}
                 {continue}
             {/if}
-            {if ($FIELD_MODEL->getName() eq 'cf_1871')}
+            {*{if ($FIELD_MODEL->getName() eq 'cf_1871')}
                 {continue}
-            {/if}
+            {/if}*}
             {if ($FIELD_MODEL->getName() eq 'cf_2072')}
                 {continue}
             {/if}
@@ -193,7 +193,11 @@
                                  {$DATE_FIELD->getDisplayValue($DATE_FIELD->get('fieldvalue'), $RELATED_RECORD_MODEL->getId(), $RELATED_RECORD_MODEL)}
                                  {assign var=DATE_FIELD value=$DATE_FIELD->set('fieldvalue',$DATE_TIME_VALUE)}
                              {else}
-                                 {include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getDetailViewTemplateName(),$RELMODULE_NAME) FIELD_MODEL=$FIELD_MODEL USER_MODEL=$USER_MODEL MODULE=$RELMODULE_NAME RECORD=$RELATED_RECORD_MODEL}
+                                 {if ($FIELD_MODEL->getName() eq 'cf_1871')}
+                                     {$RELATED_RECORD_MODEL->getHotelsNames()}
+                                 {else}
+                                    {include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getDetailViewTemplateName(),$RELMODULE_NAME) FIELD_MODEL=$FIELD_MODEL USER_MODEL=$USER_MODEL MODULE=$RELMODULE_NAME RECORD=$RELATED_RECORD_MODEL}
+                                 {/if}
                              {/if}
                          </span>
                         {if $FIELD_MODEL->isEditable() eq 'true' && ($FIELD_MODEL->getFieldDataType()!=Vtiger_Field_Model::REFERENCE_TYPE) && $FIELD_MODEL->getFieldDataType()!='documentsFileUpload'}
