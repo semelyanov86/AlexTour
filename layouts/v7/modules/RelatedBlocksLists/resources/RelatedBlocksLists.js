@@ -911,7 +911,7 @@ Vtiger.Class("RelatedBlocksLists_Js",{
             }
             else if(typeof field_type !== "undefined" && (field_type == 'percentage' || field_type == 'double' )) {
                 if(jQuery(this).val() != '' || jQuery(this).val() != undefined){
-                     var check_num = parseFloat(jQuery(this).val());
+                    var check_num = parseFloat(jQuery(this).val());
                     if(isNaN(check_num)){
                         jQuery(this).addClass('input-error');
                         var errorInfo = app.vtranslate('JS_PLEASE_ENTER_VALID_VALUE');
@@ -1208,95 +1208,95 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         sourcePickListNames = sourcePickListNames.substring(0, sourcePickListNames.length - 1);
         var sourcePickListElements = container.find(sourcePickListNames);
         if(sourcePickListElements.length > 0 && !sourcePickListElements.closest('tr').hasClass('relatedRecordsClone')){
-                sourcePickListElements.on('change', function(e) {
-                    var currentElement = jQuery(e.currentTarget);
-                    var sourcePicklistname = currentElement.attr('name');
-                    if(view == "Edit"){
-                        sourcePicklistname = currentElement.data('fieldname');
+            sourcePickListElements.on('change', function(e) {
+                var currentElement = jQuery(e.currentTarget);
+                var sourcePicklistname = currentElement.attr('name');
+                if(view == "Edit"){
+                    sourcePicklistname = currentElement.data('fieldname');
+                }
+                sourcePicklistname = sourcePicklistname.replace(relmodule + "_","");
+                var configuredDependencyObject = picklistDependencyMapping[sourcePicklistname];
+                if(typeof configuredDependencyObject !== "undefined"){
+                    var selectedValue = currentElement.val();
+                    var targetObjectForSelectedSourceValue = configuredDependencyObject[selectedValue];
+                    var picklistmap = configuredDependencyObject["__DEFAULT__"];
+                    if (typeof targetObjectForSelectedSourceValue == 'undefined') {
+                        targetObjectForSelectedSourceValue = picklistmap;
                     }
-                    sourcePicklistname = sourcePicklistname.replace(relmodule + "_","");
-                    var configuredDependencyObject = picklistDependencyMapping[sourcePicklistname];
-                    if(typeof configuredDependencyObject !== "undefined"){
-                        var selectedValue = currentElement.val();
-                        var targetObjectForSelectedSourceValue = configuredDependencyObject[selectedValue];
-                        var picklistmap = configuredDependencyObject["__DEFAULT__"];
-                        if (typeof targetObjectForSelectedSourceValue == 'undefined') {
-                            targetObjectForSelectedSourceValue = picklistmap;
+                    jQuery.each(picklistmap, function(targetPickListName, targetPickListValues) {
+                        var targetPickListMap = targetObjectForSelectedSourceValue[targetPickListName];
+                        if (typeof targetPickListMap == "undefined") {
+                            targetPickListMap = targetPickListValues;
                         }
-                        jQuery.each(picklistmap, function(targetPickListName, targetPickListValues) {
-                            var targetPickListMap = targetObjectForSelectedSourceValue[targetPickListName];
-                            if (typeof targetPickListMap == "undefined") {
-                                targetPickListMap = targetPickListValues;
-                            }
-                            var targetPickList = jQuery('[name="' + targetPickListName + '"]', container);
-                            if(view == "Edit"){
-                                targetPickList = jQuery('[data-fieldname="' + relmodule + "_" + targetPickListName + '"]', container);
-                            }
-                            if (targetPickList.length <= 0) {
-                                return;
-                            }
+                        var targetPickList = jQuery('[name="' + targetPickListName + '"]', container);
+                        if(view == "Edit"){
+                            targetPickList = jQuery('[data-fieldname="' + relmodule + "_" + targetPickListName + '"]', container);
+                        }
+                        if (targetPickList.length <= 0) {
+                            return;
+                        }
 
-                            //#1659840 tuannm 06192019 START
-                            var targetSourceValue = configuredDependencyObject[selectedValue];
-                            if(typeof targetSourceValue != 'undefined' && Object.keys(picklistmap).length>1){
-                                jQuery('[name="picklistmapfield"]', eleRelatedBlock).val(JSON.stringify(targetSourceValue));
-                            }
+                        //#1659840 tuannm 06192019 START
+                        var targetSourceValue = configuredDependencyObject[selectedValue];
+                        if(typeof targetSourceValue != 'undefined' && Object.keys(picklistmap).length>1){
+                            jQuery('[name="picklistmapfield"]', eleRelatedBlock).val(JSON.stringify(targetSourceValue));
+                        }
 
-                            var optionsTargetPickList = jQuery('[name="picklistmapfield"]', eleRelatedBlock).val();
-                            var arrPickListValues=[];
-                            var arrtargetPickList=[];
-                            if(optionsTargetPickList !=''){
-                                arrPickListValues = JSON.parse(optionsTargetPickList);
-                                arrtargetPickList = arrPickListValues[targetPickListName];
-                            }
-                            //#1659840 tuannm 06192019 END
+                        var optionsTargetPickList = jQuery('[name="picklistmapfield"]', eleRelatedBlock).val();
+                        var arrPickListValues=[];
+                        var arrtargetPickList=[];
+                        if(optionsTargetPickList !=''){
+                            arrPickListValues = JSON.parse(optionsTargetPickList);
+                            arrtargetPickList = arrPickListValues[targetPickListName];
+                        }
+                        //#1659840 tuannm 06192019 END
 
-                            thisInstance.targetPicklistChange = true;
-                            thisInstance.targetPicklist = targetPickList.closest('td');
+                        thisInstance.targetPicklistChange = true;
+                        thisInstance.targetPicklist = targetPickList.closest('td');
 
-                            var listOfAvailableOptions = targetPickList.data('availableOptions');
-                            if (typeof listOfAvailableOptions == "undefined") {
-                                listOfAvailableOptions = jQuery('option', targetPickList);
-                                targetPickList.data('available-options', listOfAvailableOptions);
-                            }
-                            var targetOptions = new jQuery();
+                        var listOfAvailableOptions = targetPickList.data('availableOptions');
+                        if (typeof listOfAvailableOptions == "undefined") {
+                            listOfAvailableOptions = jQuery('option', targetPickList);
+                            targetPickList.data('available-options', listOfAvailableOptions);
+                        }
+                        var targetOptions = new jQuery();
 
-                            var optionSelector = [];
-                            optionSelector.push('');
-                            //#1659840 tuannm 06192019 START
-                            for (var i = 0; i < targetPickListMap.length; i++) {
-                                if(typeof arrtargetPickList !='undefined' && arrtargetPickList.length>0){
-                                    if(jQuery.inArray(targetPickListMap[i], arrtargetPickList) != -1) {
-                                        optionSelector.push(targetPickListMap[i]);
-                                    }
-                                }else {
+                        var optionSelector = [];
+                        optionSelector.push('');
+                        //#1659840 tuannm 06192019 START
+                        for (var i = 0; i < targetPickListMap.length; i++) {
+                            if(typeof arrtargetPickList !='undefined' && arrtargetPickList.length>0){
+                                if(jQuery.inArray(targetPickListMap[i], arrtargetPickList) != -1) {
                                     optionSelector.push(targetPickListMap[i]);
                                 }
+                            }else {
+                                optionSelector.push(targetPickListMap[i]);
                             }
-                            //#1659840 tuannm 06192019 END
-                            var existed_index = [];
-                            jQuery.each(listOfAvailableOptions, function(i, e) {
-                                var picklistValue = jQuery(e).val();
-                                if (jQuery.inArray(picklistValue, optionSelector) !== -1 && jQuery.inArray(picklistValue,existed_index) === -1) {
-                                    targetOptions = targetOptions.add(jQuery(e));
-                                    existed_index.push(picklistValue);
-                                }
-                            });
-                            var targetPickListSelectedValue = '';
-                            targetPickListSelectedValue = targetOptions.filter('[selected]').val();
-                            if (targetPickListMap.length == 1) {
-                                targetPickListSelectedValue = targetPickListMap[0]; // to automatically select picklist if only one picklistmap is present.
+                        }
+                        //#1659840 tuannm 06192019 END
+                        var existed_index = [];
+                        jQuery.each(listOfAvailableOptions, function(i, e) {
+                            var picklistValue = jQuery(e).val();
+                            if (jQuery.inArray(picklistValue, optionSelector) !== -1 && jQuery.inArray(picklistValue,existed_index) === -1) {
+                                targetOptions = targetOptions.add(jQuery(e));
+                                existed_index.push(picklistValue);
                             }
-                            else{1
-                                targetPickListSelectedValue = "";
-                            }
-                            targetPickList.html(targetOptions).val(targetPickListSelectedValue).trigger("liszt:updated");
                         });
-                    }
-                });
-                //To Trigger the change on load
-                sourcePickListElements.trigger('change');
-         }
+                        var targetPickListSelectedValue = '';
+                        targetPickListSelectedValue = targetOptions.filter('[selected]').val();
+                        if (targetPickListMap.length == 1) {
+                            targetPickListSelectedValue = targetPickListMap[0]; // to automatically select picklist if only one picklistmap is present.
+                        }
+                        else{1
+                            targetPickListSelectedValue = "";
+                        }
+                        targetPickList.html(targetOptions).val(targetPickListSelectedValue).trigger("liszt:updated");
+                    });
+                }
+            });
+            //To Trigger the change on load
+            sourcePickListElements.trigger('change');
+        }
     },
 
     registerEditViewEvents: function (container) {
@@ -1332,7 +1332,7 @@ Vtiger.Class("RelatedBlocksLists_Js",{
             //parent_td.closest('table').find('th').css('width', 'auto');
             parent_td.closest('table').find('th').each(function (i,e) {
                 if(i > 0) jQuery(e).css('width', 'auto');
-                });
+            });
             var field_width_config = parent_td.data('field-width');
             var parent_div = parent_td.find('div.input-group');
 
@@ -1483,6 +1483,8 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                         thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName);
                     } else if (elementName == 'TourPrices_cf_1871') {
                         thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName, 'Hotels');
+                    } else if (elementName == 'TourPrices_cf_2072') {
+                        thisInstance.registerAddAirportsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName, 'Airports')
                     }
                 }
                 thisInstance.registerEventForPicklistDependencySetup(relatedRecord,rowNo,blockId);
@@ -1715,10 +1717,13 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                     lineItemRow.find('[name="' + actualElementName + '"]').attr('id', 'relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName)
                         .filter('[name="' + actualElementName + '"]').attr('name', expectedElementId)
                         .data('fieldname',elementName);
+                    console.log(actualElementName);
                     if (actualElementName == 'HotelArrivals_cf_1781') {
                         this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName);
                     } else if (actualElementName == 'TourPrices_cf_1871') {
                         this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName, 'Hotels');
+                    } else if (actualElementName == 'TourPrices_cf_2072') {
+                        this.registerAddAirportsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName, 'Airports');
                     }
                 }
             }
@@ -1792,6 +1797,45 @@ Vtiger.Class("RelatedBlocksLists_Js",{
             params.contacts = contactsId;
             params.multi_select = false;
             params.multiple = true;
+            var popupInstance = Vtiger_Popup_Js.getInstance();
+            popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
+                var  viewPortHeight= $(window).height()-120;
+                var params = {setHeight: (viewPortHeight)+'px'};
+                var params2 = {setHeight: (viewPortHeight-125)+'px'};
+                var params2_1 = {setHeight: (viewPortHeight-100)+'px'};
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.modal-body'), params);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.lockup-item-main'), params2_1);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.popupFillContainer_filter_fields_scroll'), params2);
+                var container = jQuery('.iTL-listViewEntriesTable');
+                var thead_h = container.find('thead').height();
+                var params3 = {setHeight: (viewPortHeight-125-thead_h)+'px'};
+                app.helper.showVerticalScroll(container.find('tbody'), params3);
+            });
+            thisInstance.setPopupInstance(popupInstance);
+        });
+    },
+
+    registerAddAirportsPopup : function(element, module = 'Airports') {
+        var btn = jQuery('#' + element).next('button');
+        var thisInstance = this;
+        btn.on('click', function(e) {
+            e.preventDefault();
+            var elementObj = jQuery('#' + element);
+            var contactsId = elementObj.val();
+            var params = {};
+            var record = app.getRecordId();
+            if (!record) {
+                record = jQuery('[name="record"]').val();
+            }
+            params.module = module;
+            params.element_id = element;
+            params.view = 'Popup';
+            params.parent = app.getModuleName();
+            params.parent_id = record;
+            params.contacts = contactsId;
+            params.multi_select = false;
+            params.multiple = true;
+            console.log(params);
             var popupInstance = Vtiger_Popup_Js.getInstance();
             popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
                 var  viewPortHeight= $(window).height()-120;
@@ -2165,10 +2209,10 @@ jQuery(document).ajaxComplete( function (event, request, settings) {
                         blocks = jQuery.parseJSON(blocks);
                         blocks = blocks.reverse();
                         var arrBlockId = [];
-                         global_flag = false;
+                        global_flag = false;
                         if(blocks.length) {
                             $('.relatedContainer').css('display','none');
-                             app.helper.showProgress();
+                            app.helper.showProgress();
                             $('.relatedContainer').html('');
                             blocks.forEach(function (item){
                                 var after_block = item.blockData[0];
@@ -2185,10 +2229,10 @@ jQuery(document).ajaxComplete( function (event, request, settings) {
                                 var html = '<div id="related_block_content_'+item.blockData[0]+'"></div>';
                                 $('.relatedContainer').append(html);
                             });
-			     var related_list = '';
+                            var related_list = '';
                             var totalItems = blocks.length;
                             idxItem = 0;
-                           
+
                             blocks.forEach(function (item){
                                 idxItem += 1;
                                 var after_block = item.blockData[0];
@@ -2203,7 +2247,7 @@ jQuery(document).ajaxComplete( function (event, request, settings) {
                                     source_module:module,
                                     relatedModule:relatedModule,
                                 };
-                                 //app.helper.showProgress();
+                                //app.helper.showProgress();
                                 app.request.post({data:viewParams}).then(
                                     function (err,data) {
                                         if (err == null) {
@@ -2225,13 +2269,13 @@ jQuery(document).ajaxComplete( function (event, request, settings) {
                                 );
                             })
                         }
-                        
+
                         var showBlockInterval = setInterval(function(){
                             if (global_flag){
-                              $('.relatedContainer').css('display','block');
-                              clearInterval(showBlockInterval);
+                                $('.relatedContainer').css('display','block');
+                                clearInterval(showBlockInterval);
                             }
-                      }, 2000);
+                        }, 2000);
                     }
                 }
             );
@@ -2289,10 +2333,10 @@ jQuery(document).ready(function(){
                         blocks = jQuery.parseJSON(blocks);
                         blocks = blocks.reverse();
                         var arrBlockId = [];
-                         global_flag = false;
+                        global_flag = false;
                         if(blocks.length) {
                             $('.relatedContainer').css('display','none');
-                             app.helper.showProgress();
+                            app.helper.showProgress();
                             $('.relatedContainer').html('');
                             blocks.forEach(function (item){
                                 var after_block = item.blockData[0];
@@ -2312,7 +2356,7 @@ jQuery(document).ready(function(){
 
                             var totalItems = blocks.length;
                             idxItem = 0;
-                           
+
                             blocks.forEach(function (item){
                                 idxItem += 1;
                                 var after_block = item.blockData[0];
@@ -2351,13 +2395,13 @@ jQuery(document).ready(function(){
 
                             })
                         }
-                        
+
                         var showBlockInterval = setInterval(function(){
                             if (global_flag){
-                              $('.relatedContainer').css('display','block');
-                              clearInterval(showBlockInterval);
+                                $('.relatedContainer').css('display','block');
+                                clearInterval(showBlockInterval);
                             }
-                      }, 2000);
+                        }, 2000);
                     }
                 }
             );

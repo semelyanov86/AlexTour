@@ -34,6 +34,39 @@ Class TourPrices_Record_Model extends Vtiger_Record_Model
             return json_encode($ids);
         }
     }
+
+    /**
+     * Function to get list of related airports for cf_2072 field
+     * @param Vtiger_Record_Model $recordModel
+     * @return string
+     */
+    public function getAirportsList(Vtiger_Record_Model $recordModel)
+    {
+        $ids = array();
+        if (!$recordModel->getId()) {
+            return '';
+        }
+        if ($this->isEmpty('cf_2072')) {
+            $pagingModel = new Vtiger_Paging_Model();
+            $pagingModel->set('page', 1);
+            if(!empty($limit)) {
+                $pagingModel->set('limit', 100);
+            }
+            $relationModel = Vtiger_RelationListView_Model::getInstance($recordModel, 'Airports', 'Airports');
+            $entries = $relationModel->getEntries($pagingModel);
+            if (empty($entries)) {
+                return '';
+            }
+            /*foreach ($entries as $entry) {
+                $ids[] = (int) $entry->getId();
+            }*/
+
+            return json_encode(array_keys($entries));
+        } else {
+            return '';
+            return $this->get('cf_2072');
+        }
+    }
 }
 
 ?>

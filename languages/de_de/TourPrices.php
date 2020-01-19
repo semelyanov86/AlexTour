@@ -9,16 +9,24 @@
  ************************************************************************************/
 
 $languageStrings = array (
-  'LBL_CUSTOM_INFORMATION' => 'Custom Information',
-  'TourPrices' => 'TourPrices',
-  'SINGLE_TourPrices' => 'TourPrice',
-  'TourPrices ID' => 'TourPrice ID',
-  'LBL_TOURPRICES_INFORMATION' => 'TourPrice Information',
-  'Created Time' => 'Created At',
-  'Modified Time' => 'Modified At',
-  'Modified By' => 'Modified By',
-  'LBL_DESCRIPTION' => 'Description',
-  'LBL_ADD_RECORD' => 'Add TourPrice',
+  'LBL_CUSTOM_INFORMATION' => 'Zusatzinfo',
+  'TourPrices' => 'Reisenpreise',
+  'SINGLE_TourPrices' => 'Preis für Reise',
+  'TourPrices ID' => 'ID Reisepreis',
+  'LBL_TOURPRICES_INFORMATION' => 'Reiseinfo',
+  'Created Time' => 'erstellt',
+  'Modified Time' => 'geändert',
+  'Modified By' => 'geändert von',
+  'LBL_DESCRIPTION' => 'Beschreibung',
+  'LBL_ADD_RECORD' => 'Preis für Reise hinzufügen',
+  'Date Start' => 'Anreise',
+  'Date End' => 'Abreise',
+  'Status' => 'Status',
+  'Price Per Person' => 'DZZ',
+  'EZZ' => 'EZZ',
+  'Choosed Hotels' => 'Hotels ausgewählt',
+  'Тур' => 'Reise',
+    'Choosed airports' => 'Choosed Airports'
 );
 
 $jsLanguageStrings = array (

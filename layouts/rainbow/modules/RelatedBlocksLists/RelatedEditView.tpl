@@ -107,6 +107,11 @@
                                             <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Hotels', 'RelatedBlocksLists')}</button>
                                             {continue}
                                         {/if}
+                                        {if $FIELD_MODEL->getName() eq 'cf_2072'}
+                                            <input type="hidden" name="TourPrices_cf_2072" value="">
+                                            <button type="button" class="btn btn-outline addContactsBtn">{vtranslate('Add Airports', 'RelatedBlocksLists')}</button>
+                                            {continue}
+                                        {/if}
                                         {assign var=FIELD_TABID value=RelatedBlocksLists_Module_Model::getRelatedTabIdForField($FIELD_MODEL->getId())}
                                         {*{if ($FIELD_MODEL->get('uitype') eq '51' || $FIELD_MODEL->get('uitype') eq '10') && ($CURRENT_TABID eq $FIELD_TABID)}
                                             {$RECORD_MODEL ->getDisplayValue($FIELD_MODEL->getName())}

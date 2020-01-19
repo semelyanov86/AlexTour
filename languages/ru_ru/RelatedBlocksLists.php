@@ -74,6 +74,7 @@ $languageStrings = array(
     'LBL_INFO_BLOCK'=>'Info',
     'LBL_INFO_BLOCK_ON_SETTING_PAGE'=>'To create related blocks & lists, please go to the Module Layouts & Fields, you will then see 2 new buttons "Add Related Block" and "Add Related List".<br/>Use these buttons to add lists/blocks.<br /><br/>Please review our documentation for this extension for more details.',
     'LBL_INFO_BLOCK_ON_SETTING_PAGE_V6'=>'To create related blocks & lists, please go to the Fields and Layout Editor, you will then see 2 new buttons "Add Related Block" and "Add Related List".<br/>Use these buttons to add lists/blocks.<br /><br/>Please review our documentation for this extension for more details.',
+    'Add Airports' => 'Добавить аэропорты'
 );
 
 $jsLanguageStrings = array();

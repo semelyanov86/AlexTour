@@ -213,6 +213,15 @@ class RelatedBlocksLists_MassActionAjax_View extends Vtiger_IndexAjax_View
         $viewer->assign("CURRENT_TABID", getTabid($source_module));
         $viewer->assign("SOURCE_MODULE", $source_module);
         $viewer->assign("SOURCE_RECORD", $record);
+        if ($record && $record > 0) {
+            $parentModel = Vtiger_Record_Model::getInstanceById($record, $source_module);
+        } else {
+            $parentModel = false;
+        }
+        if (!$parentModel) {
+            $parentModel = Vtiger_Record_Model::getCleanInstance($source_module);
+        }
+        $viewer->assign("PARENT_RECORD_MODEL", $parentModel);
         $viewer->assign("USER_MODEL", Users_Record_Model::getCurrentUserModel());
         $sql = "SELECT\n            actions\n        FROM\n            `vtiger_relatedlists`\n        WHERE\n            tabid = (\n                SELECT\n                    tabid\n                FROM\n                    vtiger_tab\n                WHERE\n                    `name` = '" . $source_module . "'\n            )\n        AND related_tabid = (\n            SELECT\n                tabid\n            FROM\n                vtiger_tab\n            WHERE\n                `name` = '" . $relModule . "'\n        )";
         $results = $adb->pquery($sql, array());

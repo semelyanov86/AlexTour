@@ -1482,6 +1482,8 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                         thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName);
                     } else if (elementName == 'TourPrices_cf_1871') {
                         thisInstance.registerAddContactsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName, 'Hotels');
+                    } else if (elementName == 'TourPrices_cf_2072') {
+                        thisInstance.registerAddAirportsPopup('relatedblockslists_'+blockId+"_"+rowNo+"_"+elementName, 'Airports')
                     }
                 }
                 thisInstance.registerEventForPicklistDependencySetup(relatedRecord,rowNo,blockId);
@@ -1718,6 +1720,8 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                         this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName);
                     } else if (actualElementName == 'TourPrices_cf_1871') {
                         this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName, 'Hotels');
+                    } else if (actualElementName == 'TourPrices_cf_2072') {
+                        this.registerAddAirportsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName, 'Airports');
                     }
                 }
             }
@@ -1806,6 +1810,42 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                 app.helper.showVerticalScroll(container.find('tbody'), params3);
             });
             thisInstance.setPopupInstance(popupInstance);
+        });
+    },
+
+    registerAddAirportsPopup : function(element, module = 'Airports') {
+        var btn = jQuery('#' + element).next('button');
+        console.log(btn);
+        var thisInstance = this;
+        btn.on('click', function(e) {
+            e.preventDefault();
+            var elementObj = jQuery('#' + element);
+            var contactsId = elementObj.val();
+            var params = {};
+            params.module = module;
+            params.element_id = element;
+            params.view = 'Popup';
+            params.parent = app.getModuleName();
+            params.parent_id = app.getRecordId();
+            params.contacts = contactsId;
+            params.multi_select = false;
+            params.multiple = true;
+            console.log(params);
+            /*var popupInstance = Vtiger_Popup_Js.getInstance();
+            popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
+                var  viewPortHeight= $(window).height()-120;
+                var params = {setHeight: (viewPortHeight)+'px'};
+                var params2 = {setHeight: (viewPortHeight-125)+'px'};
+                var params2_1 = {setHeight: (viewPortHeight-100)+'px'};
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.modal-body'), params);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.lockup-item-main'), params2_1);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.popupFillContainer_filter_fields_scroll'), params2);
+                var container = jQuery('.iTL-listViewEntriesTable');
+                var thead_h = container.find('thead').height();
+                var params3 = {setHeight: (viewPortHeight-125-thead_h)+'px'};
+                app.helper.showVerticalScroll(container.find('tbody'), params3);
+            });
+            thisInstance.setPopupInstance(popupInstance);*/
         });
     },
 

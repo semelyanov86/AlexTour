@@ -238,6 +238,11 @@ class RelatedBlocksListsHandler extends VTEventHandler
                             $this->deleteOldContacts($relRecordModel, 'Hotels');
                             $this->linkEntities($hotels, $relRecordModel, 'Hotels');
                         }
+                        if (isset($relatedRecord['TourPrices_cf_2072']) && $relatedRecord['TourPrices_cf_2072'] && !empty($relatedRecord['TourPrices_cf_2072'])) {
+                            $hotels = json_decode($relatedRecord['TourPrices_cf_2072']);
+                            $this->deleteOldContacts($relRecordModel, 'Airports');
+                            $this->linkEntities($hotels, $relRecordModel, 'Airports');
+                        }
 
                     }
                 }

@@ -630,7 +630,7 @@ class EnhancedQueryGenerator extends QueryGenerator {
                 $fieldSql = ' AND (';
                 $ownerFieldSQL = '';
                 foreach ($this->conditionals as $index => $conditionInfo) {
-                        if (in_array($conditionInfo['name'], $this->ownerFields)) {                               
+                        if (in_array($conditionInfo['name'], $this->ownerFields)) {
                                 $ownerConditionals[] = $conditionInfo['name'];
                                 $field = $moduleFieldList[$conditionInfo['name']];
                                 $valueSqlList = $this->getConditionValue($conditionInfo['value'], $conditionInfo['operator'], $field);
@@ -680,6 +680,9 @@ class EnhancedQueryGenerator extends QueryGenerator {
 			}
 
 			if (empty($field) || $conditionInfo['operator'] == 'None') {
+			    if ($fieldName == 'airportsid' && $conditionInfo['operator'] == 'IN') {
+			        $sql .= '' . $fieldName . ' ' . $conditionInfo['operator'] . ' (' . $conditionInfo['value'] . ')';
+                }
 				continue;
 			}
 
@@ -712,7 +715,7 @@ class EnhancedQueryGenerator extends QueryGenerator {
 			if (!is_array($valueSqlList)) {
 				$valueSqlList = array($valueSqlList);
 			}
-			foreach ($valueSqlList as $valueSql) {                       
+			foreach ($valueSqlList as $valueSql) {
 				if (in_array($baseFieldName, $this->referenceFieldList)) {
 					if ($conditionInfo['operator'] == 'y') {
 						$columnName = $field->getColumnName();
@@ -884,7 +887,9 @@ class EnhancedQueryGenerator extends QueryGenerator {
 		$groupSql = $this->makeGroupSqlReplacements($fieldSqlList, $groupSql);
 		if ($this->conditionInstanceCount > 0) {
 			$this->conditionalWhere = $groupSql;
-			$sql .= $groupSql;
+            if (trim($groupSql) !== '0') {
+                $sql .= $groupSql;
+            }
 		}
 		$sql .= " AND $baseTable.$baseTableIndex > 0";
                 if ($ownerFieldSQL !== '') {
