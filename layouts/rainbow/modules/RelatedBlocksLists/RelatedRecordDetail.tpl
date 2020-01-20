@@ -169,10 +169,10 @@
             {/if}
             {*{if ($FIELD_MODEL->getName() eq 'cf_1871')}
                 {continue}
-            {/if}*}
+            {/if}
             {if ($FIELD_MODEL->getName() eq 'cf_2072')}
                 {continue}
-            {/if}
+            {/if}*}
             {if $FIELD_MODEL->isEditable() eq 'true'}
                 <td class="fieldValue {$WIDTHTYPE}" {if $FIELD_MODEL->get('uitype') eq '19' or $FIELD_MODEL->get('uitype') eq '20'} colspan="" {/if} data-field-type="{$FIELD_MODEL->getFieldDataType()}" data-field-width="{RelatedBlocksLists_Module_Model::getWidthForField($FIELD_MODEL->getName(),$BLOCKID)}" style="white-space:nowrap;">
                     {assign var=COL_WIDTH value=RelatedBlocksLists_Module_Model::getWidthForField($FIELD_MODEL->getName(),$BLOCKID)}
@@ -195,6 +195,8 @@
                              {else}
                                  {if ($FIELD_MODEL->getName() eq 'cf_1871')}
                                      {$RELATED_RECORD_MODEL->getHotelsNames()}
+                                 {elseif ($FIELD_MODEL->getName() eq 'cf_2072')}
+                                     {$RELATED_RECORD_MODEL->getHotelsNames('Airports')}
                                  {else}
                                     {include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getDetailViewTemplateName(),$RELMODULE_NAME) FIELD_MODEL=$FIELD_MODEL USER_MODEL=$USER_MODEL MODULE=$RELMODULE_NAME RECORD=$RELATED_RECORD_MODEL}
                                  {/if}

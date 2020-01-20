@@ -10,7 +10,7 @@
 
 Class TourPrices_Record_Model extends Vtiger_Record_Model
 {
-    public function getHotelsNames()
+    public function getHotelsNames($relatedModule = 'Hotels')
     {
         global $adb;
         $result = array();
@@ -22,7 +22,7 @@ Class TourPrices_Record_Model extends Vtiger_Record_Model
         if(!empty($limit)) {
             $pagingModel->set('limit', 100);
         }
-        $relationModel = Vtiger_RelationListView_Model::getInstance($this, 'Hotels');
+        $relationModel = Vtiger_RelationListView_Model::getInstance($this, $relatedModule);
         $entries = $relationModel->getEntries($pagingModel);
         foreach ($entries as $entry) {
             $result[] = $entry->getName();
