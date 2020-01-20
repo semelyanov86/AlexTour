@@ -239,9 +239,16 @@ class RelatedBlocksListsHandler extends VTEventHandler
                             $this->linkEntities($hotels, $relRecordModel, 'Hotels');
                         }
                         if (isset($relatedRecord['TourPrices_cf_2072']) && $relatedRecord['TourPrices_cf_2072'] && !empty($relatedRecord['TourPrices_cf_2072'])) {
-                            $hotels = json_decode($relatedRecord['TourPrices_cf_2072']);
+                            $airports = json_decode($relatedRecord['TourPrices_cf_2072']);
+                            if (!$airports || empty($airports)) {
+                                $airports = Tours_Module_Model::getRelatedAirports($parentRecordId);
+                                $relRecordModel->set('mode', 'edit');
+                                $relRecordModel->set('cf_2072', json_encode($airports));
+//                                var_dump($relRecordModel);die;
+                                $relRecordModel->save();
+                            }
                             $this->deleteOldContacts($relRecordModel, 'Airports');
-                            $this->linkEntities($hotels, $relRecordModel, 'Airports');
+                            $this->linkEntities($airports, $relRecordModel, 'Airports');
                         }
 
                     }
@@ -269,7 +276,7 @@ class RelatedBlocksListsHandler extends VTEventHandler
         $hotelsModule = Vtiger_Module_Model::getInstance($module);
         $relationModel = Vtiger_Relation_Model::getInstance($hotelsModule, Vtiger_Module_Model::getInstance($recordModel->getModuleName()));
         foreach ($hotels as $hotel) {
-            $contactModel = Vtiger_Record_Model::getInstanceById($hotel, 'Hotels');
+            $contactModel = Vtiger_Record_Model::getInstanceById($hotel, $module);
             if ($contactModel) {
                 $relationModel->addRelation($hotel, $recordModel->getId());
             }

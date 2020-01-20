@@ -80,4 +80,21 @@ class Tours_Module_Model extends Vtiger_Module_Model
 
         return $moduleIcon;
     }
+    public static function getRelatedAirports($id)
+    {
+        if (!$id || $id < 1) {
+            return array();
+        } else {
+            $recModel = Vtiger_Record_Model::getInstanceById($id, 'Tours');
+            $pagingModel = new Vtiger_Paging_Model();
+            $pagingModel->set('page', 1);
+            if(!empty($limit)) {
+                $pagingModel->set('limit', 100);
+            }
+            $relListModel = Vtiger_RelationListView_Model::getInstance($recModel, 'Airports', 'Airports');
+            $entries = $relListModel->getEntries($pagingModel);
+            $keys = array_keys($entries);
+            return $keys;
+        }
+    }
 }

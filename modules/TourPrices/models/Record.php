@@ -81,13 +81,9 @@ Class TourPrices_Record_Model extends Vtiger_Record_Model
             if (empty($entries)) {
                 return '';
             }
-            /*foreach ($entries as $entry) {
-                $ids[] = (int) $entry->getId();
-            }*/
 
             return json_encode(array_keys($entries));
         } else {
-            return '';
             return $this->get('cf_2072');
         }
     }
