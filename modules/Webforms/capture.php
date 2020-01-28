@@ -68,6 +68,7 @@ class Webform_Capture {
         $honeypot = $request['unname'];
 		$returnURL = false;
 //		var_dump($request);die;
+        file_put_contents('filedump.txt', print_r($request, true));
 		try {
             //check if the honeypot field is filled out. If not, send a mail.
             if( $honeypot != '' ){
@@ -210,7 +211,7 @@ class Webform_Capture {
             foreach ($this->fieldsMapping["Contacts"] as $key=>$value) {
                 $parameters[$key] = $request[$value];
             }
-//            $parameters['cf_2030'] = $request['salutationtype'];
+            $parameters['cf_2030'] = $this->salutations[$request['salutationtype']];
             $parameters['cf_1960'] = 1;
             $parameters['assigned_user_id'] = $params['assigned_user_id'];
             $parameters['source'] = $params['source'];

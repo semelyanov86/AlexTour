@@ -188,6 +188,7 @@ class CurrencyField {
 			case '$1.0'	:
 			default		:	$returnValue = $currencySymbol . $currencyValue;
 		}
+		$returnValue = $currencyValue;
 		return $returnValue;
 	}
 
