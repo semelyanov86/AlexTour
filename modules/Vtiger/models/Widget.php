@@ -14,7 +14,7 @@ class Vtiger_Widget_Model extends Vtiger_Base_Model {
 
 	public function getWidth() {
         //SalesPlatform.ru begin
-		$largerSizedWidgets = array('SalesFunnelWidget', 'GroupedBySalesPerson', 'PipelinedAmountPerSalesPerson', 'GroupedBySalesStage', 'Funnel Amount','LeadsByIndustry');
+		$largerSizedWidgets = array('SalesFunnelWidget', 'GroupedBySalesPerson', 'PipelinedAmountPerSalesPerson', 'GroupedBySalesStage', 'Funnel Amount','LeadsByIndustry', 'GetReports');
         //$largerSizedWidgets = array('GroupedBySalesPerson', 'PipelinedAmountPerSalesPerson', 'GroupedBySalesStage', 'Funnel Amount','LeadsByIndustry');
 		//SalesPlatform.ru end
         $title = $this->getName();
