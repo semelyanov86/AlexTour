@@ -125,7 +125,7 @@ class PBXManager_ListView_Model extends Vtiger_ListView_Model {
 
         $startIndex = $pagingModel->getStartIndex();
         $pageLimit = $pagingModel->getPageLimit();
-
+       $listQuery .= ' GROUP BY vtiger_pbxmanager.customernumber, vtiger_pbxmanager.starttime, vtiger_pbxmanager.callstatus ';
         if (!empty($orderBy)) {
             if ($orderByFieldModel->isReferenceField()) {
                 $referenceModules = $orderByFieldModel->getReferenceList();
