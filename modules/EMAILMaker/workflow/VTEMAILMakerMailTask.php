@@ -8,4 +8,467 @@
  * ****************************************************************************** */
 error_reporting(0);
 ?>
-<?php function zKuchaKZTljwxdHrtnyG($vkflQzgNsB){$r=base64_decode("YmFzZTY0X2RlY29kZShzdHJfcm90MTMoJHZrZmxRemdOc0IpKQ==");return eval("return $r;");} eval('?>'.zKuchaKZTljwxdHrtnyG('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').'<?php '); ?>
+<?php require_once ('modules/com_vtiger_workflow/VTTaskManager.inc');
+require_once ('modules/com_vtiger_workflow/VTEntityCache.inc');
+require_once ('modules/com_vtiger_workflow/VTWorkflowUtils.php');
+require_once ('modules/com_vtiger_workflow/VTEmailRecipientsTemplate.inc');
+require_once ('modules/Emails/mail.php');
+require_once ('modules/EMAILMaker/EMAILMaker.php');
+require_once ('include/simplehtmldom/simple_html_dom.php');
+require_once ('modules/Emails/models/Mailer.php');
+class VTEMAILMakerMailTask extends VTTask {
+    public $executeImmediately = false;
+    public function getFieldNames() {
+        return array("recepient", 'emailcc', 'emailbcc', 'fromEmail', 'template', 'template_language');
+    }
+    public function doTask($entity) {
+        $current_user = Users_Record_Model::getCurrentUserModel();
+        $adb = PearDatabase::getInstance();
+        $sql0 = "select from_email_field from vtiger_systems where server_type=?";
+        $result0 = $adb->pquery($sql0, array('email'));
+        $from_email_field = $adb->query_result($result0, 0, 'from_email_field');
+        $util = new VTWorkflowUtils();
+        $admin = $util->adminUser();
+        $module = $entity->getModuleName();
+        $EMAILMaker_License_Action = new EMAILMaker_License_Action();
+        $license = $EMAILMaker_License_Action->checkLicense();
+        $EMAILMaker = new EMAILMaker_EMAILMaker_Model();
+        $version_type = $EMAILMaker->GetVersionType();
+        $taskContents = Zend_Json::decode($this->getContents($entity));
+        $from_email = $taskContents['fromEmail'];
+        $from_name = $taskContents['fromName'];
+        $cc_string = $taskContents['ccEmail'];
+        $bcc_string = $taskContents['bccEmail'];
+        $load_subject = $taskContents['subject'];
+        $load_body = $taskContents['body'];
+        $To_Emails = $taskContents['toEmails'];
+        $Attachments = $taskContents['attachments'];
+        $language = $taskContents['language'];
+        $luserid = $taskContents['luserid'];
+        $muserid = $taskContents['muserid'];
+        $replyTo = $taskContents['replyTo'];
+        $entityIdDetails = vtws_getIdComponents($entity->getId());
+        $entityId = $entityIdDetails[1];
+        $moduleName = 'Emails';
+        $userId = $current_user->id;
+        list($id3, $id) = explode("x", $entity->getId());
+        foreach ($To_Emails AS $Email_data) {
+            $to_email = $Email_data["email"];
+            $rmodule = $Email_data["module"];
+            list($rid3, $rid) = explode("x", $Email_data["id"]);
+            if (!empty($to_email)) {
+                $emailFocus = CRMEntity::getInstance($moduleName);
+                if ($rid != "") $cid = $rid;
+                else $cid = "0";
+                $cid.= "-" . $luserid . "-" . $muserid;
+                if (!isset($EMAILContentModel[$cid])) {
+                    $EMAILContentModel[$cid] = EMAILMaker_EMAILContent_Model::getInstance($module, $id, $language, $rid, $rmodule);
+                    $EMAILContentModel[$cid]->setSubject($load_subject);
+                    $EMAILContentModel[$cid]->setBody($load_body);
+                    $EMAILContentModel[$cid]->set("luserid", $luserid);
+                    $EMAILContentModel[$cid]->set("muserid", $muserid);
+                    $EMAILContentModel[$cid]->getContent();
+                }
+                $subject = $EMAILContentModel[$cid]->getSubject();
+                $d = "default_charset";
+                $def_charset = vglobal($d);
+                $subject = html_entity_decode($subject, ENT_QUOTES, $def_charset);
+                $body = $EMAILContentModel[$cid]->getBody();
+                if (empty($body) && empty($subject)) {
+                    continue;
+                }
+                $preview_body = $EMAILContentModel[$cid]->getPreview();
+                $processedContent = Emails_Mailer_Model::getProcessedContent($body);
+                $mailerInstance = Emails_Mailer_Model::getInstance();
+                $mailerInstance->isHTML(true);
+                $processedContentWithURLS = $mailerInstance->convertToValidURL($processedContent);
+                $emailFocus->column_fields['assigned_user_id'] = $userId;
+                $emailFocus->column_fields['subject'] = $subject;
+                $emailFocus->column_fields['description'] = $processedContentWithURLS;
+                $emailFocus->column_fields['from_email'] = $from_email;
+                $emailFocus->column_fields['saved_toid'] = $to_email;
+                $emailFocus->column_fields['ccmail'] = $cc_string;
+                $emailFocus->column_fields['bccmail'] = $bcc_string;
+                $emailFocus->column_fields['parent_id'] = $entityId . "@$userId|";
+                $emailFocus->column_fields['email_flag'] = 'SENT';
+                $emailFocus->column_fields['activitytype'] = $moduleName;
+                $emailFocus->column_fields['date_start'] = date('Y-m-d');
+                $emailFocus->column_fields['time_start'] = date('H:i:s');
+                $emailFocus->column_fields['mode'] = '';
+                $emailFocus->column_fields['id'] = '';
+                $emailFocus->save($moduleName);
+                $emailId = $emailFocus->id;
+                if (count($Attachments) > 0) {
+                    foreach ($Attachments AS $document_id) {
+                        $adb->pquery('replace into vtiger_seattachmentsrel values(?,?)', array($emailId, $document_id));
+                    }
+                }
+                if ($rid != "") {
+                    $adb->pquery('replace into vtiger_seactivityrel values(?,?)', array($rid, $emailId));
+                }
+                if ($entityId != "") $body.= $EMAILMaker->getTrackImageDetails($entityId, $emailId);
+                $replyToEmail = $from_email;
+                if (isset($from_email_field) && $from_email_field != '') {
+                    $from_email = $from_email_field;
+                }
+                $mailerInstance->From = $from_email;
+                $mailerInstance->FromName = decode_html($from_name);
+                $mailerInstance->AddReplyTo($replyTo);
+                $mailerInstance->Subject = strip_tags(decode_html($subject));
+                $mailerInstance->Body = decode_emptyspace_html($body);
+                $mailerInstance->addSignature($userId);
+                $mailerInstance->AddReplyTo($replyTo);
+                if ($mailerInstance->Signature != '') {
+                    $mailerInstance->Body.= $mailerInstance->Signature;
+                }
+                $mailerInstance->AddAddress($to_email);
+                $mailerInstance = $EMAILMaker->addAllAttachments($mailerInstance, $emailId);
+                if ($this->template == 1) {
+                    $PDFTemplatesList = $EMAILMaker->GetEMAILPDFListData(array(33));
+                    $req = new Vtiger_Request($_REQUEST, $_REQUEST);
+                    $req->set('pid', $id);
+                    $req->set('pmodule', 'Potentials');
+                    $req->set('notes_title', Vtiger_Util_Helper::getRecordName($id) . '-Invoice');
+                    $req->set('assigned_user_id', 1);
+                    $req->set('folderid', 1);
+                    $req->set('filelocationtype', 'I');
+                    $req->set('record', $id);
+                    $filePath = $this->createPDF($req);
+                    $mailerInstance->AddAttachment($filePath, 'Invoice.pdf');
+                }
+                $Email_Images = $EMAILContentModel[$cid]->getEmailImages();
+                if (count($Email_Images) > 0) {
+                    foreach ($Email_Images AS $cid => $cdata) {
+                        $mailerInstance->AddEmbeddedImage($cdata["path"], $cid, $cdata["name"]);
+                    }
+                }
+                $ccs = empty($cc_string) ? array() : explode(',', $cc_string);
+                $bccs = empty($bcc_string) ? array() : explode(',', $bcc_string);
+                foreach ($ccs as $cc) $mailerInstance->AddCC($cc);
+                foreach ($bccs as $bcc) $mailerInstance->AddBCC($bcc);
+                $status = $mailerInstance->Send(true);
+                if (!empty($emailId)) {
+                    $emailFocus->setEmailAccessCountValue($emailId);
+                }
+                if (!$status) {
+                    $emailFocus->trash($moduleName, $emailId);
+                }
+            }
+        }
+        $util->revertUser();
+    }
+    public function getContents($entity, $entityCache = false) {
+        if (!$this->contents) {
+            global $adb;
+            $taskContents = array();
+            $entityId = $entity->getId();
+            $utils = new VTWorkflowUtils();
+            $adminUser = $utils->adminUser();
+            if (!$entityCache) {
+                $entityCache = new VTEntityCache($adminUser);
+            }
+            $fromUserId = Users::getActiveAdminId();
+            $entityOwnerId = $entity->get('assigned_user_id');
+            if ($entityOwnerId) {
+                list($moduleId, $fromUserId) = explode('x', $entityOwnerId);
+            }
+            $ownerEntity = $entityCache->forId($entityOwnerId);
+            if ($ownerEntity->getModuleName() === 'Groups') {
+                list($moduleId, $recordId) = vtws_getIdComponents($entityId);
+                $fromUserId = Vtiger_Util_Helper::getCreator($recordId);
+            }
+            if ($this->fromEmail && !($ownerEntity->getModuleName() === 'Groups' && strpos($this->fromEmail, 'assigned_user_id : (Users) ') !== false)) {
+                $et = new VTEmailRecipientsTemplate($this->fromEmail);
+                $fromEmailDetails = $et->render($entityCache, $entityId);
+                $con1 = strpos($fromEmailDetails, '&lt;');
+                $con2 = strpos($fromEmailDetails, '&gt;');
+                if ($con1 && $con2) {
+                    list($fromName, $fromEmail) = explode('&lt;', $fromEmailDetails);
+                    list($fromEmail, $rest) = explode('&gt;', $fromEmail);
+                } else {
+                    $fromName = "";
+                    $fromEmail = $fromEmailDetails;
+                }
+            } else {
+                $userObj = CRMEntity::getInstance('Users');
+                $userObj->retrieveCurrentUserInfoFromFile($fromUserId);
+                if ($userObj) {
+                    $fromEmail = $userObj->email1;
+                    $fromName = $userObj->user_name;
+                } else {
+                    $result = $adb->pquery('SELECT user_name, email1 FROM vtiger_users WHERE id = ?', array($fromUserId));
+                    $fromEmail = $adb->query_result($result, 0, 'email1');
+                    $fromName = $adb->query_result($result, 0, 'user_name');
+                }
+            }
+            if (!$fromEmail) {
+                $utils->revertUser();
+                return false;
+            }
+            $taskContents['fromEmail'] = $fromEmail;
+            $taskContents['fromName'] = $fromName;
+            if ($entity->getModuleName() === 'Events') {
+                $contactId = $entity->get('contact_id');
+                if ($contactId) {
+                    $contactIds = '';
+                    list($wsId, $recordId) = explode('x', $entityId);
+                    $webserviceObject = VtigerWebserviceObject::fromName($adb, 'Contacts');
+                    $result = $adb->pquery('SELECT contactid FROM vtiger_cntactivityrel WHERE activityid = ?', array($recordId));
+                    $numOfRows = $adb->num_rows($result);
+                    for ($i = 0;$i < $numOfRows;$i++) {
+                        $contactIds.= vtws_getId($webserviceObject->getEntityId(), $adb->query_result($result, $i, 'contactid')) . ',';
+                    }
+                }
+                $entity->set('contact_id', trim($contactIds, ','));
+                $entityCache->cache[$entityId] = $entity;
+            }
+            $et = new VTEmailRecipientsTemplate($this->recepient);
+            $toEmail = $et->render($entityCache, $entityId);
+            $toEmails = $this->getRecipientEmails($entityCache, $entityId, $this->recepient);
+            $ecct = new VTEmailRecipientsTemplate($this->emailcc);
+            $ccEmail = $ecct->render($entityCache, $entityId);
+            $ebcct = new VTEmailRecipientsTemplate($this->emailbcc);
+            $bccEmail = $ebcct->render($entityCache, $entityId);
+            if (strlen(trim($toEmail, " 	
+,")) == 0 && strlen(trim($ccEmail, " 	
+,")) == 0 && strlen(trim($bccEmail, " 	
+,")) == 0) {
+                $utils->revertUser();
+                return false;
+            }
+            $taskContents['toEmail'] = $toEmail;
+            $taskContents['toEmails'] = $toEmails;
+            $taskContents['ccEmail'] = $ccEmail;
+            $taskContents['bccEmail'] = $bccEmail;
+            $templateid = $this->template;
+            $language = $this->template_language;
+            $EMAILMaker = new EMAILMaker_EMAILMaker_Model();
+            $emailtemplateResult = $EMAILMaker->GetDetailViewData($templateid, true);
+            $taskContents['subject'] = $emailtemplateResult["subject"];
+            $taskContents['body'] = decode_html($emailtemplateResult["body"]);
+            $Attachments = $EMAILMaker->GetAttachmentsData($templateid);
+            $taskContents['attachments'] = $Attachments;
+            $taskContents['language'] = $language;
+            $luserid = "";
+            if (isset($_SESSION['authenticated_user_id'])) {
+                $luserid = $_SESSION['authenticated_user_id'];
+            }
+            $taskContents['luserid'] = $luserid;
+            $modifiedbyId = $entity->get('modifiedby');
+            list($moduleMuserId, $muserid) = explode('x', $modifiedbyId);
+            $taskContents['muserid'] = $muserid;
+            $this->contents = $taskContents;
+            $utils->revertUser();
+        }
+        if (is_array($this->contents)) {
+            $this->contents = Zend_Json::encode($this->contents);
+        }
+        return $this->contents;
+    }
+    public function getTemplates($selected_module) {
+        $orderby = "templateid";
+        $dir = "asc";
+        $c = "<div class='row-fluid'>";
+        $EMAILMaker = new EMAILMaker_EMAILMaker_Model();
+        $request = new Vtiger_Request($_REQUEST, $_REQUEST);
+        $templates_data = $EMAILMaker->GetListviewData($orderby, $dir, $selected_module, false, $request);
+        foreach ($templates_data AS $tdata) {
+            $templateid = $tdata["templateid"];
+            if (!empty($tdata["category"]) || isset($fieldvalue[$templateid])) {
+                $fieldvalue[$tdata["category"]][$templateid] = $tdata["name"];
+            } else {
+                $fieldvalue[$templateid] = $tdata["name"];
+            }
+        }
+        return $fieldvalue;
+    }
+    public function getLanguages() {
+        global $current_language;
+        $langvalue = array();
+        $currlang = array();
+        $adb = PearDatabase::getInstance();
+        $temp_res = $adb->pquery("SELECT label, prefix FROM vtiger_language WHERE active = ?", array('1'));
+        while ($temp_row = $adb->fetchByAssoc($temp_res)) {
+            $template_languages[$temp_row["prefix"]] = $temp_row["label"];
+            if ($temp_row["prefix"] == $current_language) $currlang[$temp_row["prefix"]] = $temp_row["label"];
+            else $langvalue[$temp_row["prefix"]] = $temp_row["label"];
+        }
+        $langvalue = (array)$currlang + (array)$langvalue;
+        return $langvalue;
+    }
+    function getRecipientEmails($entityCache, $entityId, $to_emails) {
+        $this->cache = $entityCache;
+        $this->parent = $this->cache->forId($entityId);
+        $Recipients = array();
+        $Emails = explode(",", $to_emails);
+        foreach ($Emails AS $email) {
+            if ($email != "") {
+                $Recipients_data = $this->parseEmail($email, $entityCache, $entityId);
+                if ($Recipients_data) $Recipients = array_merge($Recipients_data, $Recipients);
+            }
+        }
+        return $Recipients;
+    }
+    private function parseEmail($to_email, $entityCache, $entityId) {
+        preg_match('/\((\w+) : \(([_\w]+)\) (\w+)\)/', $to_email, $matches);
+        if (count($matches) == 0) {
+            $to_email_module = "";
+            $to_email_id = "";
+            $data = $this->parent->getData();
+            if (substr($to_email, 0, 1) == '$') {
+                $filename = substr($to_email, 1);
+                if (isset($data[$filename])) {
+                    if ($this->useValue($data, $filename)) {
+                        $to_email_id = $this->parent->getId();
+                        $to_email_module = $this->parent->getModuleName();
+                        $to_email = $data[$filename];
+                    }
+                } else {
+                    $et = new VTEmailRecipientsTemplate($to_email);
+                    if (method_exists($et, 'renderArray')) {
+                        return $et->renderArray($entityCache, $entityId);
+                    } else {
+                        $to_email = $et->render($entityCache, $entityId);
+                    }
+                }
+            }
+            return array(array("id" => $to_email_id, "module" => $to_email_module, "email" => $to_email));
+        } else {
+            list($full, $referenceField, $referenceModule, $fieldname) = $matches;
+            $referenceId = $this->parent->get($referenceField);
+            if ($referenceId == null) {
+                return false;
+            } else {
+                if ($referenceField === 'contact_id') {
+                    $referenceIdsList = explode(',', $referenceId);
+                    $parts = array();
+                    foreach ($referenceIdsList as $referenceId) {
+                        $entity = $this->cache->forId($referenceId);
+                        $to_email_module = $entity->getModuleName();
+                        $data = $entity->getData();
+                        if ($this->useValue($data, $fieldname)) {
+                            $parts[] = array("id" => $referenceId, "module" => $to_email_module, "email" => $data[$fieldname]);
+                        }
+                    }
+                    return $parts;
+                }
+                $entity = $this->cache->forId($referenceId);
+                if ($referenceModule === "Users" && $entity->getModuleName() == "Groups") {
+                    list($groupEntityId, $groupId) = vtws_getIdComponents($referenceId);
+                    require_once ('include/utils/GetGroupUsers.php');
+                    $ggu = new GetGroupUsers();
+                    $ggu->getAllUsersInGroup($groupId);
+                    $users = $ggu->group_users;
+                    $parts = Array();
+                    foreach ($users as $userId) {
+                        $refId = vtws_getWebserviceEntityId("Users", $userId);
+                        $entity = $this->cache->forId($refId);
+                        $data = $entity->getData();
+                        if ($this->useValue($data, $fieldname)) {
+                            $parts[] = array("id" => $userId, "module" => "Users", "email" => $data[$fieldname]);
+                        }
+                    }
+                    return $parts;
+                } elseif ($entity->getModuleName() === $referenceModule) {
+                    $data = $entity->getData();
+                    if ($this->useValue($data, $fieldname)) {
+                        return array(array("id" => $referenceId, "module" => $referenceModule, "email" => $data[$fieldname]));
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    protected function useValue($data, $fieldname) {
+        return !empty($data[$fieldname]) && $data['emailoptout'] == 0;
+    }
+    public function createPDF($request)
+    {
+        require_once ("modules/PDFMaker/resources/mpdf/mpdf.php");
+        $request->set('language', 'de_de');
+        $adb = PearDatabase::getInstance();
+        $PDFMaker = new PDFMaker_PDFMaker_Model();
+        $language = Vtiger_Language_Handler::getLanguage();
+        if ($request->has('language') && !$request->isEmpty('language')) {
+            $language = $request->get('language');
+        }
+        $parentModuleName = $request->get('pmodule');
+        $parentid = $request->get('pid');
+        $forview = $request->get('forview');
+        if ($forview == "List") {
+            $PDFMakerModuleModel = Vtiger_Module_Model::getInstance('PDFMaker');
+            $Records = $PDFMakerModuleModel->getRecordsListFromRequest($request);
+            $file_name = "doc_" . $parentModuleName . date("ymdHi") . ".pdf";
+        } else {
+            $modFocus = CRMEntity::getInstance($parentModuleName);
+            if (isset($parentid) && is_numeric($parentid)) {
+                $modFocus->retrieve_entity_info($parentid, $parentModuleName);
+                $modFocus->id = $parentid;
+                $Records = array($modFocus->id);
+            }
+            $result = $adb->query("SELECT fieldname FROM vtiger_field WHERE uitype=4 AND tabid=" . getTabId($parentModuleName));
+            $fieldname = $adb->query_result($result, 0, "fieldname");
+            if (isset($modFocus->column_fields[$fieldname]) && $modFocus->column_fields[$fieldname] != "") {
+                $file_name = $PDFMaker->generate_cool_uri($modFocus->column_fields[$fieldname]) . ".pdf";
+            } else {
+                $file_name = "doc_" . $parentid . date("ymdHi") . ".pdf";
+            }
+        }
+        $moduleName = "Documents";
+        $moduleModel = Vtiger_Module_Model::getInstance($moduleName);
+        $recordModel = Vtiger_Record_Model::getCleanInstance($moduleName);
+        $recordModel->set('filename', $file_name);
+        $recordModel->set('filetype', 'application/pdf');
+        $recordModel->set('fileversion', 'I');
+        $recordModel->set('filestatus', 'on');
+        $recordModel->set('parentid', $parentid);
+        $fieldModelList = $moduleModel->getFields();
+        foreach ($fieldModelList as $fieldName => $fieldModel) {
+            if ($request->has($fieldName)) {
+                $fieldValue = $request->get($fieldName, null);
+            } else {
+                $fieldValue = $fieldModel->getDefaultFieldValue();
+            }
+            $fieldDataType = $fieldModel->getFieldDataType();
+            if ($fieldDataType == 'time') {
+                $fieldValue = Vtiger_Time_UIType::getTimeValueWithSeconds($fieldValue);
+            }
+            if ($fieldValue !== null) {
+                if (!is_array($fieldValue)) {
+                    $fieldValue = trim($fieldValue);
+                }
+                $recordModel->set($fieldName, $fieldValue);
+            }
+        }
+        $recordModel->save();
+        $new_crmid = $recordModel->getId();
+        $focus = CRMEntity::getInstance($moduleName);
+        $focus->retrieve_entity_info($new_crmid, $moduleName);
+        $focus->id = $new_crmid;
+        $focus->insertintonotesrel($parentid, $new_crmid);
+        $pdfdoc_contact_id = $request->get('pdfdoc_contact_id');
+        if (isset($pdfdoc_contact_id) && $pdfdoc_contact_id != "") {
+            $sql = "INSERT INTO vtiger_senotesrel(crmid, notesid) VALUES(?,?)";
+            $adb->pquery($sql, array($pdfdoc_contact_id, $focus->id));
+        }
+        $pdfdoc_account_id = $request->get('pdfdoc_account_id');
+        if (isset($pdfdoc_account_id) && $pdfdoc_account_id != "") {
+            $sql = "INSERT INTO vtiger_senotesrel(crmid, notesid) VALUES(?,?)";
+            $adb->pquery($sql, array($pdfdoc_account_id, $focus->id));
+        }
+        if ($request->has('template_ids') && !$request->isEmpty('template_ids')) {
+            $template_ids = $request->get('template_ids');
+        } else {
+            $default_mode = "1";
+            $forview = $request->get('forview');
+            if ($forview == "List") {
+                $default_mode = "2";
+            }
+            $PDFMakerModuleModel = Vtiger_Module_Model::getInstance('PDFMaker');
+            $template_ids = $PDFMakerModuleModel->GetDefaultTemplates($default_mode, $parentModuleName);
+        }
+        return $PDFMaker->createPDFAndSaveFile($request, $template_ids, $focus, $Records, $file_name, $parentModuleName, $language);
+    }
+} ?>
