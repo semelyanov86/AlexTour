@@ -8,10 +8,10 @@
  * All Rights Reserved.
  ************************************************************************************/
 $languageStrings = array(
-	'Potentials'                   => 'Verkaufspotentiale'          , 
-	'SINGLE_Potentials'            => 'Potential'                   , 
-	'LBL_ADD_RECORD'               => 'Add Opportunity'             , 
-	'LBL_RECORDS_LIST'             => 'Opportunities List'          , 
+	'Potentials'                   => 'Buchungen'          , 
+	'SINGLE_Potentials'            => 'Buchung'                   , 
+	'LBL_ADD_RECORD'               => 'Neue Buchung'             , 
+	'LBL_RECORDS_LIST'             => 'Buchungslist'          , 
 	'LBL_OPPORTUNITY_INFORMATION'  => 'Information:'                , 
 	'Potential No'                 => 'Potential Nr.'               , 
 	'Amount'                       => 'Betrag'                      , 
@@ -42,7 +42,7 @@ $languageStrings = array(
 	'LBL_RELATED_CONTACTS'         => 'Related Contacts'            , 
 	'LBL_RELATED_PRODUCTS'         => 'Related Products'            , 
     'Related To'                   => 'Name der Organisation'       ,
-    'Type'                         => 'Type'                         ,
+    'Type'                         => 'Reisetype'                         ,
     
     //Convert Potentials
     'LBL_CONVERT_POTENTIAL'        => 'Konvertieren Chancen'       ,
@@ -54,17 +54,17 @@ $languageStrings = array(
     //Potentials Custom Field Mapping
 	'LBL_CUSTOM_FIELD_MAPPING'     => 'Gelegenheit, Mapping-Projekt'          ,
 
-  'Contact Name' => 'Kontakt Name',
+  'Contact Name' => 'Kontaktname',
 
     'Date start' => 'Reisestartdatum',
-    'Individual' => 'Individuell',
-    'Grouping' => 'Gruppe',
+    'Individual' => 'Individuellreise',
+    'Grouping' => 'Gruppenreise',
     'VIP' => 'VIP',
     'Days Qty' => 'Anzahl der Tage',
     'Nights Qty' => 'Anzahl der Nächte',
-    'Potential type' => 'Art der Transaktion',
-    'Tour Order' => 'Tour bestellen',
-    'Visa Order' => 'Visa Bestellung',
+    'Potential type' => 'Umsatzart',
+    'Tour Order' => 'Reise',
+    'Visa Order' => 'Visum',
     'Tourists Qty' => 'Anzahl der Reisenden',
     'Transfer' => 'Übertragen',
     'Airport-Hotel-Airport' => 'Flughafen-Hotel-Flughafen',
@@ -73,7 +73,7 @@ $languageStrings = array(
     'Vegetarian' => 'Vegetarisches Essen',
     'Closest Door' => 'Zimmer mit Verbindungstür',
     'Three In Room' => 'Drei in einem Raum',
-    'Tour' => 'Tour',
+    'Tour' => 'Reise',
     'Self Company' => 'Juristische Person',
     'Default' => 'Default',
 

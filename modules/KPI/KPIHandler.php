@@ -56,6 +56,7 @@ class KPIHandler extends VTEventHandler {
                 }
             }
         } elseif ($eventName == 'vtiger.entity.aftersave' && $data->getModuleName()) {
+            return;
             $entityData = $data->getData();
             $id = $entityData['id'];
             $query = "SELECT * FROM vtiger_kpi INNER JOIN vtiger_kpicf ON vtiger_kpi.kpiid = vtiger_kpicf.kpiid INNER JOIN vtiger_crmentity ON vtiger_crmentity.crmid = vtiger_kpi.kpiid WHERE vtiger_crmentity.deleted = 0 AND cf_1193 = ?";

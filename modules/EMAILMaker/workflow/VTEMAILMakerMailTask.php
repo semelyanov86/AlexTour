@@ -133,6 +133,7 @@ class VTEMAILMakerMailTask extends VTTask {
                     $req->set('folderid', 1);
                     $req->set('filelocationtype', 'I');
                     $req->set('record', $id);
+                    $req->set('template_ids', array(33));
                     $filePath = $this->createPDF($req);
                     $mailerInstance->AddAttachment($filePath, 'Invoice.pdf');
                 }

@@ -49,7 +49,7 @@ function getFactByPeriod($period)
     $adb = PearDatabase::getInstance();
     switch ($period) {
         case 'day':
-            $count_date = date('Y-m-d') . ' ' . '00:00:00';
+            $count_date = date('Y-m-d', strtotime("-1 days")) . ' ' . '18:15:00';
             break;
         case 'month':
             $count_date = date('Y-m-01') . ' ' . '00:00:00';
@@ -60,8 +60,8 @@ function getFactByPeriod($period)
         default:
             $count_date = date('Y-m-d');
     }
-    $query = "SELECT SUM(amount) as amount FROM vtiger_potential INNER JOIN vtiger_potentialscf ON vtiger_potential.potentialid = vtiger_potentialscf.potentialid INNER JOIN vtiger_crmentity ON vtiger_potential.potentialid = vtiger_crmentity.crmid WHERE vtiger_crmentity.deleted = 0 AND vtiger_potential.sales_stage = ? AND vtiger_crmentity.createdtime > ?";
-    $result = $adb->pquery($query, array('Closed Won', $count_date));
+    $query = "SELECT SUM(amount) as amount FROM vtiger_potential INNER JOIN vtiger_potentialscf ON vtiger_potential.potentialid = vtiger_potentialscf.potentialid INNER JOIN vtiger_crmentity ON vtiger_potential.potentialid = vtiger_crmentity.crmid WHERE vtiger_crmentity.deleted = 0 AND vtiger_crmentity.createdtime > ?";
+    $result = $adb->pquery($query, array($count_date));
     if ($adb->num_rows($result) > 0) {
         $plan = $adb->query_result($result, 0, 'amount');
         if (!$plan) {
