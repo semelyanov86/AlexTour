@@ -49,7 +49,7 @@ function getFactByPeriod($period)
     $adb = PearDatabase::getInstance();
     switch ($period) {
         case 'day':
-            $count_date = date('Y-m-d', strtotime("-1 days")) . ' ' . '18:15:00';
+            $count_date = date('Y-m-d', strtotime("-1 days")) . ' ' . '20:15:00';
             break;
         case 'month':
             $count_date = date('Y-m-01') . ' ' . '00:00:00';

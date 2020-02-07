@@ -264,6 +264,48 @@ class Webform_Capture {
         $airportId = vtws_getWebserviceEntityId('Airports', $request['airportsid']);
         $flights = vtws_retrieve_related($tourId, 'Flights', 'Flights', $user);
 
+        if (vtws_getCRMEntityId($tourId) == '6201') {
+            $params = array(
+                'assigned_user_id' => $parameters['assigned_user_id'],
+                'source' => $parameters['source'],
+                'cf_potentials_id' => $potentialId
+            );
+            $cf_2091 = $request['cf_2091'];
+            if ($cf_2091 == 'Moscow') {
+                $airportFrom_to = $airportId;
+                $airportTo_to = vtws_getWebserviceEntityId('Airports', 4552);
+                $airportFrom_out = vtws_getWebserviceEntityId('Airports', 4553);
+                $airportTo_out = $airportId;
+            } elseif ($cf_2091 == 'St. Petersburg') {
+                $airportFrom_to = $airportId;
+                $airportTo_to = vtws_getWebserviceEntityId('Airports', 4553);
+                $airportFrom_out = vtws_getWebserviceEntityId('Airports', 4552);
+                $airportTo_out = $airportId;
+            }
+            foreach ($flights as $flight) {
+                $params = array(
+                    'assigned_user_id' => $parameters['assigned_user_id'],
+                    'source' => $parameters['source'],
+                    'cf_potentials_id' => $potentialId
+                );
+                if ($flight['cf_airports_from_id'] == $airportFrom_to && $flight['cf_airports_to_id'] == $airportTo_to) {
+                    $params['cf_flights_id'] = $flight['id'];
+                    $params['name'] = $flight['name'];
+                    $params['date_flight'] = $parameters['cf_1637'];
+                    $params['mtype'] = 'In';
+                    $moving = vtws_create('Movings', $params, $user);
+                } elseif($flight['cf_airports_from_id'] == $airportFrom_out && $flight['cf_airports_to_id'] == $airportTo_out) {
+                    $params['cf_flights_id'] = $flight['id'];
+                    $params['name'] = $flight['name'];
+                    $params['date_flight'] = $parameters['closingdate'];
+                    $params['mtype'] = 'Out';
+                    $moving = vtws_create('Movings', $params, $user);
+                }
+            }
+            return $tourData;
+        }
+        else
+        {
         foreach ($flights as $flight) {
             $params = array(
                 'assigned_user_id' => $parameters['assigned_user_id'],
@@ -291,6 +333,7 @@ class Webform_Capture {
             }
         }
         return $tourData;
+        }
     }
 
     protected function createServiceDetails($record, $request, $parameters, $user, $tourData = array())
