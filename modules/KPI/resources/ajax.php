@@ -49,7 +49,7 @@ function getFactByPeriod($period)
     $adb = PearDatabase::getInstance();
     switch ($period) {
         case 'day':
-            $count_date = date('Y-m-d', strtotime("-1 days")) . ' ' . '20:15:00';
+            $count_date = getWeekendDate(date('Y-m-d') . ' ' . '20:15:00');
             break;
         case 'month':
             $count_date = date('Y-m-01') . ' ' . '00:00:00';
@@ -71,4 +71,14 @@ function getFactByPeriod($period)
         $plan = 0;
     }
     return $plan;
+}
+
+function getWeekendDate($date)
+{
+    $dayofweek = date('w', strtotime($date));
+    if ($dayofweek == '1') {
+        return date('Y-m-d 20:15:00', strtotime('-3 days'));
+    } else {
+        return $date;
+    }
 }
