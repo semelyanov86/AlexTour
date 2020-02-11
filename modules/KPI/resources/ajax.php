@@ -18,17 +18,57 @@ header("Cache-Control: no-cache");
 $kpiday = 2610;
 $kpimonth = 2609;
 $kpiyear = 2611;
+$currentdate = getdate();
+
+foreach ( $currentdate as $key => $val )
+{
+    $currentday = $currentdate['mday'];
+    $currentmonth = $currentdate['mon'];
+    $currentyear = $currentdate['year'];
+}
+
+$datestartmonth = date_create($currentyear . '-' . $currentmonth . '-01');
+$datecurrentmonth = date_create($currentyear . '-' . $currentmonth . '-' . $currentday);
+
+$diffdays = (date_diff($datestartmonth, $datecurrentmonth)->days)+1;
+
+$targetmonth = getKPIByQuery($kpimonth) - getFactByPeriod('month');
+
+$weekdays = getWeekdays($currentmonth, $currentyear);
+$targetday = $targetmonth/($weekdays - $diffdays + 4);
+
+
 $data = array();
-$data['day']['target'] = getKPIByQuery($kpiday);
+$data['day']['target'] = $targetday;
 $data['day']['current'] = getFactByPeriod('day');
 $data['month']['target'] = getKPIByQuery($kpimonth);
 $data['month']['current'] = getFactByPeriod('month');
 $data['year']['target'] = getKPIByQuery($kpiyear);
 $data['year']['current'] = getFactByPeriod('year');
+$data['temp1'] = $weekdays;
 echo json_encode($data) . PHP_EOL;
 echo PHP_EOL;
 ob_flush();
 flush();
+exit;
+
+function getWeekdays($m, $y = NULL){
+    $arrDtext = array('Mon', 'Tue', 'Wed', 'Thu', 'Fri');
+
+    if(is_null($y) || (!is_null($y) && $y == ''))
+        $y = date('Y');
+
+    $d = 1;
+    $timestamp = mktime(0,0,0,$m,$d,$y);
+    $lastDate = date('t', $timestamp);
+    $workingDays = 0;
+    for($i=$d; $i<=$lastDate; $i++){
+        if(in_array(date('D', mktime(0,0,0,$m,$i,$y)), $arrDtext)){
+            $workingDays++;
+        }
+    }
+    return $workingDays;
+}
 exit;
 
 function getKPIByQuery($id)
@@ -79,6 +119,6 @@ function getWeekendDate($date)
     if ($dayofweek == '1') {
         return date('Y-m-d 20:15:00', strtotime('-3 days'));
     } else {
-        return $date;
+        return date('Y-m-d 20:15:00', strtotime('-1 days'));
     }
 }
