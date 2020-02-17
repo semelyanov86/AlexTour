@@ -155,10 +155,10 @@ $jsLanguageStrings = array(
     'JS_FUTURE_EVENT_CANNOT_BE_HELD' => 'Kann nicht For Future gehalten zu werden',
 	
 	//Calendar view label translation
-	'LBL_MONTH' => 'Month',
-	'LBL_TODAY' => 'Today',
-	'LBL_DAY' => 'Day',
-	'LBL_WEEK' => 'Week',
+	'LBL_MONTH' => 'Monat',
+	'LBL_TODAY' => 'Heute',
+	'LBL_DAY' => 'Tag',
+	'LBL_WEEK' => 'Woche',
 	
 	'LBL_SUNDAY' => 'Sonntag',
 	'LBL_MONDAY' => 'Montag',

@@ -8283,7 +8283,7 @@ var View = FC.View = Class.extend(EmitterMixin, ListenerMixin, {
 			return this.opt('monthYearFormat'); // like "September 2014"
 		}
 		else if (this.intervalDuration.as('days') > 1) {
-			return 'll'; // multi-day range. shorter, like "Sep 9 - 10 2014"
+			return 'DD.MM.Y'; // multi-day range. shorter, like "Sep 9 - 10 2014"
 		}
 		else {
 			return 'LL'; // one day. longer, like "September 9 2014"
