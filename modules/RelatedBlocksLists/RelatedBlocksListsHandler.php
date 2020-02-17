@@ -68,6 +68,7 @@ class RelatedBlocksListsHandler extends VTEventHandler
                                     }
                                     if ($fieldDataType == "date") {
                                         $newValue = Vtiger_Date_UIType::getDBInsertedValue($newValue);
+//                                        $fieldValue = $newValue;
                                     }
                                     if ($fieldDataType == "boolean" && $newValue == "on") {
                                         $newValue = 1;

@@ -53,6 +53,9 @@ class RelatedBlocksLists_Module_Model extends Vtiger_Module_Model
     }
     public function setDataForCalendarRecord($relRecordModel, $_request, $related_module_base = "")
     {
+        if ($_request['module'] == 'TourPrices') {
+            return $relRecordModel;
+        }
         if ($related_module_base && $related_module_base == "Events") {
             $startTime = Vtiger_Time_UIType::getTimeValueWithSeconds($_request["time_start"]);
             $startDateTime = Vtiger_Datetime_UIType::getDBDateTimeValue($_request["date_start"] . " " . $startTime);
