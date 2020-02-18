@@ -1813,9 +1813,26 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         });
     },
 
+    registerAddRelatedElements: function(element, module, related) {
+        var btn = jQuery('#' + element);
+        btn.on('click', function(e) {
+            e.preventDefault();
+            var elementObj = jQuery('#' + element + 'Val');
+            var relatedIds = elementObj.val();
+            var params = {};
+            params.module = related;
+            params.element_id = element;
+            params.view = 'Popup';
+            params.parent = app.getModuleName();
+            params.parent_id = app.getRecordId();
+            params.contacts = relatedIds;
+            params.multi_select = false;
+            params.multiple = true;
+        });
+    },
+
     registerAddAirportsPopup : function(element, module = 'Airports') {
         var btn = jQuery('#' + element).next('button');
-        console.log(btn);
         var thisInstance = this;
         btn.on('click', function(e) {
             e.preventDefault();
@@ -1830,7 +1847,6 @@ Vtiger.Class("RelatedBlocksLists_Js",{
             params.contacts = contactsId;
             params.multi_select = false;
             params.multiple = true;
-            console.log(params);
             /*var popupInstance = Vtiger_Popup_Js.getInstance();
             popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
                 var  viewPortHeight= $(window).height()-120;
@@ -2064,6 +2080,7 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         var container = jQuery(document).find('form');
         this.checkAndGenerateBlocks(container);
         this.collapseExpandBlock();
+        this.registerAddRelatedElements('addAirportBtn', 'TourPrices', 'Airports');
         var self = this;
         jQuery(document).ajaxComplete(function(){
             self.collapseExpandBlock();

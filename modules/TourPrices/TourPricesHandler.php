@@ -52,11 +52,50 @@ class TourPricesHandler extends VTEventHandler {
                             }
                         }
                     }
-
+                } elseif ($key == 'cf_2072') {
+                    $airports = json_decode($value);
+//                    $decodedAirports = json_encode($value);
+                    $recModel = Vtiger_Record_Model::getInstanceById($moduleId, 'TourPrices');
+                    $this->deleteOldEntities($recModel, 'Airports');
+                    $this->linkEntities($airports, $recModel, 'Airports');
+//                    $this->updateFieldValue($key, $decodedAirports, $moduleId);
                 }
             }
         }
 
+    }
+
+    private function linkEntities($entries, $recordModel, $module)
+    {
+        $relatedModule = Vtiger_Module_Model::getInstance($module);
+        $relationModel = Vtiger_Relation_Model::getInstance($recordModel->getModule(), $relatedModule);
+        foreach ($entries as $entry) {
+//            $contactModel = Vtiger_Record_Model::getInstanceById($entry, $module);
+//            if ($contactModel) {
+                $relationModel->addRelation($recordModel->getId(), $entry);
+//            }
+        }
+    }
+
+    public function deleteOldEntities($recordModel, $module)
+    {
+        $pagingModel = new Vtiger_Paging_Model();
+        $pagingModel->set('page', 1);
+        if(!empty($limit)) {
+            $pagingModel->set('limit', 100);
+        }
+        $relationModel = Vtiger_Relation_Model::getInstance(Vtiger_Module_Model::getInstance($recordModel->getModuleName()), Vtiger_Module_Model::getInstance($module));
+        $relatedListModel = Vtiger_RelationListView_Model::getInstance($recordModel, $module);
+        $entries = $relatedListModel->getEntries($pagingModel);
+        foreach ($entries as $entry) {
+            $relationModel->deleteRelation($recordModel->getId(), $entry->getId());
+        }
+    }
+
+    public function updateFieldValue($field, $value, $id)
+    {
+        global $adb;
+        $res = $adb->pquery("UPDATE vtiger_tourpricescf SET $field = ?, WHERE tourpricesid = ?", array($value, $id));
     }
 
 

@@ -1717,7 +1717,6 @@ Vtiger.Class("RelatedBlocksLists_Js",{
                     lineItemRow.find('[name="' + actualElementName + '"]').attr('id', 'relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName)
                         .filter('[name="' + actualElementName + '"]').attr('name', expectedElementId)
                         .data('fieldname',elementName);
-                    console.log(actualElementName);
                     if (actualElementName == 'HotelArrivals_cf_1781') {
                         this.registerAddContactsPopup('relatedblockslists_'+id+"_"+expectedSequenceNumber+"_"+elementName);
                     } else if (actualElementName == 'TourPrices_cf_1871') {
@@ -1815,6 +1814,45 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         });
     },
 
+    registerAddRelatedElements: function(element, module, related) {
+        var btn = jQuery('#' + element);
+        var thisInstance = this;
+        btn.on('click', function(e) {
+            e.preventDefault();
+            var elementObj = jQuery('#' + element + 'Val');
+            var relatedIds = elementObj.val();
+            var params = {};
+            var record = app.getRecordId();
+            if (!record) {
+                record = jQuery('[name="record"]').val();
+            }
+            params.module = related;
+            params.element_id = element + 'Val';
+            params.view = 'Popup';
+            params.parent = app.getModuleName();
+            params.parent_id = record;
+            params.contacts = relatedIds;
+            params.multi_select = false;
+            params.multiple = true;
+            params.alls = true;
+            var popupInstance = Vtiger_Popup_Js.getInstance();
+            popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
+                var  viewPortHeight= $(window).height()-120;
+                var params = {setHeight: (viewPortHeight)+'px'};
+                var params2 = {setHeight: (viewPortHeight-125)+'px'};
+                var params2_1 = {setHeight: (viewPortHeight-100)+'px'};
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.modal-body'), params);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.lockup-item-main'), params2_1);
+                app.helper.showVerticalScroll(jQuery('#itemLookUpPopupModal').find('.popupFillContainer_filter_fields_scroll'), params2);
+                var container = jQuery('.iTL-listViewEntriesTable');
+                var thead_h = container.find('thead').height();
+                var params3 = {setHeight: (viewPortHeight-125-thead_h)+'px'};
+                app.helper.showVerticalScroll(container.find('tbody'), params3);
+            });
+            thisInstance.setPopupInstance(popupInstance);
+        });
+    },
+
     registerAddAirportsPopup : function(element, module = 'Airports') {
         var btn = jQuery('#' + element).next('button');
         var thisInstance = this;
@@ -1835,7 +1873,6 @@ Vtiger.Class("RelatedBlocksLists_Js",{
             params.contacts = contactsId;
             params.multi_select = false;
             params.multiple = true;
-            console.log(params);
             var popupInstance = Vtiger_Popup_Js.getInstance();
             popupInstance.showPopup(params,Vtiger_Edit_Js.popupSelectionEvent,function() {
                 var  viewPortHeight= $(window).height()-120;
@@ -2069,6 +2106,7 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         var container = jQuery(document).find('form');
         this.checkAndGenerateBlocks(container);
         this.collapseExpandBlock();
+        this.registerAddRelatedElements('addAirportBtn', 'TourPrices', 'Airports');
         var self = this;
         jQuery(document).ajaxComplete(function(){
             self.collapseExpandBlock();

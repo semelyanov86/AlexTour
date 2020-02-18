@@ -239,7 +239,7 @@ class RelatedBlocksListsHandler extends VTEventHandler
                             $this->deleteOldContacts($relRecordModel, 'Hotels');
                             $this->linkEntities($hotels, $relRecordModel, 'Hotels');
                         }
-                        if (isset($relatedRecord['TourPrices_cf_2072']) && $relatedRecord['TourPrices_cf_2072'] && !empty($relatedRecord['TourPrices_cf_2072'])) {
+                        if (false && isset($relatedRecord['TourPrices_cf_2072']) && $relatedRecord['TourPrices_cf_2072'] && !empty($relatedRecord['TourPrices_cf_2072'])) {
                             $airports = json_decode($relatedRecord['TourPrices_cf_2072']);
                             if (!$airports || empty($airports)) {
                                 $airports = Tours_Module_Model::getRelatedAirports($parentRecordId);

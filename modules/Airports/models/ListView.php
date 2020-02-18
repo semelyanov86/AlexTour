@@ -21,7 +21,7 @@ class Airports_ListView_Model extends Vtiger_ListView_Model {
         $moduleName = $this->getModule()->get('name');
         $moduleFocus = CRMEntity::getInstance($moduleName);
         $moduleModel = Vtiger_Module_Model::getInstance($moduleName);
-
+        $alls = $pagingModel->get('alls');
         $queryGenerator = $this->get('query_generator');
         $listViewContoller = $this->get('listview_controller');
 
@@ -34,7 +34,7 @@ class Airports_ListView_Model extends Vtiger_ListView_Model {
             $glue = QueryGenerator::$AND;
         }
         $queryGenerator->parseAdvFilterList($searchParams, $glue);
-        if ($multiple && $selectedIds && !empty($selectedIds)) {
+        if ($multiple && $selectedIds && !empty($selectedIds) && !$alls) {
             $queryGenerator->addWhereField('airportsid');
             $queryGenerator->addCondition('airportsid', implode($selectedIds, ','), 'IN', 'AND');
         }

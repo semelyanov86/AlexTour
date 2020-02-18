@@ -78,6 +78,7 @@ class Airports_Popup_View extends Vtiger_Popup_View
         $pagingModel->set("page", $pageNumber);
         $pagingModel->set('multiple', $multiple);
         $pagingModel->set('selectedIds', $airportIds);
+        $pagingModel->set('alls', $request->get('alls'));
         $PageLimit = $pagingModel->getPageLimit();
         if (30 < $PageLimit) {
             $pagingModel->set("limit", 30);
