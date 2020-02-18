@@ -2107,6 +2107,7 @@ Vtiger.Class("RelatedBlocksLists_Js",{
         this.checkAndGenerateBlocks(container);
         this.collapseExpandBlock();
         this.registerAddRelatedElements('addAirportBtn', 'TourPrices', 'Airports');
+        this.registerAddRelatedElements('addHotelBtn', 'TourPrices', 'Hotels');
         var self = this;
         jQuery(document).ajaxComplete(function(){
             self.collapseExpandBlock();

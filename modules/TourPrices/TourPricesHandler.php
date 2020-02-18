@@ -59,6 +59,13 @@ class TourPricesHandler extends VTEventHandler {
                     $this->deleteOldEntities($recModel, 'Airports');
                     $this->linkEntities($airports, $recModel, 'Airports');
 //                    $this->updateFieldValue($key, $decodedAirports, $moduleId);
+                } elseif ($key == 'cf_1871') {
+                    $airports = json_decode($value);
+//                    $decodedAirports = json_encode($value);
+                    $recModel = Vtiger_Record_Model::getInstanceById($moduleId, 'TourPrices');
+                    $this->deleteOldEntities($recModel, 'Hotels');
+                    $this->linkEntities($airports, $recModel, 'Hotels');
+//                    $this->updateFieldValue($key, $decodedAirports, $moduleId);
                 }
             }
         }

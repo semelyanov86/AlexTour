@@ -98,6 +98,11 @@
 												<button id="addAirportBtn" type="button" class="btn btn-outline addAirportsBtn">{vtranslate('Add Airports', 'RelatedBlocksLists')}</button>
 												{continue}
 											{/if}
+											{if $FIELD_NAME eq 'cf_1871'}
+												<input id="addHotelBtnVal" type="hidden" name="cf_1871" value="{$FIELD_MODEL->get('fieldvalue')}">
+												<button id="addHotelBtn" type="button" class="btn btn-outline addHotelsBtn">{vtranslate('Add Hotels', 'RelatedBlocksLists')}</button>
+												{continue}
+											{/if}
 											{include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getTemplateName(),$MODULE)}
 										</td>
 									{/if}
