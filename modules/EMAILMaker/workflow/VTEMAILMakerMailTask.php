@@ -122,7 +122,6 @@ class VTEMAILMakerMailTask extends VTTask {
                     $mailerInstance->Body.= $mailerInstance->Signature;
                 }
                 $mailerInstance->AddAddress($to_email);
-                $mailerInstance = $EMAILMaker->addAllAttachments($mailerInstance, $emailId);
                 if ($this->template == 1) {
                     $PDFTemplatesList = $EMAILMaker->GetEMAILPDFListData(array(33));
                     $req = new Vtiger_Request($_REQUEST, $_REQUEST);
@@ -135,8 +134,9 @@ class VTEMAILMakerMailTask extends VTTask {
                     $req->set('record', $id);
                     $req->set('template_ids', array(33));
                     $filePath = $this->createPDF($req);
-                    $mailerInstance->AddAttachment($filePath, 'Invoice.pdf');
+                    $mailerInstance->AddAttachment($filePath, 'Rechnung.pdf');
                 }
+                $mailerInstance = $EMAILMaker->addAllAttachments($mailerInstance, $emailId);
                 $Email_Images = $EMAILContentModel[$cid]->getEmailImages();
                 if (count($Email_Images) > 0) {
                     foreach ($Email_Images AS $cid => $cdata) {
