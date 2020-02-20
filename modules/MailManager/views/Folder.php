@@ -98,7 +98,21 @@ class MailManager_Folder_View extends MailManager_Abstract_View {
 				if ($connector->isConnected()) {
 					$folders = $connector->folders();
 					$connector->updateFolders();
-					$viewer->assign('FOLDERS', $folders);
+					$newFolders = array();
+					foreach ($folders as $key=>$curFolder) {
+						$name = $curFolder->name();
+						if (strpos($name, '/')) {
+							$nameArr = explode('/', $name);
+							if (count($nameArr) > 1) {
+								$curFolder->setParent1($nameArr[0]);
+								if ($nameArr[1]) {
+									$curFolder->setParent2($nameArr[1]);
+								}
+							}
+						}
+						$newFolders[$key] = $curFolder;
+					}
+					$viewer->assign('FOLDERS', $newFolders);
 				} else if($connector->hasError()) {
 					$error = $connector->lastError();
 					$response->isJSON(true);

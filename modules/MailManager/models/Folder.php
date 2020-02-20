@@ -21,6 +21,8 @@ class MailManager_Folder_Model {
 	protected $mMailIds;
 	protected $startCount;
 	protected $endCount;
+	protected $parent1;
+	protected $parent2;
 
 	public function __construct($name='') {
 		$this->setName($name);
@@ -136,6 +138,25 @@ class MailManager_Folder_Model {
 	public function getEndCount() {
 		return $this->endCount;
 	}
+
+	public function getParent1()
+    {
+        return $this->parent1;
+    }
+
+    public function getParent2()
+    {
+        return $this->parent2;
+    }
+
+    public function setParent1($value)
+    {
+        return $this->parent1 = $value;
+    }
+    public function setParent2($value)
+    {
+        return $this->parent2 = $value;
+    }
 }
 
 ?>
