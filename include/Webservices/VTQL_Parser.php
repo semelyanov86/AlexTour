@@ -315,7 +315,7 @@ function buildSelectStmt($sqlDump){
 			}
 		}
 	}else{
-		$this->query = $this->query.' LIMIT 100';
+		$this->query = $this->query.' LIMIT 5000';
 	}
 	$this->query = $this->query.';';
 }

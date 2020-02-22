@@ -146,7 +146,7 @@ class CustomerPortal_Utils {
 		return $relatedModuleLabel;
 	}
 
-	static function getActiveFields($module, $withPermissions = false) {
+	static function getActiveFields($module, $withPermissions = false, $isHeader = false) {
 		$activeFields = Vtiger_Cache::get('CustomerPortal', 'activeFields'); // need to flush cache when fields updated at CRM settings
 
 		if (empty($activeFields)) {
@@ -169,13 +169,23 @@ class CustomerPortal_Utils {
 
 		if (!empty($data)) {
 			foreach ($data as $key => $value) {
-				if (self::isViewable($key, $module)) {
-					if ($withPermissions) {
-						$fields[$key] = $value;
-					} else {
-						$fields[] = $key;
-					}
-				}
+			    if ($isHeader) {
+                    if (self::isHeaderable($key, $module)) {
+                        if ($withPermissions) {
+                            $fields[$key] = $value;
+                        } else {
+                            $fields[] = $key;
+                        }
+                    }
+                } else {
+                    if (self::isViewable($key, $module)) {
+                        if ($withPermissions) {
+                            $fields[$key] = $value;
+                        } else {
+                            $fields[] = $key;
+                        }
+                    }
+                }
 			}
 		}
 		return $fields;
@@ -210,6 +220,30 @@ class CustomerPortal_Utils {
 			}
 		}
 	}
+
+    static function isHeaderable($fieldName, $module) {
+        global $db;
+        $db = PearDatabase::getInstance();
+        $tabidSql = "SELECT tabid from vtiger_tab WHERE name = ?";
+        $tabidResult = $db->pquery($tabidSql, array($module));
+        if ($db->num_rows($tabidResult)) {
+            $tabId = $db->query_result($tabidResult, 0, 'tabid');
+        }
+        $presenceSql = "SELECT presence,displaytype,summaryfield,headerfield FROM vtiger_field WHERE fieldname=? AND tabid = ?";
+        $presenceResult = $db->pquery($presenceSql, array($fieldName, $tabId));
+        $num_rows = $db->num_rows($presenceResult);
+        if ($num_rows) {
+            $fieldPresence = $db->query_result($presenceResult, 0, 'presence');
+            $displayType = $db->query_result($presenceResult, 0, 'displaytype');
+            $headerfield = $db->query_result($presenceResult, 0, 'headerfield');
+            $summaryfield = $db->query_result($presenceResult, 0, 'summaryfield');
+            if ($headerfield == 1 || $summaryfield == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 
 	static function isReferenceType($fieldName, $describe) {
 		$type = self::getFieldType($fieldName, $describe);

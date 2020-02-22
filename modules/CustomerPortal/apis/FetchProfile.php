@@ -34,6 +34,13 @@ class CustomerPortal_FetchProfile extends CustomerPortal_API_Abstract {
 				$account['imagetype'] = $encodedAccountImage['imagetype'];
 				$response->addToResult('company_details', $account);
 			}
+			$companyInstance = Settings_Vtiger_CompanyDetails_Model::getInstance();
+			$companyInfo = $companyInstance->getData();
+			$companyInfo['logopath'] = $companyInstance->getLogoPath();
+			$response->addToResult('company_info', $companyInfo);
+			$userId = $contact['assigned_user_id']['value'];
+            $userData = vtws_retrieve($userId, $current_user);
+			$response->addToResult('user_info', $userData);
 		}
 		return $response;
 	}

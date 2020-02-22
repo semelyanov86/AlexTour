@@ -1,0 +1,10 @@
+
+.search-box {
+	width: 100%;
+	cursor: text;
+	padding-left: 15px;
+}
+
+input#search-box:focus {
+    width: 100%;
+}

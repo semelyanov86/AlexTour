@@ -73,22 +73,23 @@ class VtigerModuleOperation extends WebserviceEntityOperation {
 	}
 	
     public function relatedIds($id, $relatedModule, $relatedLabel, $relatedHandler=null) {
+		global $adb;
 		$ids = vtws_getIdComponents($id);
-        $sourceModule = $this->webserviceObject->getEntityName();		
-        global $currentModule;
-        $currentModule = $sourceModule;
+        $sourceModule = $this->webserviceObject->getEntityName();
+		global $currentModule;
+		$currentModule = $sourceModule;
 		$sourceRecordModel = Vtiger_Record_Model::getInstanceById($ids[1], $sourceModule);
 		$targetModel       = Vtiger_RelationListView_Model::getInstance($sourceRecordModel, $relatedModule, $relatedLabel);
-        $sql = $targetModel->getRelationQuery();
+		$sql = $targetModel->getRelationQuery();
 
-        $relatedWebserviceObject = VtigerWebserviceObject::fromName($adb,$relatedModule);
-        $relatedModuleWSId = $relatedWebserviceObject->getEntityId();
+		$relatedWebserviceObject = VtigerWebserviceObject::fromName($adb,$relatedModule);
+		$relatedModuleWSId = $relatedWebserviceObject->getEntityId();
 
 		// Rewrite query to pull only crmid transformed as webservice id.
-        $sqlFromPart = substr($sql, stripos($sql, ' FROM ')+6);        
-        $sql = sprintf("SELECT DISTINCT concat('%sx',vtiger_crmentity.crmid) as wsid FROM %s", $relatedModuleWSId, $sqlFromPart);
-                
-        $rs = $this->pearDB->pquery($sql, array());
+		$sqlFromPart = substr($sql, stripos($sql, ' FROM ')+6);
+		$sql = sprintf("SELECT DISTINCT concat('%sx',vtiger_crmentity.crmid) as wsid FROM %s", $relatedModuleWSId, $sqlFromPart);
+
+		$rs = $this->pearDB->pquery($sql, array());
         $relatedIds = array();
 		while ($row = $this->pearDB->fetch_array($rs)) {
             $relatedIds[] = $row['wsid'];

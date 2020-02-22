@@ -31,9 +31,7 @@ class CustomerPortal_SaveRecord extends CustomerPortal_FetchRecord {
 				exit;
 			}
 
-
-
-			if (in_array($module, array('HelpDesk', 'Documents', 'Assets', 'Quotes', 'Contacts', 'Accounts'))) {
+			if (in_array($module, array('HelpDesk', 'Documents', 'Assets', 'Quotes', 'Contacts', 'Accounts', 'WayBill'))) {
 				$recordId = $request->get('recordId');
 				if (!empty($recordId)) {
 					//Stop edit record if edit is disabled
@@ -73,11 +71,15 @@ class CustomerPortal_SaveRecord extends CustomerPortal_FetchRecord {
 					if ($module == 'Quotes') {
 						$editableFields[] = 'quotestage';
 					}
+					if ($module == 'WayBill') {
+                        /*$editableFields[] = 'wpaperwaybill';
+                        $editableFields[] = 'wisexpress';*/
+                    }
 
 					if (!empty($values)) {
 						foreach ($values as $key => $value) {
 							if (!in_array($key, $editableFields)) {
-								throw new Exception("Specified fields not editable", 1412);
+								throw new Exception("Specified fields not editable: $key", 1412);
 								exit;
 							}
 						}
