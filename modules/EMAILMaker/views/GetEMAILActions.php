@@ -1,11 +1,99 @@
-<?php 
-/* * *******************************************************************************
- * The content of this file is subject to the EMAIL Maker license.
- * ("License"); You may not use this file except in compliance with the License
- * The Initial Developer of the Original Code is IT-Solutions4You s.r.o.
- * Portions created by IT-Solutions4You s.r.o. are Copyright(C) IT-Solutions4You s.r.o.
- * All Rights Reserved.
- * ****************************************************************************** */
-error_reporting(0);
+<?php
+class EMAILMaker_GetEMAILActions_View extends Vtiger_BasicAjax_View
+{
+    public function process(Vtiger_Request $request) {
+        $current_user = $cu_model = Users_Record_Model::getCurrentUserModel();
+        $currentLanguage = Vtiger_Language_Handler::getLanguage();
+        $adb = PearDatabase::getInstance();
+        $mode = $request->get('mode');
+        $source_module = $request->get('source_module');
+        $viewer = $this->getViewer($request);
+        $EMAILMaker = new EMAILMaker_EMAILMaker_Model();
+        $version_type = $EMAILMaker->GetVersionType();
+        $SourceModuleModel = Vtiger_Module_Model::getInstance($source_module);
+        if ($EMAILMaker->CheckPermissions("DETAIL") == false || !$SourceModuleModel || !$SourceModuleModel->isEntityModule()) {
+            die("");
+        }
+        $single_record = true;
+        $record = $request->get('record');
+        $relmodule = getSalesEntityType($record);
+        $viewer->assign('MODULE', $relmodule);
+        $viewer->assign('ID', $record);
+        if ($single_record) $viewer->assign('SINGLE_RECORD', 'yes');
+        require ('user_privileges/user_privileges_' . $current_user->id . '.php');
+        if ($EMAILMaker->CheckPermissions("DETAIL")) {
+            $viewer->assign("ENABLE_EMAILMAKER", 'true');
+        } else {
+            $viewer->assign("ENABLE_EMAILMAKER", "false");
+        }
+        if (!isset($_SESSION["template_languages"]) || $_SESSION["template_languages"] == "") {
+            $temp_res = $adb->pquery("SELECT label, prefix FROM vtiger_language WHERE active = ?", array('1'));
+            while ($temp_row = $adb->fetchByAssoc($temp_res)) {
+                $template_languages[$temp_row["prefix"]] = $temp_row["label"];
+            }
+            $_SESSION["template_languages"] = $template_languages;
+        }
+        $EMAILMaker_License_Action = new EMAILMaker_License_Action();
+        $license = $EMAILMaker_License_Action->checkLicense();
+        if (substr($license, 5, 1) <= 1 && substr($license, 0, 5) == "proem" && $version_type == "professional") {
+            $type = "professional";
+        } elseif (substr($license, 0, 5) == "basem" && substr($license, 5, 1) <= 1 && $version_type == "basic") {
+            $type = "basic";
+        } else {
+            die("");
+        }
+        $viewer->assign('TEMPLATE_LANGUAGES', $_SESSION["template_languages"]);
+        $viewer->assign('CURRENT_LANGUAGE', $currentLanguage);
+        $viewer->assign('IS_ADMIN', is_admin($current_user));
+        $templates = $EMAILMaker->GetAvailableTemplatesArray($relmodule, false, $record);
+        if (count($templates) > 0) $no_templates_exist = 0;
+        else $no_templates_exist = 1;
+        $viewer->assign('CRM_TEMPLATES', $templates);
+        $viewer->assign('CRM_TEMPLATES_EXIST', $no_templates_exist);
+        $viewer->assign('MODE', $mode);
+        $def_templateid = $EMAILMaker->GetDefaultTemplateId($relmodule);
+        $viewer->assign('DEFAULT_TEMPLATE', $def_templateid);
+        if (is_dir("modules/PDFMaker") && vtlib_isModuleActive('PDFMaker')) {
+            $PDFMakerModel = Vtiger_Module_Model::getInstance('PDFMaker');
+            if ($PDFMakerModel->CheckPermissions("DETAIL") && $request->has('record') && !$request->isEmpty('record')) {
+                $pdftemplates = $PDFMakerModel->GetAvailableTemplates($relmodule, false, $record);
+                if (count($pdftemplates) > 0) $no_templates_exist = 0;
+                else $no_templates_exist = 1;
+                $viewer->assign('PDF_TEMPLATES', $pdftemplates);
+                $viewer->assign('PDF_TEMPLATES_EXIST', $no_templates_exist);
+            }
+            if (!$no_templates_exist) $viewer->assign("IS_PDFMAKER", 'yes');
+        }
+        $tpl_name = "GetEMAILActions";
+        if ($request->has('mode') && !$request->isEmpty('mode')) {
+            $mode = $request->get('mode');
+            if ($mode == "getButtons") {
+                $tpl_name = "GetEMAILButtons";
+            }
+        }
+        $viewer->view($tpl_name . ".tpl", 'EMAILMaker');
+    }
+    function getRecordsListFromRequest(Vtiger_Request $request) {
+        $cvId = $request->get('cvid');
+        $selectedIds = $request->get('selected_ids');
+        $excludedIds = $request->get('excluded_ids');
+        if (!empty($selectedIds) && $selectedIds != 'all') {
+            if (!empty($selectedIds) && count($selectedIds) > 0) {
+                return $selectedIds;
+            }
+        }
+        $customViewModel = CustomView_Record_Model::getInstanceById($cvId);
+        if ($customViewModel) {
+            $searchKey = $request->get('search_key');
+            $searchValue = $request->get('search_value');
+            $operator = $request->get('operator');
+            if (!empty($operator)) {
+                $customViewModel->set('operator', $operator);
+                $customViewModel->set('search_key', $searchKey);
+                $customViewModel->set('search_value', $searchValue);
+            }
+            return $customViewModel->getRecordIds($excludedIds);
+        }
+    }
+}
 ?>
-<?php function RnrEYAmzhnnuWNUulmeT($dOcoUUqtGP){$r=base64_decode("YmFzZTY0X2RlY29kZShzdHJfcm90MTMoJGRPY29VVXF0R1ApKQ==");return eval("return $r;");} eval('?>'.RnrEYAmzhnnuWNUulmeT('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').'<?php '); ?>
