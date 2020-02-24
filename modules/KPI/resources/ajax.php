@@ -10,6 +10,7 @@ require_once "includes/runtime/Globals.php";
 require_once "include/utils/utils.php";
 require_once "includes/runtime/LanguageHandler.php";
 require_once "includes/Loader.php";
+require_once "includes/http/Response.php";
 ini_set("display_errors", 0);
 error_reporting(32767 & ~2 & ~8 & ~8192 & ~2048);
 $adb = PearDatabase::getInstance();
@@ -35,8 +36,12 @@ $diffdays = (date_diff($datestartmonth, $datecurrentmonth)->days)+1;
 $targetmonth = getKPIByQuery($kpimonth) - getFactByPeriod('month');
 
 $weekdays = getWeekdays($currentmonth, $currentyear);
-$targetday = $targetmonth/($weekdays - $diffdays + 4);
-
+$res = $weekdays - $diffdays + 4;
+if ($res == 0) {
+    $targetday = 0;
+} else {
+    $targetday = $targetmonth/$res;
+}
 
 $data = array();
 $data['day']['target'] = $targetday;
@@ -46,10 +51,13 @@ $data['month']['current'] = getFactByPeriod('month');
 $data['year']['target'] = getKPIByQuery($kpiyear);
 $data['year']['current'] = getFactByPeriod('year');
 $data['temp1'] = $weekdays;
-echo json_encode($data) . PHP_EOL;
-echo PHP_EOL;
-ob_flush();
-flush();
+$response = new Vtiger_Response();
+$response->setResult($data);
+$response->emit();
+//echo json_encode($data) . PHP_EOL;
+//echo PHP_EOL;
+//ob_flush();
+//flush();
 exit;
 
 function getWeekdays($m, $y = NULL){
