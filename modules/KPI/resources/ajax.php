@@ -11,8 +11,8 @@ require_once "include/utils/utils.php";
 require_once "includes/runtime/LanguageHandler.php";
 require_once "includes/Loader.php";
 require_once "includes/http/Response.php";
-ini_set("display_errors", 0);
-error_reporting(32767 & ~2 & ~8 & ~8192 & ~2048);
+//ini_set("display_errors", 0);
+//error_reporting(32767 & ~2 & ~8 & ~8192 & ~2048);
 $adb = PearDatabase::getInstance();
 header("Content-Type: text/event-stream");
 header("Cache-Control: no-cache");
@@ -36,12 +36,13 @@ $diffdays = (date_diff($datestartmonth, $datecurrentmonth)->days)+1;
 $targetmonth = getKPIByQuery($kpimonth) - getFactByPeriod('month');
 
 $weekdays = getWeekdays($currentmonth, $currentyear);
-$res = $weekdays - $diffdays + 4;
-if ($res == 0) {
+$res = $weekdays - $diffdays + 8;
+if($res === 0) {
     $targetday = 0;
 } else {
     $targetday = $targetmonth/$res;
 }
+
 
 $data = array();
 $data['day']['target'] = $targetday;
