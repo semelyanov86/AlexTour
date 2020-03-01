@@ -5472,7 +5472,8 @@ var DayTableMixin = FC.DayTableMixin = {
 		}
 		// multiple days, so full single date string WON'T be in title text
 		else if (this.colCnt > 1) {
-			return this.view.opt('dayOfMonthFormat'); // "Sat 12/10"
+			return 'ddd DD.MM'; // "Sat 12/10"
+			// return this.view.opt('dayOfMonthFormat'); // "Sat 12/10"
 		}
 		// single day, so full single date string will probably be in title text
 		else {
