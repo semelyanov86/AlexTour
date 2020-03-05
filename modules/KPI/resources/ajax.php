@@ -36,7 +36,7 @@ $diffdays = (date_diff($datestartmonth, $datecurrentmonth)->days)+1;
 $targetmonth = getKPIByQuery($kpimonth) - getFactByPeriod('month');
 
 $weekdays = getWeekdays($currentmonth, $currentyear);
-$res = $weekdays - $diffdays + 8;
+$res = $weekdays - $diffdays + 10;
 if($res === 0) {
     $targetday = 0;
 } else {
@@ -51,7 +51,9 @@ $data['month']['target'] = getKPIByQuery($kpimonth);
 $data['month']['current'] = getFactByPeriod('month');
 $data['year']['target'] = getKPIByQuery($kpiyear);
 $data['year']['current'] = getFactByPeriod('year');
-$data['temp1'] = $weekdays;
+$data['res'] = $res;
+$data['weekdays'] = $weekdays;
+$data['targetmonth'] = $targetmonth;
 $response = new Vtiger_Response();
 $response->setResult($data);
 $response->emit();
