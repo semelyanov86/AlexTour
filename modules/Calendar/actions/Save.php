@@ -132,18 +132,21 @@ class Calendar_Save_Action extends Vtiger_Save_Action {
 	protected function getRecordModelFromRequest(Vtiger_Request $request) {
 		$moduleName = $request->getModule();
 		$recordId = $request->get('record');
-
-		$moduleModel = Vtiger_Module_Model::getInstance($moduleName);
+        $calendarModule = $request->get('calendarModule');
+        if (!$calendarModule) {
+            $calendarModule = $moduleName;
+        }
+		$moduleModel = Vtiger_Module_Model::getInstance($calendarModule);
 
 		if(!empty($recordId)) {
-			$recordModel = Vtiger_Record_Model::getInstanceById($recordId, $moduleName);
+			$recordModel = Vtiger_Record_Model::getInstanceById($recordId, $calendarModule);
 			$modelData = $recordModel->getData();
 			$recordModel->set('id', $recordId);
 			$recordModel->set('mode', 'edit');
             //Due to dependencies on the activity_reminder api in Activity.php(5.x)
             $_REQUEST['mode'] = 'edit';
 		} else {
-			$recordModel = Vtiger_Record_Model::getCleanInstance($moduleName);
+			$recordModel = Vtiger_Record_Model::getCleanInstance($calendarModule);
 			$modelData = $recordModel->getData();
 			$recordModel->set('mode', '');
 		}

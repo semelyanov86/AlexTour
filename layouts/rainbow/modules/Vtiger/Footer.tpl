@@ -225,7 +225,7 @@
 <script type="text/javascript" src="layouts/rainbow/lib/pick-a-color/tinycolor-0.9.15.min.js"></script>
 <script type="text/javascript" src="layouts/rainbow/lib/pick-a-color/pick-a-color.js"></script>
 <script type="text/javascript" src="layouts/rainbow/modules/Vtiger/resources/ThemeStyle.js"></script>
-
+<script type="text/javascript" src="layouts/v7/modules/Calendar/resources/EventManagement.js?v=7.1.0-201803"></script>
 <script>
 	tippy('[tippytitle]',{
 	  placement: 'top',

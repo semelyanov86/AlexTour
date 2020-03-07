@@ -370,6 +370,7 @@ Vtiger.Class('Vtiger_Index_Js', {
 		this.registerQuickCreateSubMenus();
 		this.registerPostQuickCreateEvent();
 		this.registerEventForTaskManagement();
+		this.registerEventForEventsManagement();
 		this.registerFileChangeEvent();
 		this.registerMultiUpload();
 		this.registerHoverEventOnAttachment();
@@ -433,6 +434,42 @@ Vtiger.Class('Vtiger_Index_Js', {
 						vtUtils.showSelect2ElementView($('#overlayPage .data-header').find('select[name="assigned_user_id"]'),{placeholder:"User : All"});
 						vtUtils.showSelect2ElementView($('#overlayPage .data-header').find('select[name="taskstatus"]'),{placeholder:"Status : All"});
 						var js = new Vtiger_TaskManagement_Js();
+						js.registerEvents();
+					});
+				}else{
+					app.helper.showErrorNotification({"message":err});
+				}
+			});
+		});
+	},
+
+	registerEventForEventsManagement : function(){
+		var globalNav = jQuery('.global-nav');
+		globalNav.on("click",".eventsManagement",function(e){
+			if(jQuery("#eventsManagementContainer").length > 0){
+				app.helper.hidePageOverlay();
+				return false;
+			}
+
+			var params = {
+				'module' : 'Events',
+				'view' : 'EventManagement',
+				'mode' : 'showEventsView'
+			}
+			app.helper.showProgress();
+			app.request.post({"data":params}).then(function(err,data){
+				if(err === null){
+					app.helper.loadPageOverlay(data,{'ignoreScroll' : true,'backdrop': 'static'}).then(function(){
+						app.helper.hideProgress();
+						$('#overlayPage').find('.data').css('height','100vh');
+
+						var taskManagementPageOffset = jQuery('.taskManagement').offset();
+						$('#overlayPage').find(".arrow").css("left",taskManagementPageOffset.left+13);
+						$('#overlayPage').find(".arrow").addClass("show");
+
+						vtUtils.showSelect2ElementView($('#overlayPage .data-header').find('select[name="assigned_user_id"]'),{placeholder:"User : All"});
+						vtUtils.showSelect2ElementView($('#overlayPage .data-header').find('select[name="eventstatus"]'),{placeholder:"Status : All"});
+						var js = new Vtiger_EventManagement_Js();
 						js.registerEvents();
 					});
 				}else{

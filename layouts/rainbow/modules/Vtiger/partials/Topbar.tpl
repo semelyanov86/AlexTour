@@ -386,10 +386,16 @@
 									</a></div></li>
 						{/if}
 						{if $USER_PRIVILEGES_MODEL->hasModulePermission($CALENDAR_MODULE_MODEL->getId())}
+							<li id ="popup-reminder"><div><a href="javascript:void(0)" title="Popup Reminder" aria-hidden="true"><i class="material-icons">chrome_reader_mode</i></a></div></li>
+						{/if}
+						{if $USER_PRIVILEGES_MODEL->hasModulePermission($CALENDAR_MODULE_MODEL->getId())}
 							<li><div><a href="#" class="taskManagement" title="{vtranslate('Tasks','Vtiger')}" aria-hidden="true">
 							<i class="material-icons">card_travel</i></a></div></li>
 						{/if}
-						
+						{if $USER_PRIVILEGES_MODEL->hasModulePermission($CALENDAR_MODULE_MODEL->getId())}
+							<li><div><a href="#" class="eventsManagement" title="{vtranslate('Events','Vtiger')}" aria-hidden="true">
+										<i class="material-icons">all_out</i></a></div></li>
+						{/if}
 						{assign var=MYCTHEME_MODULE_MODEL value=Vtiger_Module_Model::getInstance('MYCThemeSwitcher')}
 						{if $USER_PRIVILEGES_MODEL->hasModulePermission($MYCTHEME_MODULE_MODEL->getId())}
 						<li><div><a href="#" class="themeStyler" title="Theme Styler" aria-hidden="true">

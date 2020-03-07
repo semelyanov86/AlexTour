@@ -3087,8 +3087,15 @@ position: relative;
 #taskManagementContainer .data-body {
   margin-bottom: 50px;
 }
+#eventsManagementContainer .data-body {
+  margin-bottom: 50px;
+}
 #taskManagementContainer .input-group,
 #taskManagementContainer .input-group input {
+  width: 100%;
+}
+#eventsManagementContainer .input-group,
+#eventsManagementContainer .input-group input {
   width: 100%;
 }
 #taskManagementContainer .title {
@@ -3097,10 +3104,23 @@ position: relative;
   padding: 5px 0px 0px 10px;
   color: white;
 }
+#eventsManagementContainer .title {
+  width: 20%;
+  height: 25px;
+  padding: 5px 0px 0px 10px;
+  color: white;
+}
 #taskManagementContainer .contentsBlock {
   margin-bottom: 25px;
 }
+#eventsManagementContainer .contentsBlock {
+  margin-bottom: 25px;
+}
 #taskManagementContainer .taskSubject > p {
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+#eventsManagementContainer .taskSubject > p {
   margin-bottom: 5px;
   word-wrap: break-word;
 }
@@ -3146,6 +3166,48 @@ position: relative;
 #taskManagementContainer .other-details {
   color: #979797;
 }
+#eventsManagementContainer .entries {
+  border: 1px solid #CCC;
+  margin-bottom: 10px;
+}
+#eventsManagementContainer .entries:hover {
+  cursor: move;
+}
+#eventsManagementContainer .entries .task {
+  padding: 6px 10px 5px;
+}
+#eventsManagementContainer .entries .task-body {
+  margin-left: 20px;
+  text-align: justify;
+}
+#eventsManagementContainer .entries .other-details .drag-task {
+  margin-top: 3px;
+}
+#eventsManagementContainer .entries .other-details .task-actions {
+  margin-top: 5px;
+}
+#eventsManagementContainer .entries .other-details .task-actions a {
+  vertical-align: middle;
+}
+#eventsManagementContainer .entries .task-details {
+  display: inline-block;
+  float: left;
+  max-width: 80%;
+  margin-top: 5px;
+  margin-left: 5px;
+  text-align: justify;
+}
+#eventsManagementContainer .entries .task-details .recordName {
+  display: inline-block;
+  max-width: 20%;
+}
+#eventsManagementContainer .fa-ellipsis-v {
+  font-size: 14px;
+  color: #979797;
+}
+#eventsManagementContainer .other-details {
+  color: #979797;
+}
 .ui-menu {
   z-index: 10000;
 }
@@ -3156,10 +3218,20 @@ position: relative;
   border: 1px solid #135fd7;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
 }
+#eventsManagementContainer button.active {
+  background: #3B83F7;
+  color: white;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  border: 1px solid #135fd7;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+}
 .taskSubject {
   width: 99%;
 }
 #taskManagementContainer .mCustomScrollbar .mCSB_inside > .mCSB_container {
+  margin-right: 13px;
+}
+#eventsManagementContainer .mCustomScrollbar .mCSB_inside > .mCSB_container {
   margin-right: 13px;
 }
 .settingsPageDiv.content-area {
@@ -6283,6 +6355,13 @@ div.tooltip-inner {
   padding: 0;
 }
 #taskManagementContainer .popover-content .input-group.inputElement {
+  width: 70%;
+  min-width: 200px;
+}
+#eventsManagementContainer .popover-content {
+  padding: 0;
+}
+#eventsManagementContainer .popover-content .input-group.inputElement {
   width: 70%;
   min-width: 200px;
 }

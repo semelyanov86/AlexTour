@@ -1710,6 +1710,7 @@ and dependencies (minified).
 			_autoUpdate:function(rem){
 				var $this=$(this),d=$this.data(pluginPfx),o=d.opt,
 					mCSB_container=$("#mCSB_"+d.idx+"_container");
+				if(!mCSB_container.length) return;
 				if(rem){
 					/* 
 					removes autoUpdate timer 
