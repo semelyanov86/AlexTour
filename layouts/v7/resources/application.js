@@ -545,3 +545,17 @@ jQuery(function () {
         }, false);
         // SalesPlatform.ru end
 });
+function askForNotify() {
+	// Push.create('Grant privileges accepted');
+	Push.create('We have a task for you', {
+		body: "Alex Group",
+		icon: '/icon.png',
+		link: 'https://smartoffice.alex-reisen.de/index.php?module=Calendar&view=List',
+		requireInteraction: true,
+		onClick: function () {
+			var win = window.open('https://smartoffice.alex-reisen.de/index.php?module=Calendar&view=List', '_blank');
+			win.focus();
+			this.close();
+		}
+	});
+}

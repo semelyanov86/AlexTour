@@ -38,7 +38,7 @@
 		<link rel="stylesheet" href="layouts/rainbow/lib/pick-a-color/pick-a-color-1.2.3.min.css">
 		<link type='text/css' rel='stylesheet' href='libraries/jquery/pnotify/jquery.pnotify.default.css'>
         <input type="hidden" id="inventoryModules" value={ZEND_JSON::encode($INVENTORY_MODULES)}>
-        
+
         {assign var=V7_THEME_PATH value=Vtiger_Theme::getv7AppStylePath($SELECTED_MENU_CATEGORY)}
         {if strpos($V7_THEME_PATH,".less")!== false}
             <link type="text/css" rel="stylesheet/less" href="{vresource_url($V7_THEME_PATH)}" media="screen" />
@@ -59,6 +59,8 @@
 		<script type="text/javascript">var __pageCreationTime = (new Date()).getTime();</script>
 		<script src="{vresource_url('layouts/v7/lib/jquery/jquery.min.js')}"></script>
 		<script src="{vresource_url('layouts/v7/lib/jquery/jquery-migrate-1.0.0.js')}"></script>
+		<script src="{vresource_url('layouts/v7/lib/push/serviceWorker.min.js')}"></script>
+		<script src="{vresource_url('layouts/v7/lib/push/push.min.js')}"></script>
 		<script type="text/javascript">
 			var _META = { 'module': "{$MODULE}", view: "{$VIEW}", 'parent': "{$PARENT_MODULE}", 'notifier':"{$NOTIFIER_URL}", 'app':"{$SELECTED_MENU_CATEGORY}" };
             {if $EXTENSION_MODULE}

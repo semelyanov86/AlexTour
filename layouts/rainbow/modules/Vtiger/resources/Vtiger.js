@@ -289,6 +289,18 @@ Vtiger.Class('Vtiger_Index_Js', {
 			'type' : 'danger', 
 			'delay' : 0
 		};
+		var link = 'https://smartoffice.alex-reisen.de/index.php?module=Calendar&view=Detail&record=' + record.id;
+		Push.create('Task reminder system', {
+			body: record.subject,
+			icon: '/icon.png',
+			link: link,
+			requireInteraction: false,
+			onClick: function () {
+				var win = window.open(link, '_blank');
+				win.focus();
+				this.close();
+			}
+		});
 
 		jQuery.notify(notifyParams, settings);
 		jQuery('#reminder-postpone-'+record.id).on('click', function(e) {

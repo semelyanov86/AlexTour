@@ -401,6 +401,7 @@
 						<li><div><a href="#" class="themeStyler" title="Theme Styler" aria-hidden="true">
 							<i class="material-icons">brush</i></a></div></li>
 						{/if}
+						<li><div><a href="#" title="{vtranslate('LBL_MANUAL')}" aria-hidden="true" onclick="askForNotify()"><i class="material-icons">help</i></a></div></li>
 						<li class="dropdown">
 							<div>
 
