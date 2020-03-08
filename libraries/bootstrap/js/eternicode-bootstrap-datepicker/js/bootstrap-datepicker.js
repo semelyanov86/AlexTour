@@ -1612,7 +1612,7 @@
 		startView: 0,
 		todayBtn: false,
 		todayHighlight: false,
-		weekStart: 0,
+		weekStart: 1,
 		disableTouchKeyboard: false,
 		enableOnReadonly: true,
 		container: 'body',
