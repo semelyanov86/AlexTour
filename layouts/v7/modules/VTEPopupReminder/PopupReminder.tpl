@@ -30,21 +30,21 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Activity Reminder</h4>
+                    <h4 class="modal-title">{vtranslate('Activity Reminder', 'VTEPopupReminder')}</h4>
                 </div>
                 <div class="modal-body" style="overflow: scroll; max-height: 400px">
                     <table class="table table-bordered popup-reminder">
                         <thead>
                         <tr>
                             <th><input name="checkAll" type="checkbox"></th>
-                            <th>Subject</th>
-                            <th>Activity Type</th>
-                            <th>Description</th>
-                            <th>Related To</th>
-                            <th style="width: 140px">Starts At</th>
-                            <th style="width: 110px">Due In</th>
-                            <th style="width: 65px;">Action</th>
-                            <th>Snooze</th>
+                            <th>{vtranslate('Subject', 'VTEPopupReminder')}</th>
+                            <th>{vtranslate('Activity Type', 'VTEPopupReminder')}</th>
+                            <th>{vtranslate('Description', 'VTEPopupReminder')}</th>
+                            <th>{vtranslate('Related To', 'VTEPopupReminder')}</th>
+                            <th style="width: 140px">{vtranslate('Starts At', 'VTEPopupReminder')}</th>
+                            <th style="width: 110px">{vtranslate('Due In', 'VTEPopupReminder')}</th>
+                            <th style="width: 65px;">{vtranslate('Action', 'VTEPopupReminder')}</th>
+                            <th>{vtranslate('Snooze', 'VTEPopupReminder')}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -101,20 +101,20 @@
                                     <option {if $VALUE eq 'Select options'} value="default" selected{else}value="{$VALUE}"{/if}>{$VALUE}</option>
                                 {/foreach}
                             </select>
-                            <button name="btn-setallSnooze" class="btn btn-danger">Snooze</button>
+                            <button name="btn-setallSnooze" class="btn btn-danger">{vtranslate('Snooze', 'VTEPopupReminder')}</button>
                         </div>
                     </div>
                     <div style="float: left">
                         <div style="margin-left: 60px;margin-top: 10px;">
-                            <p style="float: left;font-size: 12px; font-weight: 600;">Snooze all for:</p>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="30 Minutes">30 Min</button>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="1 Hour">1 Hours</button>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="3 Hour">3 Hours</button>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="1 Day">1 Day</button>
+                            <p style="float: left;font-size: 12px; font-weight: 600;">{vtranslate('Snooze all for', 'VTEPopupReminder')}:</p>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="30 Minutes">30 {vtranslate('Min', 'VTEPopupReminder')}</button>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="1 Hour">1 {vtranslate('Hours', 'VTEPopupReminder')}</button>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="3 Hour">3 {vtranslate('Hours', 'VTEPopupReminder')}</button>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="1 Day">1 {vtranslate('Day', 'VTEPopupReminder')}</button>
                         </div>
 
                     </div>
-                    <button type="button" class="btn btn-warning" data-dismiss="modal" style="float: right">Dismiss
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" style="float: right">{vtranslate('Dismiss', 'VTEPopupReminder')}
                     </button>
                 </div>
             </div>
