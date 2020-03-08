@@ -68,7 +68,7 @@
                                 </td>
                                 <td style="">{$RECORD['startsat']}</td>
                                 <td {if $RECORD['isred'] eq 'red'}style="color: red" {elseif $RECORD['isred'] eq 'green'}style="color: green"{else} style="color: black"{/if}>{$RECORD['duein']}</td>
-                                <td>
+                                <td style="min-width: 80px;">
                                     <span class="pull-right cursorPointer deleteCalendarEvent" data-module="{$RECORD['module']}" data-id = "{$RECORD['activityid']}"
                                           {*onclick="Calendar_Calendar_Js.deleteCalendarEvent({$RECORD['activityid']},'Events',false);"*}
                                           title="Delete">&nbsp;&nbsp;<i class="fa fa-trash"></i></span>
@@ -80,7 +80,7 @@
                                           title="Mark as held"><i class="fa fa-check"></i></span>
                                 </td>
                                 <td>
-                                    <select name="snooze" class="select2" style="width: 105px; height: 25px">
+                                    <select name="snooze" class="select2 form-control" style="width: 105px; height: 25px">
                                         {foreach from = $SNOOZE item = VALUE }
                                             <option {if $VALUE eq 'Select options'}value="default"
                                                     selected{else}value="{$VALUE}"{/if}>{$VALUE}</option>
@@ -94,21 +94,23 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <div style="float: left">
-                        <select name="setallSnooze" style="width: 150px; height: 30px">
-                            {foreach from = $SNOOZE item = VALUE }
-                                <option {if $VALUE eq 'Select options'} value="default" selected{else}value="{$VALUE}"{/if}>{$VALUE}</option>
-                            {/foreach}
-                        </select>
-                        <button name="btn-setallSnooze" class="btn btn-primary">Snooze</button>
+                    <div class="form-inline">
+                        <div class="form-group" style="float: left">
+                            <select name="setallSnooze" class="form-control" style="width: 150px; height: 30px">
+                                {foreach from = $SNOOZE item = VALUE }
+                                    <option {if $VALUE eq 'Select options'} value="default" selected{else}value="{$VALUE}"{/if}>{$VALUE}</option>
+                                {/foreach}
+                            </select>
+                            <button name="btn-setallSnooze" class="btn btn-danger">Snooze</button>
+                        </div>
                     </div>
                     <div style="float: left">
                         <div style="margin-left: 60px;margin-top: 10px;">
                             <p style="float: left;font-size: 12px; font-weight: 600;">Snooze all for:</p>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: #efefef"  value="30 Minutes">30 Min</button>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: #efefef"  value="1 Hour">1 Hours</button>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: #efefef"  value="3 Hour">3 Hours</button>
-                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: #efefef"  value="1 Day">1 Day</button>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="30 Minutes">30 Min</button>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="1 Hour">1 Hours</button>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="3 Hour">3 Hours</button>
+                            <button name="btn-SnoozeValue" style="float: left; margin-left: 20px;text-decoration: underline!important;color: #15c;border: none; background-color: hotpink"  value="1 Day">1 Day</button>
                         </div>
 
                     </div>
