@@ -57,7 +57,7 @@
 					{foreach item=PRIORITY from=$PRIORITIES}
 						<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 contentsBlock {strtolower($PRIORITY)} ui-droppable" data-priority='{$PRIORITY}' data-page="{$PAGE}">
 							<div class="{strtolower($PRIORITY)}-header" style="border-bottom: 2px solid {$COLORS[$PRIORITY]}">
-								<div class="title" style="background:{$COLORS[$PRIORITY]}"><span>{$PRIORITY}</span></div>
+								<div class="title" style="background:{$COLORS[$PRIORITY]}"><span>{vtranslate($PRIORITY, 'Calendar')}</span></div>
 							</div>
 							<br>
 							<div class="{strtolower($PRIORITY)}-content content" data-priority='{$PRIORITY}' style="border-bottom: 1px solid {$COLORS[$PRIORITY]};padding-bottom: 10px">

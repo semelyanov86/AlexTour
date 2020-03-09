@@ -306,7 +306,7 @@ Vtiger.Class('VTEPopupReminderJS', {
 jQuery(document).ready(function() {
     setTimeout(function () {
         initData_VTEPopupReminder();
-    }, 7000);
+    }, 3000);
 });
 function initData_VTEPopupReminder() {
     var instance = new VTEPopupReminderJS();
@@ -344,6 +344,7 @@ function initData_VTEPopupReminder() {
         registerEventShowPopupReminder(params);
     });
     var registerEventShowPopupReminder = function (params) {
+        app.helper.showProgress();
         var paramsCheck = {};
         paramsCheck.action = 'ActionAjax';
         paramsCheck.module = 'VTEPopupReminder';
@@ -497,6 +498,7 @@ function initData_VTEPopupReminder() {
                                 }
 
                             }
+                        app.helper.hideProgress();
                         }
                     );
                 }
