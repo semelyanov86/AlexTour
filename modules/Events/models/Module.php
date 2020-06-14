@@ -167,5 +167,33 @@ class Events_Module_Model extends Calendar_Module_Model {
 
         return $tasks;
     }
+
+    public static function createEventFromCall($number, $phoneModel, $endtime)
+    {
+        if (true) {
+            $eventsModel = Events_Record_Model::getCleanInstance('Events');
+            $eventsModel->set('mode', 'create');
+            $eventsModel->set('subject', vtranslate('LBL_CREATE_NO_ANSWER', 'Events') . ' ' . $number);
+            $eventsModel->set('assigned_user_id', 2);
+            $eventsModel->set('location', $phoneModel->get('sourceuuid'));
+            $eventsModel->set('eventstatus', 'Planned');
+            $eventsModel->set('activitytype', 'Call');
+            $eventsModel->set('taskpriority', 'Medium');
+            $eventsModel->set('date_start', date('Y-m-d'));
+            $startTime = strtotime("+15 minutes", strtotime($endtime));
+            $endTimeFinal = strtotime("+25 minutes", strtotime($endtime));
+            $eventsModel->set('time_start', date('h:i:s', $startTime));
+            $eventsModel->set('time_end', date('h:i:s', $endTimeFinal));
+            $eventsModel->save();
+        }
+    }
+
+    public static function checkExistanceByLocation($uuid)
+    {
+        global $adb;
+        $qResult = $adb->pquery('SELECT activityid FROM vtiger_activity WHERE location=?',array($uuid));
+        $rows = $adb->num_rows($qResult);
+        return $rows < 1;
+    }
 	
 }

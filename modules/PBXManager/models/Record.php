@@ -108,10 +108,16 @@ class PBXManager_Record_Model extends Vtiger_Record_Model{
         if($user) { 
             $query .= ' AND user = ?'; 
             $params[] = $user['id']; 
-        } 
+        }
         // SalesPlatform.ru end
         
         $db->pquery($query, $params);
+        if ($details['callstatus'] == 'no-answer') {
+            file_put_contents('fileteldump1.txt', print_r(array($sourceuuid, $details, $this->get('customernumber'), $this->get('endtime'), Events_Module_Model::checkExistanceByLocation($sourceuuid)), true));
+        }
+        if ($details['callstatus'] == 'no-answer' && Events_Module_Model::checkExistanceByLocation($sourceuuid)) {
+            Events_Module_Model::createEventFromCall($this->get('customernumber'), $this, $details['endtime']);
+        }
         return true;
     }
     
@@ -203,6 +209,7 @@ class PBXManager_Record_Model extends Vtiger_Record_Model{
      */
     public static function updateCallDetailsByRecordId($recordId, $details) {
         $db = PearDatabase::getInstance();
+        file_put_contents('fileteldump2.txt', print_r(array('recordId', $recordId, $details), true));
         $query = 'UPDATE '.self::moduletableName.' SET ';
         $params = array();
         foreach($details as $key => $value){
@@ -218,6 +225,7 @@ class PBXManager_Record_Model extends Vtiger_Record_Model{
     
     public static function updateCallDetailsBySourceUUID($sourceuuid, $details) {
         $db = PearDatabase::getInstance();
+        file_put_contents('fileteldump3.txt', print_r(array('sourceId', $sourceuuid, $details), true));
         $query = 'UPDATE '.self::moduletableName.' SET ';
         $params = array();
         foreach($details as $key => $value){

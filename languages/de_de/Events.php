@@ -16,7 +16,7 @@ $languageStrings = array(
 	'LBL_TODOS'                    => 'Aufgabe'                     , 
 	'LBL_HOLD_FOLLOWUP_ON'         => 'Halte Follow Up auf'         , 
     'LBL_CREATE_FOLLOWUP_EVENT'    => 'Neues Follow Up Event'       ,
-	'LBL_EVENT_INFORMATION'        => 'Weitere Informationen zur Veranstaltung'               , 
+	'LBL_EVENT_INFORMATION'        => 'Weitere Informationen zum Vorgang'               ,
 	'LBL_RECURRENCE_INFORMATION'   => 'Wiederholungsdetails'          , 
 	'LBL_RELATED_TO'               => 'Im Zusammenhang mit'                  , 
 	'Start Date & Time'            => 'Termin beginnt'              , 
@@ -64,15 +64,19 @@ $languageStrings = array(
 	'Yearly'                       => 'Jahr'                        , 
 	'LBL_REPEATEVENT'              => 'Einmal in jeder'        , 
 	'LBL_UNTIL'                    => 'Bis'                       , 
-	'LBL_DAY_OF_THE_MONTH'         => 'Tag des Monats'            , 
+	'LBL_TO'                    => 'Bis'                       ,
+	'LBL_DAY_OF_THE_MONTH'         => 'Tag des Monats'            ,
 	'LBL_ON'                       => 'Auf'                          , 
 	'LBL_CALENDAR_VIEW'            => 'Kalender Sicht'               , 
 	'LBL_INVITE_USER_BLOCK'        => 'Einladung blockieren'                      , 
 	'LBL_INVITE_USERS'             => 'Einladen'                , 
         'LBL_INVITE_PEOPLE'            => 'Leute Einladen'               ,
-  'LBL_ADD_EVENT_AND_PRESS_ENTER' => 'Add Event And Press Enter',
+  'LBL_ADD_EVENT_AND_PRESS_ENTER' => 'Aufgabe hinzufügen',
+  'LBL_THIS_WEEK' => 'Woche',
+  'LBL_CREATE_NO_ANSWER' => 'Verpasster Anruf ',
 
   'INVITATION' => ' Einladung ',
   'Busy' => 'Beschäftigt',
+    'Medium' => 'Mittel'
 
 );
